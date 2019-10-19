@@ -1,0 +1,146 @@
+/*
+ * BiSS_C.def
+ * Creation: 08.04.2015
+ * Description:
+ *    This file contains constant definitions for BiSS-C API usage.
+ *    This is a part of the API of the BiSS-C module.
+ * Author: Anatoly Odler
+ */
+
+/* BiSS-C Engine BG Manager Definitions */
+typedef enum
+{
+   BISSC_MNGRST_INIT_START          = 0,
+   BISSC_MNGRST_INIT_PWR_DN         = 1,
+   BISSC_MNGRST_INIT_PWR_UP         = 2,
+   BISSC_MNGRST_INIT_CLR_FLTS       = 3,
+   BISSC_MNGRST_INIT_POS_INIT       = 6,
+   BISSC_MNGRST_INIT_START_ENGINE   = 7,
+   BISSC_MNGRST_IDLE                = 8,
+   BISSC_MNGRST_SETRESPONSE         = 9,
+   BISSC_MNGRST_INIT_ERROR_STATE    = 10,
+   BISSC_MNGRST_STOPPED             = 11,
+   BISSC_MNGRST_RESTARTED           = 12,
+   BISSC_MNGRST_ERROR               = 13,
+
+   BISSC_MNGRST_NUMOF
+} BiSSC_MngrSt;
+
+/*
+ * BiSS-C Driver Definitions
+ */
+/*
+ * Driver State
+ */
+typedef enum
+{
+   BISSC_DRVST_SETREQUEST,
+   BISSC_DRVST_GETRESPONSE,
+
+   BISSC_DRVST_NUMOF
+} BiSSC_DrvSt;
+
+/*
+ * Driver Request Type
+ */
+typedef enum
+{
+   BISSC_DRVREQ_READ,
+   BISSC_DRVREQ_WRITE,
+   BISSC_DRVREQ_COMMAND,
+
+   BISSC_DRVREQ_NUMOF
+} BiSSC_DrvReq;
+
+
+/*
+ * BG Mailbox for Driver to Manager communication
+ */
+typedef struct
+{
+   unsigned int   u16_control;
+   unsigned int   u16_cmd;
+   unsigned char  u8_address;
+   unsigned char  u8_value;
+} BiSSC_BGMBX;
+
+/*
+ * Additoinal definitions
+ */
+#define BISSC_LOCK_FREE                  -1L    // used when the lock is not owned
+#define BISSC_LOCK_RELEASE_TIMEOUT_mSEC   5000L // used for driver lock timeout indication
+#define BISSC_SERV_REQ_TIMEOUT_mSEC       500L  // used for BiSS-C device Control/Service request timeout
+#define BISSC_ACQ_TIMEOUT_mSEC            1000L  // used for BiSS-C device acquisition
+
+/*
+ * BG MailBox
+ */
+#define BISSC_BGMBX_REQ_READY_MASK       0x0001 // indicates that Driver prepared the data for the BG Manager
+#define BISSC_BGMBX_REQ_RW_BIT_MASK      0x0002 // indicates that the request is write = 1 or read = 0
+#define BISSC_BGMBX_RSP_READY_MASK       0x0004 // indicates that the BG Manager is ready with data
+#define BISSC_BGMBX_CMD_BIT_MASK         0x0008 // command bit
+#define BISSC_BGMBX_ERROR_BIT_MASK       0x0010 // indicates that the BG Manager detected a request error
+#define BISSC_BGMBX_ERROR_WORD_MASK      0xFE00 // error word mask
+#define BISSC_BGMBX_ERROR_WORD_SHIFT     9
+
+
+/*
+ * RT MailBox
+ */
+#define BISSC_RTMBX_REQ_READY_MASK       0x0001 // indicates that BG Manager prepared the data for the RT Handler
+#define BISSC_RTMBX_RSP_READY_MASK       0x0002 // indicates that the RT Handler is ready with data
+
+
+/*
+ * Error Codes
+ */
+#define BISSC_ERR_ADDR_OUT_OF_RANGE   1
+#define BISSC_ERR_VAL_OUT_OF_RANGE    2
+#define BISSC_ERR_NOT_PRGRMBLE        3
+#define BISSC_ERR_OCCUPIED            4
+#define BISSC_ERR_ILLEGAL_REQUEST     5
+#define BISSC_ERR_EE_SAVE_FAILED      6
+#define BISSC_ERR_NOT_AVAILABLE       7
+#define BISSC_ERR_UNKNOWN_REQUEST     8
+#define BISSC_ERR_ADDR_NOT_ALIGNED    9
+#define BISSC_ERR_BUSY_TIMEOUT        10
+#define BISSC_ERR_INTERNAL_ERR        11
+#define BISSC_ERR_PRTCL_ERR           12
+#define BISSC_ERR_CRC_ERROR           13
+
+/*
+ * Common profile register addresses
+ */
+#define BISSC_REG_LOW_ADDR                0x00
+#define BISSC_REG_HIGH_ADDR               0x7F
+#define BISSC_REG_BANK_LOW_ADDR           0x00
+#define BISSC_REG_BANK_HIGH_ADDR          0x3F
+#define BISSC_REG_BANK_SELECT_ADDR        0x40
+#define BISSC_REG_EDS_COMMON_BANK_ADDR    0x41
+#define BISSC_REG_PROFILE_ID1_ADDR        0x42
+#define BISSC_REG_PROFILE_ID2_ADDR        0x43
+#define BISSC_REG_SER_NUM_LOW_ADDR        0x44
+#define BISSC_REG_SER_NUM_HIGH_ADDR       0x47
+#define BISSC_REG_DEVICE_ID_LOW_ADDR      0x78
+#define BISSC_REG_DEVICE_ID_HIGH_ADDR     0x7D
+#define BISSC_REG_MANU_ID_LOW_ADDR        0x7E
+#define BISSC_REG_MANU_ID_HIGH_ADDR       0x7F
+#define BISSC_REG_EDS_VERSION_ADDR        0x00
+#define BISSC_REG_USER_BANK_START_ADDR    0x02
+#define BISSC_REG_USER_BANK_END_ADDR      0x03
+#define BISSC_REG_PROFILE_BANK_ADDR       0x14
+
+#define BISSC_REG_PRFL_BANK_VERSION_ADDR  0x00
+#define BISSC_REG_PRFL_BANK_EN_TYPE_ADDR  0x08
+/*
+ * Status definitions
+ */
+#define BISSC_STATUS_FAULT_MASK           0x0001
+#define BISSC_STATUS_WARN_MASK            0x0002
+
+
+/*
+ * Control channel communication
+ */
+#define BISSC_CNTRL_CH_CRC_POLY                 0x0C
+

@@ -1,0 +1,175 @@
+// Values for PRODUCT
+// Future products: GBOT, Dual CDHD, etc
+// For CDHD the product is the default value (255). Don't use it explicitly.
+   enum EProductValues
+   {
+      SHNDR                    = 1,
+      DDHD                     = 2,
+      GBOT10                   = 3,
+      SHNDR_HW                 = 4,
+      EC_LITE                  = 5,
+      BDHD                     = 6
+   };
+
+
+#define  ROTARY_MOTOR          0
+#define  LINEAR_MOTOR          2
+#define  DC_BRUSH_MOTOR        4
+
+//Dual Feedback
+#define  LOAD_TYPE                     ((BGVAR(u16_SFBType_User) & 0x0100) >> 7) //0 = Rotary, 2 = Linear
+#define  IS_SECONDARY_FEEDBACK_ENABLED ((1 == s16_SFBMode)||(2 == s16_SFBMode)||(5 == s16_SFBMode)||(6 == s16_SFBMode))
+#define  IS_DUAL_LOOP_ACTIVE           ((VAR(AX0_u16_Dual_Loop_Control_Bits) & 0x1) && ((4 == VAR(AX0_s16_Opmode_Request)) || (8 == VAR(AX0_s16_Opmode_Request))))
+
+#define  BRUSHLESS_MOTOR       0
+#define  DC_VCM_MOTOR          1
+#define  DC_VCM_MOTOR_WO_FDBK  2
+
+
+#define  MSPEED_MIN_RANGE      10
+#define  MSPEED_MAX_RANGE      32767
+#define  SPEED_ADV_MIN_RANGE   0
+#define  SPEED_ADV_MAX_RANGE   90
+
+// LC and other DC drive indication, currently this is done by checking the Vbus_Scale on the EE - This should be finalized in a more precise way
+#define LV_DRIVE	((BGVAR(u16_LV_Drive_And_More) & 0x01) == 0)
+#define BD_DRIVE  (BGVAR(u16_Is_BDHD)) //((14 == u16_Fpga_Image_Type) && (BDHD == u16_Product))
+#define IS_DDHD_DRIVE  (DDHD == BGVAR(u16_Product))
+
+
+// Feedback Types
+// #define RESOLVER                0
+// #define ENCODER                 1
+// #define SW_SINE_ENC             2
+
+#define FEEDBACK_WITH_ENCODER ( (BGVAR(u16_FdbkType) == SW_SINE_FDBK) || (BGVAR(u16_FdbkType) == INC_ENC_FDBK) )
+#define SFB_WITH_ENCODER      ( ((BGVAR(u16_SFBType) & 0x7f) == SW_SINE_FDBK) || ((BGVAR(u16_SFBType) & 0x7f) == INC_ENC_FDBK) )
+#define SL_FEEDBACK           (BGVAR(u16_FdbkType) == SL_FDBK)
+#define COMM_FEEDBACK_CONNECTED ((BGVAR(s64_SysNotOk) & COMM_FDBK_FLT_MASK) == 0)
+
+#define AUTO_DETECTION_FDBK               0
+#define NO_SEC_FDBK                       0
+#define RESOLVER_FDBK                     1
+#define INC_ENC_FDBK                      2
+#define SW_SINE_FDBK                      3
+#define NK_MULTI_TURN_COMM_FDBK           4
+#define SL_FDBK                           5
+#define TAMAGAWA_COMM_MULTI_TURN_FDBK     6
+#define TAMAGAWA_COMM_SINGLE_TURN_FDBK    7
+#define FORCED_COMM_FDBK                  8
+#define PS_P_G_COMM_FDBK                  9
+#define FANUC_COMM_FDBK                   10
+#define ENDAT2X_COMM_FDBK                 11
+#define SERVOSENSE_SINGLE_TURN_COMM_FDBK  12
+#define PS_S_COMM_FDBK                    13
+#define SANKYO_COMM_FDBK                  14
+#define YASKAWA_ABS_COMM_FDBK             15
+#define BISSC_COMM_FDBK                   16
+#define YASKAWA_INC_COMM_FDBK             17
+#define TAMAGAWA_CID0_SINGLE_TURN         18
+#define SERVOSENSE_MULTI_TURN_COMM_FDBK   19
+#define NK_SINGLE_TURN_COMM_FDBK          20
+#define TM_INCREMENTAL_COMM_FDBK          21
+#define HDSL_COMM_FDBK                    22
+
+/*Motor Encoder Type Defines*/
+#define ENDAT_2_1_SINE_SIGNALS_MENC  9
+#define HIPRFACE_SINE_SIGNALS_MENC  10
+
+/* Absolute multi-turn encoder maximum number of turns */
+#define HIPERFACE_ENCDR_MAX_NUM_TURNS     4096
+#define TAMAGAWA_ENCDR_MAX_NUM_TURNS      65536
+#define NIKON_ENCDR_MAX_NUM_TURNS         65536
+#define SRVSNS_MT_ENCDR_MAX_NUM_TURNS     65536
+
+// controllertype 
+#define CURRENT_CONTROL 0
+#define VOLTAGE_CONTROL 1
+
+// Foldback type
+#define DRIVE_FOLDBACK  0
+#define MOTOR_FOLDBACK  1
+
+#define DISPLAY_CSn          GpioDataRegs.GPBDAT.bit.GPIOB6
+#define FB_TYPE_CSn          GpioDataRegs.GPADAT.bit.GPIOA15
+#define SSI_IN_CS            GpioDataRegs.GPEDAT.bit.GPIOE2
+#define M0_ENDAT_DI_CSn      GpioDataRegs.GPFDAT.bit.GPIOF7
+#define M0_ENDAT_DO_CS       GpioDataRegs.GPFDAT.bit.GPIOF6
+#define M0_ENDAT_CLK_CS      GpioDataRegs.GPADAT.bit.GPIOA7
+#define M1_ENDAT_DI_CSn      GpioDataRegs.GPEDAT.bit.GPIOE0
+#define M1_ENDAT_DO_CS       GpioDataRegs.GPFDAT.bit.GPIOF14
+#define M1_ENDAT_CLK_CS      GpioDataRegs.GPBDAT.bit.GPIOB7
+
+#define INDEX_SIGNAL        GpioDataRegs.GPADAT.bit.GPIO23
+
+// AX0_u16_Comm_Fdbk_Flags_A Bits
+#define COMM_FDBK_INIT_ABS_POS_MASK          0x0008
+#define COMM_FDBK_READY_MASK                 0x0010
+#define COMM_FDBK_CRC_ERROR_1_MASK           0x0020
+#define COMM_FDBK_TIME_OUT_ERROR_1_MASK      0x0040
+#define ABS_POSITION_REQ_SENT_MASK           0x0080
+#define COMM_FDBK_INIT_ABS_POS_IN_REV_MASK   0x0100
+#define COMM_FDBK_SK_MULTI_TURN_RESET_MASK   0x0200
+#define COMM_FDBK_SK_MULTI_TURN_RST_OFF_MASK 0x0400
+#define COMM_FDBK_POS_INTERPOLATED_MASK      0x0800
+#define COMM_FDBK_CRC_ERROR_MASK             0x1000
+#define COMM_FDBK_ALTERN_CMD_SEND_MASK       0x2000
+#define COMM_FDBK_ALTERN_RESP_RCV_MASK       0x4000
+#define COMM_FDBK_TIME_OUT_ERROR_MASK        0x8000
+
+#define COMM_FDBK_CRC_INVALID_MASK           (COMM_FDBK_CRC_ERROR_1_MASK | COMM_FDBK_TIME_OUT_ERROR_1_MASK | COMM_FDBK_POS_INTERPOLATED_MASK | COMM_FDBK_ALTERN_CMD_SEND_MASK | COMM_FDBK_ALTERN_RESP_RCV_MASK)
+
+// AX0_u16_Comm_Fdbk_Flags_B Bits
+#define TM_CID0_PROCESS_ABSA_ONLY_MASK       0x0001
+#define TM_AS_INCREMENTAL_ENCODER_MASK       0x0002
+#define ANALOG_HALLS_ENCODER_MASK            0x0004
+#define INV_DIRECTION_MASK                   0x0100
+
+
+#define COMM_FDBK_GET_CRC(crc, data, enc_source)   (u16_Crc_Table[enc_source][((crc) << 1) ^ (data)])
+
+// FPGA 1/T encoder resolution factor
+#define ENCODER_INTERPOLATION_FACTOR   16
+
+#define REDUCE_PWM_EEPROM                         1
+#define REGULAR_PWM_FREQ                          1
+#define HALF_PWM_FREQ                             2
+#define CHANGE_TO_REGULAR_PWM_FREQ_INDICATION     1
+#define CHANGE_TO_HALF_PWM_FREQ_INDICATION        2
+
+// Comm.-Only Encoders Parameter Table content:
+//   Feedback-Type          Baudrate[kHz]  Xmt-Length[bits]  Rcv-Length[bits]  Wait-Time[FPGA-Clocks]  Field-Length[bits]  Sync-Symbol
+#define COMM_PARAMS_TABLE \
+{\
+{NK_MULTI_TURN_COMM_FDBK,          2500, 18, 72,  75,  18, 4},/* Shortened Wait Time for Nikon to accommodate 4MBaud Devices */\
+{TAMAGAWA_COMM_MULTI_TURN_FDBK,    2500, 11, 110, 150, 10, 2},\
+{TAMAGAWA_COMM_SINGLE_TURN_FDBK,   2500, 11, 110, 150, 10, 2},\
+{PS_P_G_COMM_FDBK,                 2500, 11, 90,  150, 10, 2},\
+{FANUC_COMM_FDBK,                  1000, 11, 78,  20,  78, 5},\
+{ENDAT2X_COMM_FDBK,                2000, 8,  301, 0,   10, 2},\
+{SERVOSENSE_SINGLE_TURN_COMM_FDBK, 2500, 32, 80,  204, 10, 2},/* Actual length is 30 bits, but is padded to support long cable */\
+{PS_S_COMM_FDBK,                   2500, 11, 90,  150, 10, 2},\
+{SANKYO_COMM_FDBK,                 2500, 11, 110, 96,  10, 2},\
+{BISSC_COMM_FDBK,                  2500, 8,  43,  0,   10, 2},\
+{TAMAGAWA_CID0_SINGLE_TURN,        2500, 11, 60,  150, 10, 2},\
+{SERVOSENSE_MULTI_TURN_COMM_FDBK,  2500, 32, 80,  204, 10, 2},/* Actual length is 30 bits, but is padded to support long cable */\
+{NK_SINGLE_TURN_COMM_FDBK,         2500, 18, 72,  75,  18, 4},\
+{TM_INCREMENTAL_COMM_FDBK,         2500, 11, 110, 150, 10, 2}\
+}
+
+#define NUMBER_OF_FDBK_TYPES  14 // number of defined Comm. Feedback Devices
+
+
+// Defines for the BGVAR(u16_Post_Factory_Restore_Actions) variable
+#define POST_FACT_REST_SET_OPMODE_UPON_BUNDLE      0x0001
+
+// Defines for CUSTOMERID
+#define DEFAULT_CUSTOMER_ID 0
+#define CHAKRATEC	          1
+
+// IGNOREBATTFLT mode identifiers
+#define IGNOREBATTFLT_MODE_INACTIVE    0
+#define IGNOREBATTFLT_MODE_ACTIVE      1
+
+// SFBPE Feature definitions
+#define SFBPE_RE_SYNC_REQUIRED_BIT                     0x0001

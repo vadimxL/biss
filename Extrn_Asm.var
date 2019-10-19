@@ -1,0 +1,1775 @@
+extern  unsigned int  AX0_u16_Linear_Pos_Loop_Output_Sat;
+extern  unsigned int  AX0_u16_Override_Vel_Integrator_Memory;
+extern           int  AX0_s16_Vel_Integrator_Memory_Override_Value;
+
+extern  unsigned int  u16_Gantry_RT_HW_Test_Param; /*Debug*/
+extern long          AX0_s32_Friction_Comp_Value_Design;
+extern  unsigned int  AX0_u16_MENCZPOS_Mismatch;
+extern  long          AX0_s32_TProbe_Arr1[];
+extern  long          AX0_s32_TProbe_Arr2[];
+extern  unsigned int  AX0_u16_TProbe_Cntr_Arr[];
+extern  unsigned int  AX0_u16_TProbe_Capture_Time_Arr[];
+extern  unsigned int  AX0_u16_TProbe_Event_Time_Arr[];
+extern  unsigned int  AX0_u16_TProbe_Cmnd;
+extern  unsigned int  AX0_u16_TProbe_Status;
+extern  unsigned int  AX0_u16_TProbe_Src;
+extern  unsigned int  AX0_u16_TProbe_Lock;
+extern  unsigned int  AX0_u16_Temp_Cmd;
+extern  unsigned int  AX0_u16_BrakeOn;
+extern  unsigned int  AX0_u16_Skip_Record_Odd_Mts_Flag;
+extern  int           AX0_s16_SpdObsrvr_DZ_Shr;
+extern  unsigned int  AX0_u16_Electrical_Phase_Offset;
+extern  int           AX0_s16_Crrnt_Run_Code;
+extern  int           AX0_s16_Crrnt_Srvo_Cmnd_U_Act_0;
+extern  int           AX0_s16_Crrnt_Srvo_Cmnd_V_Act_0;
+extern  int           AX0_s16_Crrnt_Srvo_Cmnd_W_Act_0;
+extern  int		  	  AX0_s16_Crrnt_Q_Act_0_User;
+extern  unsigned int  AX0_u16_DB_PWM_FPGA_Mux_Value;
+
+extern  int           AX0_s16_Vel_Var_Fb_0;
+extern  int           AX0_s16_Serial_Crrnt_Cmnd;
+extern  int           AX0_s16_Halls;
+extern  int           AX0_s16_Tamagawa_Halls;
+extern  int           AX0_s16_Halls_Inv;
+extern  int           AX0_u16_New_Motion_Profile_Started;
+extern  unsigned int  AX0_s16_Index_Elect_Pos;
+extern  unsigned int  AX0_u16_Manual_Out_Brake_Inv;
+extern  int           AX0_s16_Num_Of_Poles_Ratio;
+extern  volatile unsigned int  Cntr_3125;
+extern  volatile long  Cntr_1mS;
+extern  int           AX0_s16_Zero_Crrnt_Cmnd;
+extern  int           AX0_s16_Speed_Phase_Adv_Slope_1_Fix;
+extern  int           AX0_u16_Speed_Phase_Adv_Slope_1_Shr;
+extern  int           AX0_s16_Speed_Phase_Adv_Slope_2_Offset;
+extern  int           AX0_s16_Speed_Phase_Adv_Slope_2_Fix;
+extern  int           AX0_u16_Speed_Phase_Adv_Slope_2_Shr;
+extern  int           AX0_u16_Speed_Phase_Adv_Threshold;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Slope_1_Fix;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Slope_1_Shr;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Slope_2_Offset;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Slope_2_Fix;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Slope_2_Shr;
+extern  int           AX0_s16_Crrnt_Phase_Adv_Tresh;
+extern  int           AX0_s16_Crrnt_U_Ofst;
+extern unsigned int   AX0_u16_Encoder5v_Flt;
+extern  int           AX0_s16_Crrnt_V_Ofst;
+extern  int           AX0_s16_Sine_Enc_Bits;
+extern  int           AX0_s16_Pos_Loop_Main_Controller_Vcmnd_Ptr;
+extern  int           AX0_s16_Pos_Loop_Main_Controller_Vcmnd_Ptr_Design;
+extern  long          AX0_s32_Sin_Neg_Acc;
+extern  long          AX0_s32_Sin_Pos_Acc;
+extern  long          AX0_s32_Cos_Neg_Acc;
+extern  long          AX0_s32_Cos_Pos_Acc;
+extern  int           AX0_s16_Sine_Offset;
+extern  int           AX0_s16_Cosine_Offset;
+extern  int           AX0_s16_Sine_Gain_Fix;
+extern  int           AX0_s16_Sine_Gain_Shr;
+extern  int           AX0_s16_Skip_Flags;
+extern  int           AX0_u16_Gear_Skip_Flags;
+extern  int           s16_Bg_Watchdog;
+extern  int           s16_1ms_Isr_Watchdog;
+extern  int           s16_Can_Isr_Watchdog;
+extern  int           s16_Can_Isr_Flag;
+extern  int           AX0_s16_I_Sat_Hi;
+extern  int           AX0_s16_I_Sat_Hi_Shadow;
+extern  int           AX0_s16_Max_Crrnt_Peak;
+extern  int           AX0_s16_TRQ_Output;
+extern  int           AX0_s16_Pwm_Half_Period;
+extern  int           AX0_s16_Phase_Adv_Angl;
+extern  int           AX0_s16_Burnin_Command;
+extern  int           AX0_s16_An_In_1_Filtered;
+extern  int           AX0_s16_An_In_2_Filtered;
+extern  int           AX0_s16_An_In_1_Alpha;
+extern  int           AX0_s16_An_In_2_Alpha;
+extern  int           AX0_s16_An_In_1_Anzero;
+extern  int           AX0_s16_An_In_2_Anzero;
+extern  int           AX0_s16_An_In_1_Beta;
+extern  int           AX0_s16_An_In_2_Beta;
+extern  int           AX0_s16_An_In_1_Offset;
+extern  int           AX0_s16_An_In_2_Offset;
+extern  int           AX0_u16_An_In_1_Deadband;
+extern  int           AX0_u16_An_In_2_Deadband;
+extern  int           AX0_s16_An_In_2_Mode;
+extern unsigned int   AX0_u16_An_In_Internal_Dual_Gain;
+extern  unsigned int  AX0_u16_Reduce_Record_Gap_Flag;
+
+extern  unsigned int  AX0_u16_Pwm_Half_Period_Sat;
+extern  int           AX0_s16_Crrnt_Lp_Inp;
+extern  long          AX0_s32_Sw_Sine_Abs_Pos_32;
+extern  unsigned int  AX0_s16_Sw_Sine_Shr;
+extern  int           AX0_s16_Motor_Enc_Type;
+extern  int           AX0_s16_Sfb_Enc_Type;
+extern  int           AX0_s16_Sin_Cos_Negate;
+extern  int           AX0_s16_Sw_Sine_Frac_Mask;
+extern  int           AX0_s16_Swr2d_W_Sqr;
+extern  int           AX0_s16_Swr2d_Bw_Inv_W;
+extern  int           AX0_s16_Swr2d_Fix;
+extern  int           AX0_s16_Swr2d_Shr;
+extern  unsigned int  AX0_s16_Out_Of_Range_High;
+extern  unsigned int  AX0_s16_Out_Of_Range_Low;
+extern  int           AX0_s16_I_Sat_Lo;
+extern  int           AX0_s16_I_Sat_Lo_Shadow;
+extern  int           AX0_s16_Enc_State_Ptr;
+extern  int*          AX0_s32_Feedback_Ptr;
+extern  int*          AX0_s32_Feedback_Ptr_2;
+extern  int*          AX0_s32_Commutation_Ptr;
+extern  int           AX0_s16_Feedback_Comm_Pos;
+extern  unsigned long AX0_u32_Tm_Comm_Accu;
+extern  int           AX0_s16_Controller_Ptr;
+extern  int           AX0_s16_Vel_Loop_Cmnd_Ptr;
+extern  int           AX0_s16_Zclamp_On;
+extern  int           AX0_s16_P1_38_Zero_Speed_Window;
+extern  long          AX0_s32_P1_38_Zero_Speed_Window_PTP;
+extern  int           AX0_s16_Cmd_Invert_On;
+extern  long          AX0_s32_Vel_Acc_Delta_Sat_Hi;
+extern  long          AX0_u32_Vel_Acc_Delta_Sat_Lo;
+extern  long          AX0_s32_Vel_Dec_Delta_Sat_Hi;
+extern  long          AX0_u32_Vel_Dec_Delta_Sat_Lo;
+extern  long          AX0_s32_Ptp_Vel_Cmnd;
+extern  int           AX0_s16_Motor_Phase_Disconnect_Offset;
+extern  unsigned long AX0_u32_SFB_Pos_Fdbk_Lo;
+extern  unsigned long AX0_u32_PFB_DF_Lo;
+extern  long          AX0_s32_PFB_DF_Hi;
+extern  long          AX0_s32_Vel_Fb_Info;
+extern  unsigned int  AX0_u16_Fpga_Capture_Select_Value;
+extern  int           AX0_s16_Home_Skip_Flags;
+
+extern  int           AX0_s16_Opmode_Request;
+extern  int           AX0_s16_Opmode;
+extern  int*          AX0_s32_Crrnt_Lp_Inp_Ptr;
+extern  int           AX0_s16_Acc_Dec_Cmnd_Ptr;
+extern  int           AX0_s16_Serial_Vel_Cmnd;
+extern  int           AX0_s16_Vel_Acc_Dec_Cmnd;
+extern  int           AX0_s16_Vel_Acc_Dec_Cmnd_Filtered;
+extern  int           AX0_s16_Vel_Var_Ref_0;
+extern  int           AX0_s16_Vel_Var_Ref_Unfilt;
+extern  int           AX0_s16_dec_fall_capture;
+extern  int			  AX0_s16_Pfb_User_Ptr;
+
+extern  long          AX0_s32_Icmd_Slp;
+extern  unsigned int  AX0_u16_Icmd_Slope_Use;
+extern  int           AX0_s16_Crrnt_Lp_Prev;
+extern  int           AX0_s16_Slope_Acc_Dec;
+extern  long          AX0_s32_Crrnt_Per_Sec_To_Intrn_Fix;
+extern  unsigned int  AX0_u16_Crrnt_Per_Sec_To_Intrn_Shr;
+extern  long          AX0_s32_Intrn_To_Crrnt_Per_Sec_Fix;
+extern  unsigned int  AX0_u16_Intrn_To_Crrnt_Per_Sec_Shr;
+extern  long long     AX0_s64_Crrnt_Per_Sec_To_Intrn_Round;
+extern  long long     AX0_s64_Intrn_To_Crrnt_Per_Sec_Round;
+extern  unsigned long AX0_u32_SFB_Pos_Fdbk_Lo;
+extern  long          AX0_s32_SFB_Pos_Fdbk_Hi;
+
+extern  int           AX0_s16_Atan_Value;
+extern  int           AX0_s16_Out_Of_Range_Bits;
+
+extern  int           VOLTAGE_CONTROLLER_EN;
+extern  int           CURRENT_CONTROLLER_EN;
+extern  int           PHASE_FIND_CONTROLLER_EN;
+extern  int           CURRENT_CONTROLLER_DIS;
+extern  int           CURRENT_CONTROLLER_DB;
+extern  int           SW_RESOLVER_FEEDBACK;
+extern  int           INC_ENCODER_FEEDBACK;
+extern  int           SW_SINE_ENC_FEEDBACK;
+extern  int           SENSORLESS_FEEDBACK;
+extern  int           NK_COMMUNICATION_FEEDBACK;
+extern  int           TM_COMMUNICATION_FEEDBACK;
+extern  int           SRVSNS_COMMUNICATION_FEEDBACK;
+extern  int           PS_P_G_COMMUNICATION_FEEDBACK;
+extern  int           PS_S_COMMUNICATION_FEEDBACK;
+extern  int           FANUC_COMMUNICATION_FEEDBACK;
+extern  int           ENDAT2X_COMMUNICATION_FEEDBACK;
+extern  int           YS_COMMUNICATION_FEEDBACK;
+extern  int           SK_COMMUNICATION_FEEDBACK;
+extern  int           BISSC_COMMUNICATION_FEEDBACK;
+extern  int           NO_FEEDBACK;
+extern  int           ENC_STATE_0_SW_SINE_ENC_CD;
+extern  int           ENC_STATE_0_SW_SINE_ENC_ENDAT;
+extern  int           ENC_STATE_0_SW_SINE_ENC_STEGMANN;
+extern  int           ENC_STATE_0_INC_ENC;
+extern  int           ENC_STATE_0_ENC_TAMAGAWA;
+extern  int           ENC_STATE_1_ENC_TAMAGAWA;
+extern  int           ENC_STATE_2_ENC_TAMAGAWA;
+extern  int           ENC_STATE_3_ENC_TAMAGAWA;
+extern  int           PHASE_FIND_STATE_0;
+extern  int           ENC_STATE_1;
+extern  int           ENC_STATE_2;
+extern  int           ENC_STATE_3;
+extern  int           ENC_STATE_SKIP; 
+extern  int           STATE_0_HALLS_ONLY;
+extern  int           ENC_STATE_WNS_0;
+
+extern  int           AX0_s16_Analog_Crrnt_Cmnd;
+extern  unsigned int  AX0_u16_Analog_Crrnt_Limit;
+
+extern  int           Burnin_Comm_Pos;
+
+
+extern  long          AX0_s32_Pfb_Scale_Fix;
+extern  int           AX0_s16_Pfb_Scale_Shr;
+extern  long          AX0_s32_Pos_Fdbk_Hi;
+extern  unsigned long AX0_u32_Pos_Fdbk_Lo;
+extern  long          AX1_s32_Pos_Fdbk_Hi;
+extern  unsigned long AX1_u32_Pos_Fdbk_Lo;
+extern  long          AX0_s32_Pos_Fdbk_Hi_2;
+extern  unsigned long AX0_u32_Pos_Fdbk_Lo_2;
+
+extern  long          AX0_s32_Pos_Fdbk_User_Hi;
+extern  unsigned long AX0_u32_Pos_Fdbk_User_Lo;
+extern  unsigned long AX0_u32_Fdbk_Accu;
+
+extern  unsigned long AX0_u32_Pos_Fdbk_Offset_Lo;
+extern  long          AX0_s32_Pos_Fdbk_Offset_Hi;
+extern  unsigned int  AX0_u16_TouchProbe_Pfb_Ptr;
+extern  unsigned int  AX0_s16_TouchProbe_Vel_Ptr;
+extern  unsigned int  AX0_u16_EncSim_Pos_Lo_Ptr;
+extern  unsigned int  AX0_u16_FieldBus_Pos_Lo_Ptr;
+extern  unsigned int  AX0_u16_DF_Pos_Fdbk_Sign_Ptr;
+extern  unsigned long AX0_u32_Pos_Fdbk_Sign_Lo;
+extern  unsigned long AX0_u32_Pos_Fdbk_Sign_Lo_2;
+extern int            AX0_s16_DF_Run_Code;
+extern int            AX0_s16_DF_Run_Code_2;
+extern int            AX0_s16_Dual_Loop_LinearVel_Vcmd;
+
+extern  unsigned int  AX0_u16_CW_LS_State_Mask;
+extern  unsigned int  AX0_u16_CCW_LS_State_Mask;
+
+// speed observer variables
+extern  int           AX0_s16_SpdObsrvr_Scale_Factor_Fix;
+extern  int           AX0_s16_SpdObsrvr_Scale_Factor_Shr;
+extern  int           AX0_s16_SpdObsrvr_G_Scale_Factor_Fix;
+extern  int           AX0_s16_SpdObsrvr_G_Scale_Factor_Shr;
+extern  int           AX0_s16_SpdObsrvr_Int_Factor_Fix;
+extern  int           AX0_s16_SpdObsrvr_Int_Factor_Shr;
+extern  int           AX0_s16_Dead_Zone;
+
+// phase find variables
+extern  int           AX0_s16_PhaseFindRTBits;
+extern  int           AX0_s16_PhaseFind_Captured_Ia;
+extern  int           AX0_s16_PhaseFind_Captured_Ic;
+extern  int           AX0_Phase_Find_MTS_Cntr;
+
+extern unsigned long  AX0_u32_Fieldbus_Vlim_Design_Lo;
+extern long           AX0_u32_Fieldbus_Acc_Design_Lo;
+extern long           AX0_u32_Fieldbus_Dec_Design_Lo;
+extern  int           AX0_s16_Fieldbus_Target_Postion_Flag;
+extern  int           AX0_s16_Fieldbus_Postion_Cmd_Err_Flag;
+extern unsigned long  AX0_u32_Fieldbus_Target_Pos_Err_Cntr;
+extern unsigned long  AX0_u32_Delta_Pos_Error_Lo;
+
+extern long long      AX0_u32_Cubic_Pos_Error_Lo;
+extern long           AX0_s32_Cubic_Vel_Error;
+
+extern  int           AX0_s16_Vel_Coef_H0l_Design;
+extern  int           AX0_s16_Vel_Coef_H0h_Design;
+extern  int           AX0_s16_Vel_Coef_H5l_Design;
+extern  int           AX0_s16_Vel_Coef_H5h_Design;
+extern  int           AX0_s16_Vel_Coef_R0l_Design;
+extern  int           AX0_s16_Vel_Coef_R0h_Design;
+extern  long          AX0_s32_Vel_Coef_D1_Design;
+
+extern  int           AX0_s16_Vel_Var_Hrl_Shr_Design;
+extern  int           AX0_s16_Vel_Var_D_Shr_Design;
+extern  int           AX0_s16_Vel_Var_Hr_Shr1_Design;
+extern  int           AX0_s16_Vel_Var_D_Shl_Design;  
+extern  int           AX0_s16_Vel_Var_Out_Shr_Design;
+extern  int           AX0_s16_Vel_Var_InvR0_Fix_Design;
+extern  int           AX0_s16_Vel_Var_InvR0_Shr_Design;
+extern  long          AX0_s32_In_To_Out_Vel_Fix;
+extern  unsigned int  AX0_u16_In_To_Out_Vel_Shr;
+extern  int           AX0_s16_Qep;
+extern  unsigned int  AX0_u8_Gear_Active;
+extern  unsigned int  AX0_u8_Gear_Limits_Mode;
+extern  unsigned int  AX0_u8_Gear_Mode;
+extern  unsigned int  AX0_u8_HW_follow_Flag;
+
+extern  unsigned long AX0_u32_Xencres;
+extern  unsigned long AX0_u32_Xencres_Design;
+extern  long          AX0_s32_Gearin;
+extern  long          AX0_s32_Gearin_Design;
+extern  unsigned long AX0_u32_Gearout;
+extern  unsigned long AX0_u32_Gearout_Design;
+extern  long          AX0_s32_Gear_Residue1;
+extern  long          AX0_s32_Gear_Residue2;
+extern unsigned int   AX0_u16_Gear_Polarity_Flags;
+extern unsigned int   AX0_u16_Gear_BG_Flags;
+
+extern  long          AX0_s32_Vel_Var_Fb_0;
+extern  unsigned int  AX0_s16_Sine_2nd;
+extern  unsigned int  AX0_s16_Cosine_2nd;
+extern  int           AX0_s16_Sine;
+extern  int           AX0_s16_Cosine;
+extern  int           AX0_s16_SpdObsrvr_Int_Factor_Mask;
+extern  unsigned int  AX0_s16_Feedback_Commutation_Adj;
+extern  unsigned int  AX0_s16_Elect_Pos_With_Phase_Adv;
+extern  long          AX0_s32_Elect_Pos_With_Phase_Adv;
+extern  unsigned int  AX0_u16_Pwm_Change_Indication;
+extern  int           AX0_s16_Torque_Scale_Fix_1;
+extern  unsigned int  AX0_u16_Torque_Scale_Shr_1;
+extern  int           AX0_s16_Torque_Scale_Fix_2;
+extern  unsigned int  AX0_u16_Torque_Scale_Shr_2;
+extern  int           AX0_s16_Vel_Scale_Fix;
+extern  unsigned int  AX0_u16_Vel_Scale_Shr;
+extern  long          AX0_s32_SpdObsrvr_Scale_Factor_Mask;
+extern  long          AX0_s32_SpdObsrvr_G_Scale_Factor_Mask;
+
+extern  int           AX0_s16_Vel_Scale_Fix;
+extern  unsigned int  AX0_u16_Vel_Scale_Shr;
+extern  int           AX0_s16_Analog_Vel_Cmnd;
+
+extern  int           AX0_s16_Ggp_nlp_Fix_Design;
+extern  int           AX0_s16_Ggp_nlp_Shr_Design;
+extern  int           AX0_s16_Kiv_nlp_Shr_Design;
+extern  int           AX0_s16_Kiv_nlp_Fix_Design;
+extern  int           AX0_s16_Ki_nlp_Fix_Design;
+extern  int           AX0_s16_Ki_nlp_Shr_Design;
+extern  int           AX0_s16_Kp_nlp_Fix_Design;
+extern  int           AX0_s16_Kp_nlp_Shr_Design;
+extern  int           AX0_s16_Kd_nlp_Fix_Design;
+extern  int           AX0_s16_Kd_nlp_Shr_Design;
+extern  int           AX0_s16_Ggp_nlp_Shl_Design;
+extern  int           AX0_s16_KdKp_nlp_Shr_Design;
+extern  int           AX0_s16_Gguser_nlp_Shr_Design;
+extern  long          AX0_s32_Int_Loop_Pos_Err_Hi;
+extern  unsigned long AX0_u32_Int_Loop_Pos_Err_Lo;
+extern  unsigned long AX0_u32_Pos_Err_PELOOP_Lo;
+extern  unsigned long AX0_u32_Pos_Cmd_Lo;
+extern  unsigned long AX0_u32_Pos_Cmd_User_Lo;
+extern  int           AX0_s16_nlp_Crrnt_Cmnd;
+extern  long          AX0_s32_Encsim_Fix;
+extern  int           AX0_u16_Encsim_Shr;
+
+extern  long          AX0_s32_Mencres_Fix;
+extern  unsigned int  AX0_u16_Mencres_Shr;
+extern  unsigned int  AX0_s16_Abs_Menc_Res_Shr;
+
+extern  unsigned int  AX0_u16_Encsim_Freq_Flags;
+extern  unsigned long AX0_u32_Encsim_Counts_Per_Rev;
+extern  int           Security_Released;
+extern  unsigned long AX0_u32_Index_Pos_Lo;
+extern  unsigned long AX0_u32_Index_Pos_For_Encsim;
+extern  unsigned long AX0_u32_Index_Position_Fdbk_Lo;
+extern  int           Adc_Shl;
+extern  int           AX0_s16_Transition_To_Enable;
+extern  int           AX0_s16_Transition_To_Disable;
+extern  int           AX0_s16_KiKiv_nlp_Shr_Design;
+extern  int           AX0_s16_Ki_Int_Sat_Sw_Fix_Design;
+extern  unsigned int  AX0_u16_Ki_Int_Sat_Sw_Shr_Design;
+
+extern  unsigned long AX0_u32_Encsim_Index_Window;
+extern  unsigned int  u16_Vbus_Counts;
+extern  unsigned int  u16_Vbus_Running;
+extern  unsigned int  u16_Vbus_RunningPrev;
+extern  unsigned long AX0_u32_Encsim_ZPos;
+extern  unsigned int  AX0_u16_Encsim_ZPos_Offset_Flags;
+extern  unsigned int  AX0_Security_Bit;
+extern  unsigned int  AX0_u16_Comm_Fdbk_Flags_A_1;
+extern  unsigned int  AX0_u16_Comm_Fdbk_Flags_B_1;
+extern  unsigned int  AX0_u16_Comm_Fdbk_Flags_A_2;
+extern  unsigned int  AX0_u16_Comm_Fdbk_Flags_B_2;
+extern  unsigned int  AX0_u16_Abs_Enc_Command_1Frame, AX0_u16_Abs_Enc_Command_1Frame_2;
+extern  unsigned int  AX0_u16_Abs_Enc_Command_2Frame, AX0_u16_Abs_Enc_Command_2Frame_2;
+extern  unsigned int  AX0_u16_Abs_Enc_Command_3Frame, AX0_u16_Abs_Enc_Command_3Frame_2;
+extern  unsigned int  AX0_u16_Abs_Enc_Command_4Frame;
+extern  unsigned int  AX0_u16_Com_Enc_Altern_1Frame;
+extern  unsigned int  AX0_u16_Com_Enc_Altern_2Frame;
+extern  unsigned int  AX0_u16_Com_Enc_Altern_3Frame;
+extern  unsigned int  AX0_u16_Com_Enc_Altern_4Frame;
+extern  unsigned int  AX0_u16_Com_Enc_Alt_Xmt_Length;
+extern  unsigned int  AX0_u16_Com_Enc_Alt_Xcv_Length;
+extern  unsigned int  AX0_u16_Com_Enc_Xcv_Length;
+extern  unsigned int  AX0_u16_Com_EnDat_Tx1_Length;
+extern  unsigned int  AX0_u16_Com_EnDat_Rx1_Length;
+extern  unsigned int  AX0_u16_Com_EnDat_Tx2_Length;
+extern  unsigned int  AX0_u16_Com_EnDat_Rx2_Length;
+extern  unsigned long AX0_u32_Abs_Enc_Altern_1Data;
+extern  unsigned long AX0_u32_Abs_Enc_Altern_2Data;
+extern  unsigned long AX0_u32_Abs_Enc_Altern_3Data;
+extern  long          AX0_s32_Comm_Abs_Pos_32_Hi;
+extern  unsigned long AX0_u32_Comm_Abs_Pos_32_Lo;
+extern  unsigned int  AX0_u16_Tamagawa_Timer;
+extern  unsigned int  AX0_u16_CommEnc_InTurn_Less16_Bits, AX0_u16_CommEnc_InTurn_Less16_Bits_2;
+extern  int           AX0_s16_Crrnt_Coef_Bemf_Comp_Fix;
+extern  int           AX0_s16_Crrnt_Coef_Bemf_Comp_Shr;
+
+extern  int           AX0_s16_Vd;
+extern  int           AX0_s16_Vq;
+extern  int           AX0_s16_Adc_Mfb_Motor_Temp;
+extern  int           AX0_s16_Adc_Anin_x1;
+extern  int           AX0_u16_Nk_Enc_Info_Frame;
+extern  int           AX0_s16_Adc_Plus_15v_Readout;
+extern  int           AX0_s16_Adc_Minus_15v_Readout;
+extern  unsigned int  AX0_u16_Power_Supply_Adc_Flags;
+extern  unsigned int  AX0_u16_PhaseFind_EPos;
+extern  int           AX0_s16_Ggv_nlp_Fix_Design;
+extern  int           AX0_s16_Ggv_nlp_Shr_Design;
+extern  int           AX0_s16_Variable_Gain_Max_Design;
+extern  int           AX0_u16_Tamagawa_TO_Cntr;
+extern  long          AX0_s32_Crrnt_Q_Mem;
+extern  long          AX0_s32_Crrnt_D_Mem;
+extern  int           AX0_s16_Igrav;
+extern  int           AX0_s16_Atv_Step_Injection;
+extern  int           AX0_s16_Crrnt_Ff_Lpf_Alpha;
+extern  int           AX0_s16_Crrnt_Ff_Lpf_Beta;
+extern  int           AX0_s16_Ifric_Pos;
+extern  int           AX0_s16_Ifric_Neg;
+extern  int           AX0_s16_Weight_Neg_Vel_Hyst;
+extern  int           AX0_s16_Weight_Pos_Vel_Hyst;
+extern  int           s16_Fieldbus_Flags;
+extern  unsigned int  AX0_u16_Input_Filter_Depth_250us;
+
+
+extern  int           AX0_s16_DQ_Vref_U;
+extern  int           AX0_s16_DQ_Vref_V;
+extern  int           AX0_s16_DQ_Vref_W;
+extern  int           AX0_s16_Index_Qep_Capture;
+extern  int           AX0_Enc_Hall_Switch_Comm_Tbl_Ptr;
+extern  int           AX0_Enc_Hall_Comm_Tbl_Ptr;
+extern  int           AX0_s16_Halls_Comm_Pos;
+extern  int           AX0_s16_Halls_Only_Pos;
+extern  int           AX0_s16_Halls_Only_Prev_Time_Cntr;
+extern  int           AX0_Burnin_Delta;
+extern  int           AX0_s16_Crrnt_D_Act_0;
+extern  int           AX0_s16_Crrnt_Q_Act_0;
+extern  int           AX0_s16_Crrnt_D_Ref_0;
+extern  int           AX0_s16_Crrnt_Q_Ref_0;
+
+extern  int           AX0_s16_Kpp_Fix_Design;
+extern  unsigned int  AX0_u16_Kpp_Shr_Design;
+extern  int           AX0_s16_Kpi_Fix_Design;
+extern  unsigned int  AX0_u16_Kpi_Shr_Design;
+extern  int           AX0_s16_Sat_Out_Hi_Design;
+extern  int           AX0_s16_Kpe_Fix_Design;
+extern  unsigned int  AX0_u16_Kpe_Shr_Design;
+extern  int           AX0_s16_Kpd_Fix_Design;
+extern  unsigned int  AX0_u16_Kpd_Shr_Design;
+extern  unsigned long AX0_u32_Sat_In_Lo_Design;
+extern  unsigned long AX0_u32_Sat_In_Hi_Design;
+extern  unsigned long AX0_u32_Sat_Out_Design;
+
+extern  int           AX0_s16_Kpvfr_Fix_Design;
+extern  unsigned int  AX0_u16_Kpvfr_Shr_Design;
+extern  int           AX0_s16_Kpvfr2_Fix_Design;
+extern  unsigned int  AX0_u16_Kpvfr2_Shr_Design;
+extern  int           AX0_s16_Kpafr_Fix_Design;
+extern  unsigned int  AX0_u16_Kpafr_Shr_Design;
+extern  int           AX0_s16_Kpafr_Current_Fix_Design;
+extern  unsigned int  AX0_u16_Kpafr_Current_Shr_Design;
+
+extern  int           AX0_s16_Pos_Vcmd;
+
+extern  unsigned int  AX0_u16_Hrl_Residue_Mask_Design;
+extern  unsigned int  AX0_u16_D_Residue_Mask_Design;
+extern  unsigned int  AX0_u16_Hr_Residue_Mask_Design;
+
+extern  int           AX0_s16_Crrnt_D_Comp_Fix;
+extern  int           AX0_s16_Crrnt_Coef_Vq_Fix;
+extern  int           AX0_s16_Crrnt_Coef_Vq_Shr;
+extern  int           AX0_s16_Crrnt_Coef_Vd_Fix;
+extern  int           AX0_s16_Crrnt_Coef_Vd_Shr;
+extern  int           AX0_s16_Crrnt_Coef_RH_Shr;
+
+extern  int           AX0_s16_Crrnt_Cross_Comp_Fix;
+extern  int           AX0_s16_Crrnt_Cross_Comp_Shr;
+extern  int           AX0_s16_Iq_Max;
+extern  int           AX0_s16_Iq_Min;
+extern long           AX0_s32_Pfb_Max_Hi;
+extern unsigned long  AX0_u32_Pfb_Max_Lo;
+extern long           AX0_s32_Pfb_Min_Hi;
+extern unsigned long  AX0_u32_Pfb_Min_Lo;
+extern  int           AX0_s16_DQ_Axis_Switch;
+extern unsigned long  AX0_u32_Temp_Pos_Lo;
+
+extern  int           AX0_s16_Cl_Tune_Cmnd_1;
+extern  int           AX0_s16_Cl_Tune_Cmnd_2;
+extern  int           AX0_s16_Cl_Tune_Cmnd;
+extern  int           AX0_s16_Cl_Tune_Start_Time;
+extern  int           AX0_s16_Cl_Tune_Lvl_Time;
+extern  int           AX0_s16_Cl_Tune_Max_Time;
+extern  int           AX0_s16_Cl_Tune_Bits;
+extern  int           AX0_s16_Cl_Tune_Cmnd_2_Rise;
+extern  long          AX0_s32_Crrnt_Q_Mem_Avg;
+extern  int           AX0_s16_Crrnt_Q_Mem_Avg_Cntr;
+extern  int           AX0_s16_Cl_Tune_Bemf_Speed;
+extern  int           AX0_s16_2ndQep_Ptr;
+extern  int           AX0_s16_Power_Up_Timer;
+extern  unsigned int  AX0_u16_Pos_Control_Mode;
+extern  int           AX0_s16_KPVFR_Source_Ptr;
+extern  int           AX0_s16_KPAFR_Source_Ptr;
+extern  long          AX0_s32_Delta_Pos_Cmd;
+extern  long          AX0_s32_Delta_Delta_Pos_Cmd;
+extern  long          AX0_s32_Gear_Acc_Out;
+extern  long          AX0_s32_Gear_Vel_Out;
+extern  int           AX0_s16_Weight_Comp_Source_Ptr;
+extern  int           AX0_s16_Fric_Fix_Design;
+extern  unsigned int  AX0_u16_Fric_Shr_Design;
+extern  int           AX0_s16_Delta_PCMD;
+extern  unsigned int  AX0_u16_Wns_Status;
+extern  int           AX0_s16_Wns_Crrnt_Cmnd;
+extern  int           AX0_u16_Wns_Max_Vel_Smpl;
+extern  int           AX0_s16_Wns_Comm;
+extern  int           AX0_s16_Phase_Find_Current;
+extern  unsigned long AX0_u32_Wns_Pfb_0_Lo;
+extern  long          AX0_s32_Wns_Pfb_0_Hi;
+extern  unsigned long AX0_u32_Wns_Pfb_Lim_0_Lo;
+extern  long          AX0_s32_Wns_Pfb_Lim_0_Hi;
+extern  unsigned long AX0_u32_Wns_Mid_Pfb_Lo;
+extern  long          AX0_s32_Wns_Mid_Pfb_Hi;
+extern  unsigned long AX0_u32_Wns_Time;
+extern  unsigned int  AX0_u16_Wns_Ki;
+extern  unsigned int  AX0_u16_Wns_Kp;
+extern  unsigned int  AX0_u16_Wns_Out_Shr;
+extern  int           AX0_Cntr_3125_Pwm_Mask;
+
+extern  long          AX0_s32_Pos_Cmd_Hi;
+extern  long          AX0_s32_Pos_Cmd_User_Hi;
+extern  long          AX0_s32_Ptp_Inv_Dec_Fix;
+extern  int           AX0_s16_Ptp_Inv_Dec_Shr;
+extern  int           AX0_s16_Ptp_Status;
+extern  long          AX0_s32_Ptp_Target_Err_Hi;
+extern  unsigned long AX0_u32_Ptp_Target_Err_Lo;
+extern  long          AX0_s32_Ptp_Vel_User;
+extern  int           AX0_u16_NL_Tune_Status;
+extern  int           AX0_s16_Pe_Sign;
+extern  int           AX0_s16_Pe_Sign_Prev;
+extern  int           AX0_u16_Zero_Crossing_Cntr;
+extern  unsigned long AX0_u32_NL_Tune_Pe_Lo;
+extern  long          AX0_s32_NL_Tune_Pe_Hi;
+extern  unsigned long AX0_u32_TQF_Acc_Lo;
+extern  unsigned long AX0_u32_TQF_Acc_Hi;
+extern  unsigned long AX0_u32_VBL_Result_Lo;
+extern           long AX0_s32_VBL_Result_Hi;
+extern            int AX0_s16_Icmd_100Hz_Filtered_Max;
+
+extern  int           AX0_s16_Kff_Spring_nlp_Fix_Design;
+extern  int           AX0_s16_Kff_Spring_nlp_Shr_Design;
+extern  int           AX0_s16_Kff_Spring_Acc_nlp_Fix_Design;
+extern  int           AX0_s16_Kff_Spring_Dec_nlp_Fix_Design;
+extern  int           AX0_s16_Aff_Lpf_Beta_nlp_Design;
+extern  int           AX0_s16_Aff_Lpf_Alpha_nlp_Design;
+extern  int           AX0_s16_Acc_FF_Shr_Design;
+extern  int           AX0_s16_Acc_FF_Fix_Design;
+
+extern  int           AX0_s16_Pos_Loop_Vcmnd_Ptr;
+extern  int           AX0_s16_Pos_Loop_Vcmnd_Abs_Ptr;
+extern  int           AX0_s16_Pos_Loop_Acccmnd_Ptr;
+extern  int           AX0_s16_Hold_Pos_Acccmnd_Ptr;
+extern  long          AX0_s32_Qep_Msq_Fltr_Acc_Out;
+
+extern  unsigned long *AX0_u32_NlTune_Histogram_Cyc_Buffer;
+extern  unsigned int  AX0_u16_NlTune_Histogram_Cyc_Buffer_Write_Index;
+extern  unsigned long AX0_u32_NL_Tune_Settled_Cntr;
+extern  int           AX0_s16_Crrnt_Cmnd_In_Coef_Design;
+extern  int           AX0_s16_Crrnt_Cmnd_Mem_1_Coef_Design;
+extern  int           AX0_s16_Crrnt_Cmnd_Mem_2_Coef_Design;
+extern  int           AX0_s16_Crrnt_Cmnd_Out_Shr_Coef_Design;
+extern  int           AX0_s16_Crrnt_Cmnd_Residue_Mask_Design;
+extern  int           AX0_s16_Crrnt_Cmnd_Mem_1;
+extern  unsigned long AX0_u32_VBL_Max;
+extern  unsigned long AX0_u32_VBL_Thresh;
+extern  int           AX0_s16_Stopped;
+extern  unsigned long AX0_u32_Stopped_Threshold;
+extern  unsigned long AX0_u32_Inpos_Threshold_Lo;
+extern  long          AX0_s32_Inpos_Threshold_Hi;
+extern  long          AX0_s32_KiKiv_nlp_Residue;
+extern  int           AX0_s16_Cl_Tune_Vq_Max;
+
+extern  int           AX0_s16_Drive_Peak_Motor_Cont_2_Fix;
+extern  unsigned int  AX0_u16_Drive_Peak_Motor_Cont_2_Shr;
+extern  int           AX0_s16_SpdObsrvr_Slow_Beta;
+extern  int           AX0_s16_SpdObsrvr_Slow_Alpha;
+
+extern  int           AX0_s16_Encsim_Test_Mode;
+extern  int         AX0_s16_Encsim_Num_Of_Loops;
+extern  int           AX0_s16_Encsim_Counts_In_MTS;
+extern  int           AX0_s16_Encsim_Counts_Remainder;
+extern  int           AX0_s16_Encsim_Space;
+extern  int         AX0_s16_Encsim_State_Busy;
+
+extern  unsigned int  AX0_u16_Inpos_Time;
+
+extern  int           AX0_s16_Mlgainc_Crrnt;
+extern  int           AX0_s16_Mlgainc_Slope;
+extern  int           AX0_s16_Mlgainp_Slope;
+
+extern  int           AX0_s16_Stop_Crrnt_Cmnd;
+extern  unsigned int  AX0_u16_Dynamic_Brake_Gain;
+extern  unsigned int  AX0_u16_Dynamic_Brake_Shr;
+
+extern       int      AX0_s16_NL_Vf_Coef_A2_Design;         
+extern       int      AX0_s16_NL_Vf_Coef_A1_Design;          
+extern       int      AX0_s16_NL_Vf_Coef_A_Shr_Design;    
+extern       int      AX0_s16_NL_Vf_Coef_B2_Design;          
+extern       int      AX0_s16_NL_Vf_Coef_B1_Design;          
+extern       int      AX0_s16_NL_Vf_Coef_B0_Design;          
+extern       int      AX0_s16_NL_Vf_Coef_Out_Shr_Design;   
+  
+extern       int      AX0_s16_NL_Vf2_Coef_A2_Design;         
+extern       int      AX0_s16_NL_Vf2_Coef_A1_Design;          
+extern       int      AX0_s16_NL_Vf2_Coef_A_Shr_Design;    
+extern       int      AX0_s16_NL_Vf2_Coef_B2_Design;          
+extern       int      AX0_s16_NL_Vf2_Coef_B1_Design;          
+extern       int      AX0_s16_NL_Vf2_Coef_B0_Design;          
+extern       int      AX0_s16_NL_Vf2_Coef_Out_Shr_Design;     
+extern       int      AX0_s16_Vel_Polarity;
+
+extern       int      AX0_u16_TQF_Weight_Shl;
+
+//extern       int      AX0_s16_Pcmd_Round_Fix;
+extern unsigned long  AX0_s32_Pcmd_Round_Fix;
+extern       int      AX0_s16_Pcmd_Round_Shr;
+extern unsigned long  AX0_u32_Pcmd_Round2_Fix;
+extern       int      AX0_s16_Pcmd_Round2_Shr;
+extern unsigned long  AX0_u32_Sat_In_Lo_Design;
+
+extern       int      AX0_s16_Crrnt_Adaptive_Gain_Min;
+
+
+extern  unsigned int  u16_Pll_Pwm_Freq;
+extern  unsigned int  u16_Pll_Flags;
+extern  unsigned int  u16_Pll_Rt_Flags;
+extern  unsigned int  u16_Orig_Pwm_Period;
+extern  unsigned long u32_Controller_Sync_Period;
+extern           int  s16_Pll_Correction;
+extern           int  s16_Prev_Pll_Correction;
+extern  unsigned long u32_Pll_Mts_Counter;
+extern  unsigned long u32_Pll_Mts_Counter_Latch;
+extern  unsigned int  u16_Pll_Lock_Mts_Slot;
+extern  unsigned long u32_Controller_Sync_Period_in_32Khz;
+extern  unsigned long u32_Pll_Max_Delta;
+extern  unsigned int  u16_CAN_Sync_Periods_To_Average;
+extern  unsigned int  u16_CAN_Sync_Reload_Counter;
+
+extern           int  AX0_s16_PE_Derive_Sign;
+extern           int  AX0_s16_PE_First_Extremum;
+extern           int  AX0_s16_I_Derive_Sign;
+extern           int  AX0_s16_I_Derive_Sign_Prev;
+extern           int  AX0_s16_I_First_Extremum;
+extern           int  AX0_s16_Active_Indication;
+extern           int  AX0_s16_Iq_Local_Min;
+extern unsigned  int  AX0_u16_Abs_Enc_Info_Frame;
+extern unsigned  int  AX0_u16_Abs_Enc_Data_0Frame, AX0_u16_Abs_Enc_Data_0Frame_2;
+extern unsigned  int  AX0_u16_Abs_Enc_Data_1Frame, AX0_u16_Abs_Enc_Data_1Frame_2;
+extern unsigned  int  AX0_u16_Abs_Enc_Data_2Frame, AX0_u16_Abs_Enc_Data_2Frame_2;
+extern unsigned  int  AX0_u16_Abs_Enc_Data_3Frame, AX0_u16_Abs_Enc_Data_3Frame_2;
+extern unsigned long  AX0_u32_Pos_Fdbk_Cap_Lo;
+extern          long  AX0_s32_Pos_Fdbk_Cap_Hi;
+extern unsigned long  AX0_u32_Pos_Fdbk_Neg_Lo;
+extern          long  AX0_s32_Pos_Fdbk_Neg_Hi;
+
+
+extern           int  AX0_u16_HP_Flags;
+extern           int  AX0_s16_HP_Pos_Loop_Vcmnd_Ptr_Store;
+// for MOVESINE pointer storing on Hold Position. Bug#:  8320
+extern           int  AX0_s16_HP_Pos_Loop_Main_Ctrl_Vcmnd_Ptr_Store;
+
+extern          long  AX0_s32_HP_Crrnt_Lp_Inp_Ptr_Store;
+extern           int  AX0_s16_HP_Weight_Comp_Source_Ptr_Store;
+extern           int  AX0_s16_HP_Vel_Loop_Cmnd_Ptr_Store;
+extern           int  AX0_s16_HP_Pos_Loop_Vcmnd_Ptr_Store;
+extern           int  AX0_s16_Cl_Tune_Cross_Time;
+
+extern  unsigned int  AX0_u16_Qep_In_Scale_Design;
+extern  unsigned int  AX0_u16_Qep_Out_Scale;
+extern  unsigned int  AX0_u16_Qep_Out_Scale_Design;
+extern          long  AX0_s32_Gear_Dead_Band_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_T1;
+extern           int  AX0_s16_Qep_Msq_Fltr_Beta1_Design;
+extern           int  AX0_s16_Qep_Msq_Fltr_Alpha1_Design;
+extern           int  AX0_s16_Qep_Msq_Fltr_Alpha1_Factor;
+extern           int  AX0_s16_Qep_Msq_Fltr_S1;
+extern           int  AX0_s16_Qep_Msq_Fltr_Inv_Delta_Fix_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_Inv_Delta_Shr_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_T2;
+extern           int  AX0_s16_Qep_Msq_Fltr_Beta2_Design;
+extern           int  AX0_s16_Qep_Msq_Fltr_Alpha2_Design;
+extern           int  AX0_s16_Qep_Msq_Fltr_A_Factor_Fix_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_A_Factor_Shr_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_Mode;
+extern           int  AX0_s16_Qep_Msq_Fltr_Aff_Gain_Fix;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_Aff_Gain_Shr;
+extern          long  AX0_s32_Qep_Msq_Fltr_Rollover_Sxp_Fix_Design;
+extern          long  AX0_s32_Qep_Msq_Fltr_Units_Conv_Fix_Design;
+extern  unsigned int  AX0_u16_Qep_Msq_Fltr_Units_Conv_Shr_Design;
+extern           int  AX0_s16_Qep_Msq_Extra_Shr_Design;
+
+extern  unsigned int  AX0_u16_Anin1_In_Scale_Design;
+extern  unsigned int  AX0_u16_Anin1_Out_Scale;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_T1;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Beta1_Design;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Alpha1_Design;
+extern           int  AX0_s16_Anin1_Msq_Fltr_S1;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Inv_Delta_Fix_Design;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_Inv_Delta_Shr_Design;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_T2;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Beta2_Design;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Alpha2_Design;
+extern           int  AX0_s16_Anin1_Msq_Fltr_A_Factor_Fix_Design;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_A_Factor_Shr_Design;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_Mode;
+extern           int  AX0_s16_Anin1_Msq_Fltr_Aff_Gain_Fix;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_Aff_Gain_Shr;
+extern          long  AX0_s32_Anin1_Msq_Fltr_Rollover_Sxp_Fix_Design;
+extern          long  AX0_s32_Anin1_Msq_Fltr_Units_Conv_Fix_Design;
+extern  unsigned int  AX0_u16_Anin1_Msq_Fltr_Units_Conv_Shr_Design;
+extern           int  AX0_s16_Anin1_Msq_Vff_N_Design;
+
+extern  unsigned int  AX0_u16_In_Scale_Design;
+extern  unsigned int  AX0_u16_Out_Scale;
+extern  unsigned int  AX0_u16_Msq_Fltr_T1;
+extern           int  AX0_s16_Msq_Fltr_Beta1_Design;
+extern           int  AX0_s16_Msq_Fltr_Alpha1_Design;
+extern           int  AX0_s16_Msq_Fltr_S1;
+extern           int  AX0_s16_Msq_Fltr_Inv_Delta_Fix_Design;
+extern  unsigned int  AX0_u16_Msq_Fltr_Inv_Delta_Shr_Design;
+extern  unsigned int  AX0_u16_Msq_Fltr_T2;
+extern           int  AX0_s16_Msq_Fltr_Beta2_Design;
+extern           int  AX0_s16_Msq_Fltr_Alpha2_Design;
+extern           int  AX0_s16_Msq_Fltr_A_Factor_Fix_Design;
+extern  unsigned int  AX0_u16_Msq_Fltr_A_Factor_Shr_Design;
+extern  unsigned int  AX0_u16_Msq_Fltr_Mode;
+extern           int  AX0_s16_Msq_Fltr_Aff_Gain_Fix;
+extern  unsigned int  AX0_u16_Msq_Fltr_Aff_Gain_Shr;
+extern          long  AX0_s32_Msq_Fltr_Rollover_Sxp_Fix_Design;
+extern          long  AX0_s32_Msq_Fltr_Units_Conv_Fix_Design;
+extern  unsigned int  AX0_u16_Msq_Fltr_Units_Conv_Shr_Design;
+
+/*extern  unsigned int  AX0_u16_Phase_Disconnect_Scan_Clear;
+extern  unsigned int  AX0_u16_Phase_Disconnected_UVW;
+extern  unsigned int  AX0_u16_Phase_Disconnect_Time_Thresh;
+extern  unsigned int  AX0_u16_Phase_Disconnect_Dscnt_Cntr_Thresh;*/
+extern  unsigned int  AX0_u16_Vel_Dsrgrd;
+extern           int  AX0_s16_Int_nlp_Factor_PtpGen;
+extern           int  AX0_s16_Int_nlp_Factor_Gearing;
+extern          long  AX0_s32_Qep_Msq_Fltr_Acc_Out_Tresh;
+extern          long  AX0_s32_Qep_Msq_Fltr_Acc_Out_Tresh_Design;
+extern          long  AX0_u32_Aff_Lo;
+extern          long  AX0_s32_Aff_Hi;
+extern           int  AX0_s16_Abs_Fdbk_Ofst_Adj;
+//extern           int  AX0_s16_Sensorless_Control_Bits;
+//extern           int  AX0_s16_Injection_Frequncy;
+//extern           int  AX0_s16_Pwm_Excitation;
+//extern           int  AX0_s16_Sl_Lpf_Alpha;
+//extern           int  AX0_s16_Sl_Lpf_Beta;
+//extern          long  AX0_s32_Sl_Offset_Sin;
+//extern          long  AX0_s32_Sl_Offset_Cos;
+//extern           int  AX0_s16_Sl_Tracking_W_Sqr;
+//extern           int  AX0_s16_Sl_Tracking_Bw_Inv_W;
+//extern          long  AX0_s32_Sl_Tracking_Vel_Int;
+//extern          long  AX0_s32_Sl_Tracking_Pos_Int;
+//extern           int  AX0_s16_Sl_Saliancy_Comm;
+//extern           int  AX0_s16_Sl_Saliancy_Phase_Offset;
+//extern           int  AX0_s16_Sl_Bemf_Phase_Offset;
+//extern           int  AX0_s16_Sl_EKF_Phase_Offset;
+//extern           int  AX0_s16_Sl_Saliancy_Comm_With_Phase_Adv;
+//extern           int  AX0_s16_Sl_Bemf_Comm_Locked_With_Phase_Adv;
+//extern           int  AX0_s16_Sl_Forced_Comm;
+//extern           int  AX0_s16_Sl_Forced_Delta_Factor_Fix;
+//extern  unsigned int  AX0_u16_Sl_Forced_Delta_Factor_Shr;
+extern           int  AX0_s16_Ignore_Ilim;
+extern           int  AX0_s16_120P_Ilim_User;
+extern           int  AX0_s16_High_Iq_Counter;
+extern           int  AX0_s16_I_Imax_Sat_Hi;
+extern           int  AX0_s16_HF_Commutation_Variable;
+//extern          long  AX0_s32_Sl_Icmd_Rate_Limiter;
+//extern           int  AX0_s16_Sl_Resistance_Fix;
+//extern           int  AX0_s16_Sl_Resistance_Shr;
+//extern           int  AX0_s16_Sl_Inductance_Fix;
+//extern           int  AX0_s16_Sl_Inductance_Shr;
+//extern           int  AX0_s16_Sl_Bemf_Lpf_Beta;
+//extern           int  AX0_s16_Sl_Bemf_Lpf_Alpha;
+
+extern           int  AX0_s16_Wns_Dir_Angle;
+
+extern  unsigned int  AX0_u16_LFSR;
+extern  unsigned int  AX0_u16_PRB_Mode;     
+extern  unsigned int  AX0_u16_PRB_Type;
+extern  unsigned int  AX0_s16_V_AMP;
+extern  unsigned int  AX0_s16_I_AMP;
+extern  unsigned int  AX0_u16_PRB_Counter_Period;
+extern  unsigned int  AX0_u16_PRB_Counter;
+extern  unsigned int  AX0_s16_PRB_V;
+extern  unsigned int  AX0_s16_PRB_I;
+extern  unsigned int  AX0_s16_PRB_Freq;
+extern           int  AX0_s16_Prb_Out_Ptr;
+extern  unsigned int  AX0_u16_Prb_Hold_Mode;
+extern  unsigned int  AX0_u16_Prb_Hold;
+
+extern           int  AX0_s16_Acc_To_Torque_Fix_Design;
+extern           int  AX0_s16_Acc_To_Torque_Shr_Design;
+extern          long  AX0_s32_nlp_K_Anti_Vib_Fix_Design;
+extern           int  AX0_s16_nlp_K_Anti_Vib_Shr_Design;
+
+extern           int  AX0_s16_Crrnt_Res_Avg_Cntr;
+extern  unsigned int  AX0_u16_Input_Mode_Arr[];
+extern  unsigned int  AX0_u16_Mode_Input_Arr[];
+extern  unsigned int  AX0_u16_Input_State;
+extern  unsigned int  AX0_u16_InMode_Update;
+extern  unsigned int  AX0_u16_CW_CCW_Inputs;
+extern  unsigned int  AX0_u16_CW_LS;
+extern  unsigned int  AX0_u16_CCW_LS;
+extern  unsigned int  AX0_u16_Home_Ind;
+extern  unsigned int  AX0_u16_Abs_Fdbk_Device;
+extern  unsigned int  AX0_u16_LS_Hold;
+extern  unsigned int  AX0_u16_SW_Pos_lim;
+extern  unsigned long AX0_u32_Pos_Max_Lim_Lo;
+extern           long AX0_s32_Pos_Max_Lim_Hi;
+extern  unsigned long AX0_u32_Pos_Min_Lim_Lo;
+extern           long AX0_s32_Pos_Min_Lim_Hi;
+
+extern  unsigned long AX0_u32_Pos_Max_Hyst_Lo;
+extern           long AX0_s32_Pos_Max_Hyst_Hi;
+extern  unsigned long AX0_u32_Pos_Min_Hyst_Lo;
+extern           long AX0_s32_Pos_Min_Hyst_Hi;
+                      
+extern           int  AX0_s16_Mres_Fix;
+extern           int  AX0_s16_Mres_Shr;
+
+
+extern          int   AX0_s16_Crrnt_Res_Avg_Cntr;
+extern          int   AX0_s16_Icmd;
+extern          int   AX0_s16_Iq_Cmd;
+extern          long  AX0_s32_AntiVib_Mj_Current_Cmd;
+extern          long  AX0_s32_AntiVib_KT_Term;
+extern unsigned long  AX0_u32_Anti_Vib_Addition_Lo;
+
+
+extern unsigned long  AX0_u32_Const_7fff_ffff;
+extern unsigned long  AX0_u32_Const_ffff_ffff;
+extern unsigned long  AX0_u32_Const_8000_0001;
+
+extern unsigned long  AX0_u32_Target_Position_Lo_Bg_Shadow;
+extern          long  AX0_s32_Target_Position_Hi_Bg_Shadow;
+extern          long  AX0_s32_Vlimit_Bg_Shadow;
+extern          long  AX0_s32_Vlimit;
+extern          long  AX0_s32_Ptp_Dec_Rounded_Bg_Shadow;
+extern          long  AX0_s32_Ptp_Dec_Rounded;
+extern          long  AX0_s32_Ptp_Acc_Rounded_Bg_Shadow;
+extern          long  AX0_s32_Ptp_Acc_Rounded;
+extern          int   AX0_s16_Ptp_Transition_Mode_Bg;
+extern          long  AX0_s32_Ptp_Dec_Stop_Rounded;
+extern unsigned long  AX0_u32_Target_Position_Lo;
+extern          long  AX0_s32_Target_Position_Hi;
+
+extern unsigned int   AX0_u16_PTP_Hunter_Mode;
+extern unsigned int   AX0_u16_PTP_Hunter_Mode_Bg_Shadow;
+extern unsigned int   AX0_u16_CSP_General_Purpose_Rt_Flags;
+extern unsigned long   AX0_u32_Move_Sine_Steps;
+extern unsigned long   AX0_u32_Move_Sine_Steps_Counter;
+extern unsigned long   AX0_u32_Move_Sine_Repeats;
+
+extern          int   AX0_s16_Nlpeaff_Filter_Beta_Design;
+extern          int   AX0_s16_Nlpeaff_Filter_Alpha_Design;
+extern          int   AX0_u32_Aff_Addition_Lo;
+
+extern  unsigned long AX0_u32_Home_Offset_Lo;
+extern           long AX0_s32_Home_Offset_Hi;
+extern  unsigned long AX0_u32_Home_Offset_Lo_Temp;
+extern           long AX0_s32_Home_Offset_Hi_Temp;
+extern  unsigned long AX0_u32_Captured_Pfb_Lo;
+extern           long AX0_s32_Captured_Pfb_Hi;
+extern  unsigned long AX0_u32_Prev_Captured_Pfb_Lo;
+extern           long AX0_s32_Prev_Captured_Pfb_Hi;
+extern  unsigned long AX0_u32_Home_Delta_Offset_Lo;
+extern           long AX0_s32_Home_Delta_Offset_Hi;
+extern  unsigned long AX0_u32_Home_Delta_Offset_Lo_Temp;
+extern           long AX0_s32_Home_Delta_Offset_Hi_Temp;
+extern  unsigned long AX0_u32_Home_Offset_User_Lo;
+extern           long AX0_s32_Home_Offset_User_Hi;
+extern  unsigned long AX0_u32_Home_Delta_Offset_Lo_Prev;
+extern           long AX0_s32_Home_Delta_Offset_Hi_Prev;
+extern  unsigned int  AX0_u16_Home_Capture_Time;
+
+extern  unsigned int  AX0_s16_Anti_Resonant_RCdt_Fix_Design;
+extern  unsigned int  AX0_s16_Anti_Resonant_LRdt_Fix_Design;
+extern          long  AX0_s32_Anti_Resonant_Filter_Input;
+extern  unsigned int  AX0_s16_Current_To_Torque_Fix_Design;
+extern  unsigned int  AX0_s16_Current_To_Torque_Shr_Design;
+
+extern           int  AX0_s16_Anti_Resonant_D_Fix_Design;
+extern  unsigned int  AX0_u16_Anti_Resonant_D_Shr_Design;
+extern          long  AX0_s32_Anti_Resonant_Filter_Output;
+extern  unsigned long AX0_u32_Anti_Resonant_Mask_Lo_Design;
+extern          long  AX0_s32_Anti_Resonant_Mask_Hi_Design;
+
+extern          long  AX0_s32_Smooth_Alpha_Design;
+extern          long  AX0_s32_Smooth_Beta_Design;
+
+extern  unsigned int  AX0_u16_Ptp_Hold_Flags;
+extern      long long AX0_u32_Pcmd_Raw_Lo;
+extern      long long AX0_u32_Unscaled_Gear_Pcmd_Raw_Lo;
+
+extern           int  AX0_s16_AntiVib_DC_Lpf_Alpha_Design;
+extern           int  AX0_s16_AntiVib_DC_Lpf_Beta_Design;
+extern           int  AX0_s16_Qep_Msq_Vff_N_Design;
+extern           int  AX0_s16_Vff_N;
+
+extern           int  AX0_s16_Msq_Vff_N;
+
+extern          long  AX0_s32_Ext_Vel_Coef_Lpf_A1;
+extern          long  AX0_s32_Ext_Vel_Coef_Lpf_A2;
+extern          long  AX0_s32_Ext_Vel_Var_Lpf_Out_Sat;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B0l;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B1l;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B2l;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B0h;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B1h;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_B2h;
+extern           int  AX0_s16_Ext_Vel_Var_Lpf_Bh_Residue_Mask;
+extern           int  AX0_s16_Ext_Vel_Var_Lpf_Bh_Shr;
+extern           int  AX0_s16_Ext_Vel_Var_Lpf_A_Residue_Mask_Lo;
+extern           int  AX0_s16_Ext_Vel_Var_Lpf_A_Residue_Mask_Hi;
+extern           int  AX0_s16_Ext_Vel_Var_Lpf_A_Shr;
+extern           int  AX0_s16_Ext_Vel_Coef_Lpf_Out_Shr;
+
+extern           int  AX0_s16_Anti_Resonant_DC_Fix_Design;
+extern           int  AX0_u16_Anti_Resonant_DC_Shr_Design;
+extern           int  AX0_s16_Anti_Resonant_DC_Output_Fix_Design;
+extern           int  AX0_u16_Anti_Resonant_DC_Output_Shr_Design;
+
+extern  unsigned long AX0_u32_Anti_Resonant_DC_Output_Mask_Lo_Design;
+extern         long   AX0_s32_Anti_Resonant_DC_Output_Mask_Hi_Design;
+extern  unsigned long AX0_u32_Anti_Resonant_DC_Mask_Lo_Design;
+extern          long  AX0_s32_Anti_Resonant_DC_Mask_Hi_Design;
+extern           int  AX0_s16_Clear_Integral_Fix;
+extern  unsigned int  AX0_u16_Clear_Integral_Shr;
+extern          int   AX0_s16_Crrnt_Coef_Kp_Fix;
+extern          int   AX0_s16_Crrnt_Coef_Ki_Fix;
+extern          int   AX0_s16_Crrnt_Coef_Ki_Shr;
+extern          int   AX0_s16_Crrnt_Coef_Kff_Fix;
+extern          int   AX0_s16_Crrnt_Coef_Kp_Kff_Shr;
+extern          int   AX0_s16_Crrnt_Adaptive_Vg_Slope;
+
+extern          int   AX0_s16_Crrnt_Gains_Sum_Fix;
+extern          int   AX0_s16_Crrnt_Gains_Sum_Shr;
+extern          int   AX0_s16_Crrnt_Sum_Kp_Ki_Fix;
+extern          int   AX0_s16_Crrnt_Sum_Kp_Ki_Shr;
+extern          int   AX0_s16_Crrnt_1_Div_Ki_Fix;
+extern          int   AX0_s16_Crrnt_1_Div_Ki_Shr;
+
+//extern          long  AX0_s32_Sl_Tracking_Vel_Int;
+
+extern          int   AX0_s16_Vel_Var_NCT_Scale_Fix;
+extern          int   AX0_s16_Vel_Var_NCT_Scale_Shr;
+extern          long  AX0_s32_NL_Vel_Loop_Cmd_Src;
+extern          int   AX0_s16_Vel_Var_Err;
+extern          long  AX0_s32_Vel_Var_Err;
+
+extern          long  AX0_s32_Ptp_Filter_One_Feedback_Count;
+extern          long  AX0_s32_Tqf_Resolution;
+extern          long  AX0_s32_Tqf_Beta;
+extern  unsigned int  AX0_u16_Tqf_Flag;
+extern          int   AX0_u16_Dynamic_Brake_Integrator;
+
+extern          int   AX0_s16_Icmd_Harmonic_Num_1;
+extern          int   AX0_s16_Icmd_Harmonic_Amp_1;
+extern          int   AX0_s16_Icmd_Harmonic_Phase_1;
+extern          int   AX0_s16_Icmd_Harmonic_Num_2;
+extern          int   AX0_s16_Icmd_Harmonic_Amp_2;
+extern          int   AX0_s16_Icmd_Harmonic_Phase_2;
+extern          int   AX0_s16_Fb_Harmonic_Num_1;
+extern         long   AX0_s32_Fb_Harmonic_Amp_1;
+extern          int   AX0_s16_Fb_Harmonic_Phase_1;
+extern          int   AX0_s16_Fb_Harmonic_Num_2;
+extern         long   AX0_s32_Fb_Harmonic_Amp_2;
+extern          int   AX0_s16_Fb_Harmonic_Phase_2;
+extern          int   AX0_s16_Icmd_Harmonic_Correction;
+extern          long  AX0_s32_Fb_Harmonic_Correction_Act;
+extern          int   AX0_s16_Nct_Icmd;
+
+extern          int   AX0_s16_V_Beta;
+extern          int   AX0_s16_V_Alpha;
+extern long long      AX0_u32_DB_Saturation_Lo;
+extern          int   AX0_s16_DB_Overshoot_Limit;
+extern unsigned long  AX0_u32_1Count_In_32Bits;
+extern unsigned int   AX0_u16_NL_StandStill_Disable;
+extern unsigned int   AX0_u16_Int_Clr_Sample;
+extern unsigned int   AX0_u16_Motor_Comm_Type;
+extern         long   AX0_s32_DecStopTime_1_Over_T_Fix;
+extern unsigned int   AX0_u16_DecStopTime_1_Over_T_Shr;
+//extern           int  AX0_s16_Sl_Vel_Src_Ptr;
+//extern           int  AX0_s16_Sl_Forced_Delta;
+
+extern          long  AX0_s32_Velocity_In_Loop_Fix;
+extern          int   AX0_u16_Velocity_In_Loop_Shr;
+extern          long  AX0_u32_Vel_In_Loop_Half_For_Round_Lo;
+extern          long  AX0_u32_Vel_In_Loop_Half_For_Round_Hi;
+extern          int   AX0_s16_Sl_Bemf_Spd;
+extern          long  AX0_s32_Velocity_Out_Loop_To_User_Fix;
+extern          int   AX0_u16_Velocity_Out_Loop_To_User_Shr;
+extern          long  AX0_u32_Vel_Out_Loop_Half_For_Round_To_User_Lo;
+extern          long  AX0_u32_Vel_Out_Loop_Half_For_Round_To_User_Hi;
+extern          long  AX0_s32_Velocity_Out_Loop_To_Int_Fix;
+extern          int   AX0_u16_Velocity_Out_Loop_To_Int_Shr;
+
+extern          int   AX0_s16_Crrnt_Lpf_Alpha_Fix;
+extern          int   AX0_s16_Crrnt_Lpf_Beta_Fix;
+extern          int   AX0_s16_Dead_Time_Comp;
+extern          int   AX0_s16_Crrnt_Coef_Kp_Shr;
+extern          int   AX0_s16_Crrnt_Coef_Kiv_Fix;
+extern          int   AX0_s16_Crrnt_KiKiv_Shr;
+extern          int   AX0_s16_Crrnt_DT_Comp_Min_Level;
+
+extern unsigned int   AX0_u16_Current_To_User_Shr;
+extern unsigned int   AX0_u16_Current_To_Internal_Shr;
+extern long           AX0_s32_Current_To_User_Fix;
+extern unsigned long  AX0_u32_Current_To_User_Half_For_Round_Lo;
+extern unsigned long  AX0_u32_Current_To_User_Half_For_Round_Hi;
+extern long           AX0_s32_Current_To_Internal_Fix;
+extern unsigned long  AX0_u32_Current_To_Internal_Half_For_Round_Lo;
+extern unsigned long  AX0_u32_Current_To_Internal_Half_For_Round_Hi;
+
+extern unsigned long  AX0_u32_Pos_Buff_Addr;
+extern unsigned int   AX0_u16_Move_Smooth_Mode;
+extern unsigned long  AX0_u32_Move_Smooth_Avg_Num_Design;
+extern unsigned int   AX0_u16_Move_Smooth_Shr_Design;
+extern long           AX0_s32_Move_Smooth_Fix_Design;
+extern unsigned long  AX0_u32_Move_Smooth_Avg_Num;
+extern unsigned int   AX0_u16_Move_Smooth_Shr;
+extern long           AX0_s32_Move_Smooth_Fix;
+extern unsigned int   AX0_u16_Move_Smooth_Aux_Flags;
+
+extern unsigned int   AX0_u16_Pcmd_Lpf_Opmode_Change_Cntr;
+extern unsigned int   AX0_u16_Pcmd_Lpf_Opmode_Change_Init_Val;
+
+extern unsigned long  AX0_u32_FieldBus_Int_Target_Lo;
+extern long           AX0_s32_FieldBus_Int_Target_Hi;
+extern unsigned long  AX0_u32_FieldBus_Int_Lo;
+extern long           AX0_s32_FieldBus_Int_Hi;
+extern unsigned long  AX0_u32_FieldBus_Delta_Int_Lo;
+extern unsigned int   AX0_u16_FieldBus_Residue;
+extern unsigned int   AX0_u16_FieldBus_Delta_Int_Frac;
+extern int            AX0_s16_FieldBus_Int_Index;
+extern unsigned int   AX0_u16_FieldBus_Int_Type;
+extern unsigned int   AX0_u16_FieldBus_Int_Sign;
+
+
+extern unsigned int   AX0_u16_FieldBus_Missing_Cmd_Ctr;
+
+//extern int            AX0_s16_Sl_Klmn_Delta;
+//extern int            AX0_s16_Kalman_E_Pos;
+//extern int            AX0_s16_Sl_Klmn_Int_Pos;
+//extern int            AX0_s16_Kalman_E_Vel;
+
+extern          long  AX0_s32_Pos_Fix_To_User;
+//extern          long  AX0_s32_Sfb_Fix_To_User;
+extern          long  AX0_s32_Mfb_Pos_Fix_To_User;
+extern unsigned long  AX0_u32_Pos_Half_For_Rounding_To_User_Lo;
+extern unsigned long  AX0_u32_Mfb_Pos_Half_For_Rounding_To_User_Lo;
+extern unsigned long  AX0_u32_Pos_Half_For_Rounding_To_User_Hi;
+extern unsigned long  AX0_u32_Sfb_Half_For_Rounding_To_User_Lo;
+extern unsigned long  AX0_u32_Sfb_Half_For_Rounding_To_User_Hi;
+extern unsigned long  AX0_u32_Pos_Fix_To_Internal_Lo;
+extern long           AX0_s32_Pos_Fix_To_Internal_Hi;
+extern unsigned long  AX0_u32_Tmp_Pos_Lo;
+extern long           AX0_s32_Tmp_Pos_Hi;
+extern unsigned long  AX0_u32_FB_One_Rev;
+extern unsigned int   AX0_u16_Pos_Shr_To_User;
+extern unsigned int   AX0_u16_Mfb_Pos_Shr_To_User;
+extern unsigned int   AX0_u16_Pos_Shr_To_Internal;
+
+
+extern unsigned int   AX0_u16_Sfb_Shr_To_User;
+
+extern long long      AX0_s64_RT_To_1mSec_Capture_Pcmd_Raw_Buff[];
+extern int            AX0_s16_RT_To_1mSec_Capture_Pcmd_Raw_Head;
+extern int            AX0_s16_RT_To_1mSec_Capture_Pcmd_Raw_Tail;
+
+extern unsigned int   u16_EtherCat_Pdo_Rx_Activation;
+extern unsigned int   u16_EtherCat_Pdo_Tx_Activation;
+extern unsigned int   u16_EtherCat_Pdo_Rx_Is_Synced;
+extern unsigned int   u16_EtherCat_Pdo_Tx_Is_Synced;
+extern unsigned int   u16_EtherCat_Watchdog;
+extern unsigned int   u16_EtherCat_Spread_Rx_Pdo;
+extern unsigned int   u16_EtherCat_High_Prior_4_Byte_RxPDO;
+extern unsigned int   AX0_u16_Interpolation_Slot_Counter_Mask;
+extern unsigned int   AX0_u16_Interpolation_RX_Slot_Mask;
+extern unsigned int   AX0_u16_Interpolation_RX_Slot_Mask_2;
+extern unsigned int   AX0_u16_Interpolation_TX_Slot_Mask;
+
+extern unsigned int   u16_Input_1;
+
+extern          long  AX0_s32_Out_To_In_Vel_Fix;
+extern  unsigned int  AX0_u16_Out_To_In_Vel_Shr;
+extern  unsigned int  AX0_u16_Inpos;
+extern           int  AX0_s16_Vforced_Torque_Cmd;
+extern  unsigned int  AX0_u16_Lock_Position_Flag;
+extern  unsigned int  AX0_u16_5v_Fault_On_Standstill;
+
+extern  unsigned long AX0_u32_User_Motor_Enc_Res;
+
+extern  unsigned int  AX0_u16_Phase_Disconnect_Phase_Threshold;
+extern          long  AX0_s32_Pos_Vcmd;
+
+extern  unsigned int  AX0_u16_ED_Alarm_Bits;
+extern  unsigned int  AX0_u16_ED_In_Turn_Bits;
+extern  unsigned int  AX0_u16_ED_Turns_Bits;
+
+
+extern int            AX0_s16_Crrnt_Coef_Mem_Shr;
+extern int            AX0_s16_Cl_Tune_Imax;
+extern int            AX0_s16_Cl_Tune_Irise_Time10;
+extern int            AX0_s16_Cl_Tune_Irise_Time90;
+extern int            AX0_s16_Cl_Tune_Imax_Time;
+
+extern  unsigned long AX0_u32_AutoTune_VBL_Thresh;
+
+
+
+extern int            AX0_s16_Pe_Filt_LRdt_Fix_Design;
+extern int            AX0_s16_Pe_Filt_RCdt_Fix_Design;
+extern int            AX0_s16_Pe_Filt_D_Fix_Design;
+extern int            AX0_u16_Pe_Filt_D_Shr_Design;
+extern int            AX0_s16_Pe_Filt_Out_Fix_Design;
+extern int            AX0_s16_Pe_Filt_Out_Shr_Design;
+extern int            AX0_s16_Pos_Polarity;
+extern long           AX0_s32_Pcmd_Offset_Hi;
+extern unsigned long  AX0_u32_Pcmd_Offset_Lo;
+
+
+extern int            AX0_s16_Encoder_Follower2_Ptr;
+extern int            AX0_s16_Encoder_Follower3_Ptr;
+extern long           AX0_s32_Encoder_Follower2_Counter;
+extern long           AX0_s32_Encoder_Follower3_Counter;
+
+extern int            AX0_s16_Hw_Encoder_follower_Ptr;
+
+extern unsigned int   AX0_u16_Sine_Match_Shift;
+extern unsigned int   AX0_u16_Sine_Match_Div;
+extern int            AX0_s16_Sd_Crc_Shl;
+extern unsigned int   AX0_u16_Abs_Crc_Shl;
+extern unsigned int   AX0_u16_EnDat_Msg_Size;
+extern unsigned int   AX0_u16_EnDat_Type_Ind;
+extern unsigned int   AX0_u16_Crc_Consec_Err_Cntr;
+extern unsigned int   AX0_u16_Time_Out_Consec_Err_Cntr;
+extern unsigned int   AX0_u16_Com_Enc_Xmt_Length;
+extern unsigned int   AX0_u16_Com_Enc_Xmt_Length, AX0_u16_Com_Enc_Xmt_Length_2;
+extern unsigned int   AX0_u16_Com_Enc_Xcv_Length, AX0_u16_Com_Enc_Xcv_Length_2;
+extern unsigned int   AX0_u16_Crc_Table_Select;
+
+//extern int            AX0_s16_Sl_Speed_Phase_Adv_Slope_1_Fix;
+//extern unsigned int   AX0_u16_Sl_Speed_Phase_Adv_Slope_1_Shr;
+//extern int            AX0_s16_Sl_Speed_Phase_Adv_Slope_2_Offset;
+//extern int            AX0_s16_Sl_Speed_Phase_Adv_Slope_2_Fix;
+//extern unsigned int   AX0_u16_Sl_Speed_Phase_Adv_Slope_2_Shr;
+
+//extern          int   AX0_s16_Sl_Saliency_Cos_Gain_Fix;
+//extern          int   AX0_s16_Sl_Saliency_Cos_Gain_Shr;
+//extern          int   AX0_s16_Sl_Saliency_Sin_Gain_Fix;
+//extern          int   AX0_s16_Sl_Saliency_Sin_Gain_Shr;
+//extern          int   AX0_s16_Sl_Saliency_Cos_Gain_Fix_Design;
+//extern          int   AX0_s16_Sl_Saliency_Cos_Gain_Shr_Design;
+//extern          int   AX0_s16_Sl_Saliency_Sin_Gain_Fix_Design;
+//extern          int   AX0_s16_Sl_Saliency_Sin_Gain_Shr_Design;
+
+//extern long           AX0_s32_Sl_Calibration_Sin_Max;
+//extern long           AX0_s32_Sl_Calibration_Sin_Min;
+//extern long           AX0_s32_Sl_Calibration_Cos_Max;
+//extern long           AX0_s32_Sl_Calibration_Cos_Min;
+//extern int            AX0_s16_Sl_Saliancy_Gain_Offset_State;
+//extern int            AX0_s16_Sl_Saliancy_Elect_Angle_Cycles;
+
+
+extern int            AX0_AutoTune_Bits;
+
+extern          int  AX0_s16_CAN_Dig_Out_Changed_Flag;
+extern          long AX0_s32_CAN_Dig_Out;
+
+extern unsigned long  u32_CAN_ISR_Time_Stamp;
+extern unsigned long  u32_CAN_Sync_Time_Stamp;
+
+extern unsigned long  u32_CAN_MTS_Time_Stamp;
+extern unsigned long  u32_CAN_Sync_250us_Length;
+extern unsigned long  u32_CAN_Sync_MTS_Cntr;
+
+extern unsigned int   u16_CAN_MTS_Flag;
+extern unsigned int   u16_CAN_Sync_Flag;
+
+extern         long  AX0_s32_Pwm_Half_Period_Sqr;
+extern         long  AX0_s32_Pwm_Half_Period_Sqr_Shifted;
+extern          int  AX0_s16_Pwm_Sat_Shr;
+
+extern unsigned int  AX0_u16_FieldBus_Int_Time;
+extern unsigned int  AX0_u16_FieldBus_Int_Time_3;
+extern unsigned int  AX0_u16_FieldBus_Int_n;
+extern unsigned int  AX0_u16_FieldBus_Int_Mode;
+extern unsigned int  AX0_u16_FieldBus_Cubic_Msg_Flag;
+extern unsigned int  AX0_u16_FieldBus_Cubic_Int_Depth;
+extern unsigned long AX0_u32_FieldBus_Int_Prev_Target_Lo_1;
+extern long AX0_s32_FieldBus_Int_Prev_Target_Hi_1;
+extern unsigned long AX0_u32_FieldBus_Int_Prev_Target_Lo_2;
+extern long AX0_s32_FieldBus_Int_Prev_Target_Hi_2;
+extern unsigned long AX0_u32_FieldBus_Int_Prev_Target_Lo_3;
+extern long AX0_s32_FieldBus_Int_Prev_Target_Hi_3;
+//extern unsigned long AX0_u32_FieldBus_Int_Linear_Prev_Target_Lo_2;
+extern long AX0_s32_FieldBus_Int_Linear_Prev_Target_Hi_2;
+
+
+extern unsigned long AX0_u32_FieldBus_Int_2Vel_Lo;
+extern unsigned long AX0_u32_FieldBus_Int_Current_Target_Lo;
+extern unsigned long AX0_u32_FieldBus_Int_Prev_2Vel_Lo;
+extern unsigned long AX0_u32_FieldBus_Int_d_tmp_Lo;
+extern unsigned long AX0_u32_FieldBus_Int_Current_Target_tmp_Lo;
+extern unsigned long AX0_u32_FieldBus_Int_d_Lo;
+
+extern         long  AX0_s32_FieldBus_End_Vel;
+extern         float AX0_f_FieldBus_Int_a_tmp;
+extern         float AX0_f_FieldBus_Int_b_tmp;
+extern         float AX0_f_FieldBus_Int_c_tmp;
+extern         long  AX0_s32_FieldBus_End_Vel_tmp;
+extern         float AX0_f_FieldBus_Int_a;
+extern         float AX0_f_FieldBus_Int_b;
+extern         float AX0_f_FieldBus_Int_c;
+extern         float AX0_f_One_Over_N;
+extern         float AX0_f_One_Over_N2;
+extern         float AX0_f_One_Over_N3;
+extern         float AX0_f_dt_to_dT;
+extern         float AX0_f_dt_to_dT2;
+extern         float AX0_f_dt_to_dT3;
+
+extern unsigned int  AX0_u16_FieldBus_Int_change_counter;
+
+
+
+extern          int  AX0_s16_Nl_Vel_Lim;
+
+//extern          int  AX0_s16_Sl_Cos_Tracking_Act_Max;
+//extern          int  AX0_s16_Sl_Sin_Tracking_Act_Max;
+
+extern          int  AX0_u16_Gear_In_Mode_HWPEXT_Shr;
+extern          int  AX0_s16_Hwpext_Value;
+extern          int  AX0_s16_Elect_Pos_Prev;
+extern unsigned long AX0_u32_Gantry_Alignment_Captured_Diff_Lo;
+extern long          AX0_s32_Gantry_Alignment_Captured_Diff_Hi;
+extern unsigned long AX0_u32_Gantry_Alignment_Max_Diff_Lo;
+extern long          AX0_s32_Gantry_Alignment_Max_Diff_Hi;
+extern unsigned long AX0_u32_Gantry_Alignment_Min_Diff_Lo;
+extern long          AX0_s32_Gantry_Alignment_Min_Diff_Hi;
+extern unsigned int AX0_u16_Gantry_Pcmd_Manipulation_Mode_Request;
+extern unsigned int AX0_u16_Gantry_Pcmd_Manipulation_Mode;
+extern long AX0_s32_Gantry_Pcmd_Manipulation_Vcmd;
+extern unsigned int AX0_u16_Gantry_Y1_Sat_Counter;
+extern unsigned int AX0_u16_Gantry_Y2_Sat_Counter;
+extern int AX0_s16_Gantry_Alignment_Ilim;
+extern unsigned int AX0_u16_Gantry_Rx_Fifo_Frames_Discarded;
+
+extern unsigned int AX0_u16_Gantry_Rx_SD_Service_Send;
+extern unsigned int AX0_u16_Gantry_Tx_SD_Service_Send;                    
+extern unsigned int AX0_u16_Gantry_Rx_SD_Service_Receive;
+extern unsigned int AX0_u16_Gantry_Tx_SD_Service_Receive;
+extern unsigned int AX0_u16_Gantry_Rx_SD_Drive_Status;
+extern unsigned int AX0_u16_Gantry_Tx_SD_Drive_Status;
+extern long  AX0_s32_Gantry_Jog_Request_Velocity_Rx;
+extern long  AX0_s32_Gantry_Jog_Request_Acc_Rx;
+extern long  AX0_s32_Gantry_Jog_Request_Velocity_Tx;
+extern long  AX0_s32_Gantry_Jog_Request_Acc_Tx;
+
+extern unsigned int AX0_u16_Gantry_Tx_SD_GP_Frame_01;
+extern unsigned int AX0_u16_Gantry_Tx_SD_GP_Frame_02;
+extern unsigned int AX0_u16_Gantry_Tx_SD_GP_Frame_03;
+extern unsigned int AX0_u16_Gantry_Tx_SD_GP_Frame_04;
+
+extern unsigned int AX0_u16_Gantry_Rx_SD_GP_Frame_01;
+extern unsigned int AX0_u16_Gantry_Rx_SD_GP_Frame_02;
+extern unsigned int AX0_u16_Gantry_Rx_SD_GP_Frame_03;
+extern unsigned int AX0_u16_Gantry_Rx_SD_GP_Frame_04;
+
+extern unsigned int AX0_u16_Gantry_Status_Variable;
+extern unsigned int AX0_u16_Gantry_Status_Latched_Err_Bits;
+extern unsigned int AX0_u16_Nl_Vf2_Mode;
+extern int AX0_s16_Gantry_Control_Icmd_Sat_Offset_Hi;
+extern int AX0_s16_Gantry_Control_Icmd_Sat_Offset_Lo;
+
+
+extern unsigned long AX0_u32_SrvSns_RequestFrameArray[];
+extern unsigned long AX0_u32_SrvSns_PacketPtr;
+extern unsigned long AX0_u32_SrvSns_SubModeDataPtr;
+extern unsigned long AX0_u32_SrvSns_Abs_Pos_Raw;
+extern unsigned long AX0_s32_SrvSns_Velocity_Raw;
+extern unsigned int  AX0_u16_SrvSns_Status_Field;
+extern unsigned int  AX0_u16_SrvSns_MBX_Header;
+extern unsigned long AX0_u32_SrvSns_MBX_ValBuffer;
+extern unsigned int  AX0_u16_SrvSns_MBX_AddrBuffer;
+extern unsigned int  AX0_u16_SrvSns_PacketCntr;
+extern unsigned int  AX0_u16_SrvSns_ReqPacketCntr;
+extern unsigned int  AX0_u16_SrvSns_Enc_Command_Frame1;
+extern unsigned int  AX0_u16_SrvSns_Enc_Command_Frame2;
+extern unsigned int  AX0_u16_SrvSns_FWStatus;
+extern unsigned long AX0_u32_SrvSns_SubModeData;
+extern unsigned int  AX0_u16_SrvSns_Enc_Word0;
+
+extern unsigned long AX0_u32_BiSSC_RegCmdFrame[];
+extern unsigned long AX0_u32_BiSSC_ResponseCmdFrame;
+extern unsigned long AX0_u32_BiSSC_Abs_Pos_Raw;
+extern unsigned int  AX0_u16_BiSSC_RTMBX_Control;
+extern unsigned int  AX0_u16_BiSSC_CDMCntr;
+extern unsigned int  AX0_u16_BiSSC_AppData;
+
+extern unsigned long AX0_u32_Max_Speed_Encoder_Simul;
+
+extern  unsigned int   AX0_u16_Vel_Moving_Average_Buffer_Depth;
+extern           int   AX0_s16_Vel_Moving_Average_Init_Cntr;
+extern           int   AX0_s16_Vel_Moving_Average_Init_Value;
+extern  unsigned int   AX0_u16_Vel_Moving_Average_Shift_Right;
+extern  long           AX0_s32_Vel_Moving_Average_Fix;
+extern  unsigned long  AX0_u32_Ptp_Pos_Buff_Addr_Vel_Dp6;
+extern  unsigned long  AX0_s32_Vel_Moving_Average_Sum;
+extern  int            AX0_s16_Pre_Pos_Input_Ptr;
+extern  unsigned long  AX0_u32_Gear_Not_Lim_Pos_Lo;
+extern  unsigned long  AX0_u32_Pos_Cmd_Ptp_Lo;
+extern  unsigned int   AX0_u16_P3_06_SDI; // SDI (P3-06)
+extern  unsigned int   AX0_u16_P4_07_ITST; // ITST (P4-07)
+extern  unsigned int   AX0_u16_LX28_LS_Location; // save the LS location for LX28/26
+extern  unsigned int   AX0_u16_Stopped_Out_Mask;
+extern  unsigned int   AX0_u16_P4_07_Read;
+
+extern           int   AX0_s16_Knld_62_5_Enable;
+extern  unsigned long  AX0_u32_PE_Extremum_Cntr;
+
+extern  unsigned int   u16_RS485_Tx_Enable_Request;
+extern  unsigned int   u16_RS485_Tx_Enable_Ext_Time;
+
+extern  unsigned int   u16_RT_OL_Status_Bits;
+extern  unsigned int   u16_RT_OL_Counter;
+
+extern           int   AX0_s16_Nct_Icmd_Max;
+
+extern           int   AX0_s16_PA_Cal_Bits;
+extern     long long   AX0_u32_Abs_Icmd_Acc_Lo;
+extern  unsigned int   AX0_u16_Move_Smooth_Source;
+
+extern unsigned int AX0_s16_Qep_Msq_Fltr_Alpha1_Factor_Shr;
+extern unsigned int AX0_s16_Qep_Msq_Fltr_Alpha1_Factor_Shr_Design;
+extern int          AX0_s16_Qep_Msq_Fltr_Alpha1_Factor_Design;
+
+extern unsigned long AX0_u32_At_Control_Effort_Tresh;
+extern unsigned long AX0_u32_At_Control_Effort_Max;
+extern unsigned long AX0_u32_At_Control_Effort;
+extern long long  AX0_u32_At_Cost_Function_Lo;
+extern long long  AX0_u32_At_Final_Cost_Lo;
+extern       int    AX0_s16_Cycle_Dir;
+
+extern       int    AX0_s16_At_Cost_Stand_Scale;
+extern       int    AX0_s16_At_Cost_Move_Scale;
+
+extern long long    AX0_u32_Pos_Tune_Pe_OverShoot_Lo;
+extern       int    AX0_s16_Cycle_Bits;
+extern          int* AX0_s32_Crrnt_Lp_Inp_Ptr_Design;
+extern           int AX0_s16_Opmode_Change_Flags;
+extern           int AX0_s16_Pos_Loop_Vcmnd_Ptr_Design;
+extern           int AX0_s16_Vel_Loop_Cmnd_Ptr_Design;
+extern           int AX0_s16_Acc_Dec_Cmnd_Ptr_Design;
+extern           int AX0_s16_Weight_Comp_Source_Ptr_Design;
+extern           int AX0_s16_Pos_Loop_Acccmnd_Ptr_Design;
+extern           int AX0_s16_Hold_Pos_Acccmnd_Ptr_Design;
+extern           int AX0_s16_Pre_Pos_Input_Ptr_Design;
+extern           int AX0_s16_KPAFR_Source_Ptr_Design;
+extern           int AX0_s16_KPVFR_Source_Ptr_Design;
+extern           int AX0_s16_HP_Pos_Loop_Vcmnd_Ptr_Store_Design;
+extern           int AX0_s16_Pre_Pos_Input_Ptr_Store_Design;
+extern           int AX0_s16_Pre_Pos_Input_Ptr_Store;
+
+extern unsigned int AX0_u16_Position_Modulo_Active;
+extern unsigned long AX0_u32_Counts_Per_Rev_For_Mod_Lo;
+extern long AX0_s32_Position_Modulo_Low_Limit_Hi;
+extern unsigned long AX0_u32_Position_Modulo_Low_Limit_Lo;
+extern long AX0_s32_Position_Modulo_Range_Hi;
+extern unsigned long AX0_u32_Position_Modulo_Range_Lo;
+extern unsigned long AX0_u32_Pfb_Mod_Scale_Fix;
+extern int           AX0_s16_Pfb_Mod_Scale_Shr;
+extern unsigned long AX0_u32_Pfb_Counts_Mod_Mem_Update_Lo;
+extern unsigned long AX0_u32_Rev_In_Mod_Range;
+
+extern long          AX0_s32_Pfb_Internal_After_Mod_Hi;
+extern unsigned long AX0_u32_Pfb_Internal_After_Mod_Lo;
+extern long          AX0_s32_Sfb_Encres_Fix;
+extern unsigned int  AX0_u16_Sfb_Encres_Shr;
+extern long          AX0_u32_User_Sec_Enc_Res;
+extern int           AX0_s16_Encres_Fix_Ptr;
+extern unsigned int  AX0_u16_Encres_Shr_Ptr;
+
+extern long          AX0_s32_Pcmd_Internal_After_Mod_Hi;
+extern unsigned long AX0_u32_Pcmd_Internal_After_Mod_Lo;
+extern int           AX0_s16_StandStill_Counter;
+// to be removed after testing
+//extern int           AX0_s16_AT_Safe_Window_Cntr;
+extern unsigned int  AX0_u16_Use_Linear_Vel;
+extern unsigned int  AX0_u16_Use_Position_Loop;
+extern unsigned int  AX0_u16_Axis_To_Axis_Bg_Word_Num;
+extern unsigned int  AX0_u16_At_Cost_Pe_Noise_Mask;
+
+extern long          AX0_s32_Pos_Vcmd_Tresh;
+extern int           AX0_s16_Extrn_Icmd_FF;
+extern int           AX0_s16_Extrn_Vcmd_FF;
+
+extern int           AX0_s16_Antivib3_LRdt_Fix_Design;
+extern int           AX0_s16_Antivib3_RCdt_Fix_Design;
+extern int           AX0_s16_Antivib3_D_Fix_Design;
+extern unsigned int  AX0_u16_Antivib3_D_Shr_Design;
+extern int           AX0_s16_Antivib3_C_Out_Fix_Design;
+extern int           AX0_s16_Antivib3_R_Out_Fix_Design;
+extern unsigned int  AX0_u16_Antivib3_C_Out_Shr_Design;
+extern unsigned int  AX0_u16_Antivib3_R_Out_Shr_Design;
+extern int           AX0_s16_Antivib3_Vl_Fix_Design;
+extern unsigned int  AX0_u16_Antivib3_Vl_Shr_Design;
+extern unsigned int  AX0_u16_Antivib3_Out_Shr_Design;
+
+extern int           AX0_s16_Pext_Fdbk_Ptr;
+extern int           AX0_s16_Pext_Fdbk_Flag;
+extern long          AX0_u32_Pext_Fdbk_User_Lo;
+extern long          AX0_s32_Pext_Fdbk_User_Hi;
+extern long          AX0_s32_Pext_Scale_Fix;
+extern int           AX0_s16_Pext_Scale_Shr;
+extern long          AX0_s32_Sfb_Vel_Var_Fb_0;
+extern unsigned long AX0_u32_Sfb_Pos_Fdbk_Offset_Lo;
+extern long          AX0_s32_Sfb_Pos_Fdbk_Offset_Hi;
+extern int           AX0_s16_Pe_Scale_Factor_Limit_Design;
+extern int           AX0_s16_Pe_Scale_Factor_Fault;
+
+extern int           AX0_s16_Pwm_Sat_Flag;
+
+extern unsigned int  AX0_u16_IPM_OT_DC_Enable;
+extern unsigned int  AX0_u16_IPM_OT_On_Time;
+extern unsigned int  AX0_u16_IPM_OT_Cycle_Time;
+extern unsigned int  AX0_u16_IPM_OT_Counter;
+
+extern int           AX0_s16_FWeak_Gain_Fix;
+
+extern int           AX0_s16_Crrnt_Cmnd_Damping_Slope_Design;
+extern unsigned int  AX0_u16_Res_Filt;
+
+extern unsigned int  AX0_u16_Motor_Stopped_Flags;
+extern unsigned int  AX0_u16_Motor_Stopped;
+
+extern int           AX0_AutoTune_Effort_Gain;
+
+extern unsigned long AX0_u32_Cumul_TO_Err_Cntr;
+extern unsigned long AX0_u32_Cumul_Crc_Err_Cntr;
+
+extern unsigned long AX0_u32_Zclamp_PFB_Capture_Lo;
+extern long          AX0_s32_Zclamp_PFB_Capture_Hi;
+
+extern int           AX0_S16_Kc_Mode;
+
+extern int           AX0_s16_Ggacc_nlp_Fix_Design;
+extern int           AX0_s16_Ggacc_nlp_Shr_Design;
+
+extern int           AX0_s16_Bus_Comp;
+extern int           AX0_s16_Global_Gain_nlp;
+
+extern int           AX0_s16_Zero_Position;
+
+extern unsigned int  AX0_u16_OV_Exists;
+
+extern unsigned int  AX0_u16_Unstable_CL_Cntr;
+
+extern unsigned long AX0_u32_Abs_Icmd_ACC_Cntr;
+extern long          AX0_s32_Vm;
+
+extern unsigned int  AX0_u16_Phase_Discon_Err_Sigma;
+extern long          AX0_u32_Max_Time_Stamp_Period;
+extern long          AX0_u32_Min_Time_Stamp_Period;
+extern unsigned int AX0_u16_First_Time_Stamp_Location;
+extern unsigned int AX0_u16_Second_Time_Stamp_Location;
+extern unsigned int AX0_u16_MtsIsr_TimeStamp_Iteration;
+
+extern unsigned int           AX0_u16_Com_Mode1;
+extern unsigned int AX0_u16_Is_Eeprom_Copied_Between_Fpgas;
+
+
+extern int           AX0_s16_AW_nlp_Fix_Design;
+extern int           AX0_s16_AW_nlp_Shr_Design;
+
+extern int           AX0_s16_Kvff_Kd_Part_nlp_Fix_Design;
+extern int           AX0_s16_Kvff_Kd_Part_nlp_Shr_Design;
+extern int           AX0_s16_AW_VFF_nlp_Fix_Design;
+extern int           AX0_s16_AW_VFF_nlp_Shr_Design;
+extern int           AX0_s16_AW_Vc_nlp_Fix_Design;
+extern int           AX0_s16_AW_Vc_nlp_Shr_Design;
+
+extern int           AX0_u16_Corr_Cal_U_Acc;
+extern int           AX0_u16_Corr_Cal_V_Acc;
+extern long          AX0_u32_Temp_Captured_Pfb_Lo;
+extern unsigned long AX0_u32_BiSSC_MT_ST_Length_Resolution;
+extern unsigned long AX0_u32_BiSSC_MT_ST_Length;
+extern int           AX0_s16_I_Sat_Nl_Aw_Fix;
+
+extern unsigned int  AX0_u16_Pure_Kd_nlp_Fix_Design;
+extern int           AX0_s16_Pure_Kd_nlp_Shr_Design;
+
+extern int           AX0_s16_Antivib3_C_Out_Inv_Fix;
+extern int           AX0_s16_Antivib3_C_Out_Inv_Shr;
+
+extern int           AX0_s16_Nl_Settle_Mode;
+
+extern long          AX0_s32_Fric_Hyst_Neg;
+extern long          AX0_s32_Fric_Hyst_Pos;
+
+extern unsigned long AX0_u32_Pos_Fdbk_Before_Err_Cor_Lo;
+extern unsigned long AX0_u32_Pos_Fdbk_Before_Err_Cor_After_Mod_Lo;
+extern unsigned long AX0_u32_Error_Correction_Minimum_Index_Position_Lo;
+extern unsigned long AX0_u32_Error_Correction_Maximum_Index_Position_Lo;
+extern unsigned long AX0_u32_Error_Correction_Minimum_Index_Position_After_Neg_Mod_Rol_Lo;
+extern unsigned long AX0_u32_Error_Correction_Maximum_Index_Position_After_Neg_Mod_Rol_Lo;
+extern unsigned long AX0_u32_Error_Correction_Minimum_Index_Position_After_Pos_Mod_Rol_Lo;
+extern unsigned long AX0_u32_Error_Correction_Maximum_Index_Position_After_Pos_Mod_Rol_Lo;
+extern unsigned long AX0_u32_Error_Correction_Interval_Lo;
+extern int	AX0_s16_Error_Correction_Index_After_Neg_Mod_Rol;
+extern int	AX0_s16_Error_Correction_Index_After_Pos_Mod_Rol;
+extern unsigned int  AX0_s16_Modulo_Active_Flags;
+extern long AX0_s32_Err_Cor_Internal_Error_Table_Ptr;
+extern long AX0_s32_Err_Cor_Actual_Position_Table_Ptr;
+extern long AX0_s32_Err_Cor_Linear_Slope_Coefficient_Table_Ptr;
+extern long AX0_s32_Err_Cor_Interpolation_Error_Table_Ptr;
+extern int  AX0_s16_Error_Correction_State;
+extern unsigned int  u16_Flash_Page;
+extern unsigned int  u16_Flash_Read_Request;
+extern unsigned int  u16_Flash_Read_Value;
+extern unsigned long u32_Flash_Addr;
+
+extern long          AX0_s32_Pos_Vcmd_Sine;
+
+
+extern int           AX0_s16_Observer_Acc_Factor_Fix;
+extern int           AX0_s16_Observer_Acc_Factor_Shr;
+extern int           AX0_s16_Observer_Gain_Spd_Fix;
+extern int           AX0_s16_Observer_Gain_Spd_Shr;
+extern int           AX0_s16_Observer_Gain_Acc_Fix;
+extern int           AX0_s16_Observer_Gain_Acc_Shr;  
+extern int           AX0_s16_Observer_Gain_Acc_Out_Shr;
+extern int           AX0_s16_Observer_Pos_Scale_Fix;
+extern int           AX0_s16_Observer_Pos_Scale_Shr;
+extern long          AX0_s32_Observer_Acc;
+extern long          AX0_s32_Observer_Spd;
+extern long          AX0_u32_Observer_Pfb_Lo;
+extern int           AX0_s16_Observer_V_Scale_Fix;
+extern int           AX0_s16_Observer_V_Scale_Shr;
+extern int           AX0_s16_Knld_Source_Mode;
+extern int           AX0_s16_Observer_Vel_Var_Fb_0;
+
+extern int           AX0_s16_KPAFRC_Linear_Vel_Loop_Fix_Design;  
+extern int           AX0_s16_KPAFRC_Linear_Vel_Loop_Shr_Design; 
+extern unsigned int  u16_Pwm_50_Percent;
+extern unsigned int  AX0_u16_Pos_Loop_Tsp;   
+extern unsigned int  AX0_u16_Enc_Follower_Mode;
+extern int           AX0_s16_2ndQep; 
+extern int           AX0_s16_2ndQep_Prev;
+extern int           AX0_s16_One_Dir_Gear_DB_Limit_Value;
+extern int           AX0_s16_2ndQep_Original;
+extern int           AX0_s16_Delta_Qeps_At_Start;
+extern int           AX0_s16_One_Dir_Gear_DB_Value;
+extern int           AX0_s16_One_Dir_Gear_DB_Limit_Value;
+
+extern int           AX0_s16_Observer_Acc_Scale_Fix;
+extern int           AX0_s16_Observer_Acc_Scale_Shr;
+
+extern unsigned int  AX0_u16_Gantry_Mode;
+extern unsigned long AX0_u32_Gantry_Control_Status_Bits;
+
+extern unsigned long AX0_u32_Gantry_Control_Prev_Partner_Axis_Pfb_Lo;
+extern unsigned long AX0_u32_Gantry_Control_Partner_Axis_Pfb_Lo;
+extern long          AX0_s32_Gantry_Control_Partner_Axis_Pfb_Hi;
+extern long          AX0_s32_Gantry_Partners_Axis_Velocity_8khz;
+extern int           AX0_s16_Gantry_Partners_Axis_Icmd;
+extern unsigned long AX0_u32_Gantry_Control_Mstr_Pfb_Lo;
+extern long          AX0_s32_Gantry_Control_Mstr_Pfb_Hi;
+
+extern unsigned long AX0_u32_Gantry_Control_Diff_Pfb_Lo;
+extern long          AX0_s32_Gantry_Control_Diff_Pfb_Hi;
+
+extern unsigned long  AX0_u32_Gantry_Delta_Home_Offset_To_Send_Lo;
+extern unsigned long  AX0_s32_Gantry_Delta_Home_Offset_To_Send_Hi;
+        
+//extern long AX0_s32_Pos_Loop_Pfb_Info_Lo_Delta;
+extern int AX0_s16_Gantry_Control_Diff_Icmd;
+extern int AX0_s16_Gantry_Control_Mstr_Icmd;
+
+extern int AX0_s16_Pos_Loop_Pfb_Ptr;
+extern unsigned long AX0_u32_Pos_Loop_Pfb_Info_Lo;
+extern long AX0_s32_Pos_Loop_Pfb_Info_Hi;
+
+extern long AX0_s32_Gantry_Control_Mstr_Vfb;
+extern long AX0_s32_Gantry_Control_Diff_Vfb;
+
+extern unsigned int AX0_u16_Gantry_Consecutive_Parity_Errors_Icmd;
+extern unsigned int AX0_u16_Gantry_Periodic_Parity_Errors_Icmd;
+extern unsigned int AX0_u16_Gantry_Consecutive_Parity_Errors_Pfb;
+extern unsigned int AX0_u16_Gantry_Periodic_Parity_Errors_Pfb;
+extern unsigned int AX0_u16_Gantry_Consecutive_Parity_Errors_Service_Frames;
+extern unsigned int AX0_u16_Gantry_Periodic_Parity_Errors_Service_Frames;
+extern unsigned int AX0_u16_Gantry_Consecutive_Timeout_Errors_Icmd;
+extern unsigned int AX0_u16_Gantry_Periodic_Timeout_Errors_Icmd;
+extern unsigned int AX0_u16_Gantry_Consecutive_Timeout_Errors_Pfb;
+extern unsigned int AX0_u16_Gantry_Periodic_Timeout_Errors_Pfb;
+extern unsigned int AX0_u16_Gantry_Consecutive_Timeout_Errors_Service_Frames;
+extern unsigned int AX0_u16_Gantry_Periodic_Timeout_Errors_Service_Frames;
+
+// Fix IPR#1396: handle ZSPD in RT all output writtings to FPGA moved to RT.
+// The 16 bit to be written to the "control & machine outputs" FPGA address
+extern unsigned int AX0_u16_Output_Control_Machine;
+
+// ZSPD output variables
+// Save the output number that ZSPD assign to and indicate if this output is forced or not.
+// Bit0 - Bit4: ZSPD output assignment
+// Bit5 - Bit9: ZSPD output polarity
+//        Bit10: Force output condition
+//        Bit11: The ZSPD ON/OFF unconditional state
+extern unsigned int AX0_s16_ZSPD_Out_Num_Forced;
+
+// ZSPD Low Pass Filter shr
+extern unsigned int AX0_u16_ZSPD_Lpf_Shr;
+
+// ZSPD Low Pass Filter Alpha & Beta Variables.
+extern unsigned int AX0_u16_ZSPD_Lpf_Alpha;
+extern unsigned int AX0_u16_ZSPD_Lpf_Beta;
+
+//Fix IPR#1321: use caommand after ACC/DEC limit instead of user command.
+extern int AX0_s16_NL_Vel_Loop_Cmnd;
+
+extern int AX0_s16_Vbus_RT_Factor;
+// TPOS output variables
+// Save the output number that TPOS assign to and indicate if this output is forced or not.
+// Bit0 - Bit4: TPOS output assignment
+// Bit5 - Bit9: TPOS output polarity
+//        Bit10: Force output condition
+//        Bit11: The TOS ON/OFF unconditional state
+extern unsigned int AX0_s16_TPOS_Out_Num_Forced;
+
+
+extern int AX0_s16_An_In_1_Before_Msq;
+
+extern long long AX0_u32_Delayed_Pos_Err_Lo;
+extern int AX0_s16_Delayed_Pos_Err_Delay_Time_ms;
+extern unsigned int AX0_u16_Use_Separate_D_Integrator;
+
+extern int AX0_s16_KivKi_Switch_Bits;
+
+extern long long      AX0_u32_Motor_Stopped_Threshold_Lo;
+extern unsigned int   AX0_u16_Motor_Stopped_Time_ms;
+
+extern int AX0_s16_Dual_Loop_Kp_Fix_Design;
+extern int AX0_s16_Dual_Loop_Kp_Shr_Design;
+extern int AX0_s16_Dual_Loop_Vff_Fix_Design;
+extern int AX0_s16_Dual_Loop_Vff_Shr_Design;
+extern int AX0_s16_Dual_Loop_AFF_Fix_Design;
+extern int AX0_s16_Dual_Loop_AFF_Shr_Design;
+extern int AX0_s16_Dual_Loop_LinearVel_Scale_Fix_Design;
+extern int AX0_s16_Dual_Loop_LinearVel_Scale_Shr_Design;
+
+
+extern unsigned long AX0_u32_Counts_Per_Rev;
+extern unsigned long AX0_u32_Counts_Per_Rev_Half;
+extern unsigned long AX0_u32_Counts_Per_Rev_2;
+extern unsigned long AX0_u32_Counts_Per_Rev_Half_2;
+extern unsigned long AX0_u32_Pfb_Scale_Fix, AX0_u32_Pfb_Scale_Fix_2;
+extern unsigned int  AX0_u16_Pfb_Scale_Shr, AX0_u16_Pfb_Scale_Shr_2;
+extern unsigned int  AX0_u16_FPGA_TxRx_Regs_PFB;
+extern unsigned int  AX0_u16_FPGA_TxRx_Regs_SFB;
+extern unsigned int  AX0_u16_FPGA_Base_Regs_PFB;
+extern unsigned int  AX0_u16_FPGA_Base_Regs_SFB;
+extern unsigned int  AX0_u16_Dual_Loop_PFB_Ptr;
+extern unsigned int  AX0_u16_Dual_Loop_Control_Bits;
+extern unsigned long AX0_u32_Dual_Loop_Pe_Lo;
+extern long          AX0_s32_Dual_Loop_Pe_Hi;
+extern long          AX0_s32_Dual_Loop_Vcmd;
+extern unsigned long AX0_u32_Pos_Err_Lo;
+extern long          AX0_s32_Pos_Err_Hi;
+
+extern unsigned int AX0_u16_Motor_Params_Detection_Process;
+extern unsigned int AX0_u16_Motor_Params_Est_U_PWM;
+extern unsigned int AX0_u16_Motor_Params_Est_VW_PWM;
+extern int AX0_s16_Current_Derive_Mts_Gap;
+extern int AX0_s16_Previous_Iu;
+extern int AX0_s16_Iu_Derivative;
+extern int AX0_s16_Iu_Derivative_Acumulator;
+extern int AX0_s16_Motor_Params_Est_Current_Stable;
+extern int AX0_s16_Motor_Params_Est_Current_Stability_TH;
+extern int AX0_s16_Motor_Params_Est_Current_To_Capture;
+extern int AX0_s16_Motor_Params_Est_Captured_Current;
+extern int AX0_s16_Motor_Params_Est_Tau;
+extern int AX0_s16_Motor_Params_Est_Captured_Current_Derivaitve;
+extern int AX0_s16_Motor_Params_Est_Derive_Min_Noise;
+extern int AX0_s16_Motor_Params_Est_Derive_Max_Noise;
+extern int AX0_s16_Iu_Filterd_Derivative;
+extern int AX0_s16_Iu_Filter_Derivative_Coef_A;
+extern int AX0_s16_Iu_Filter_Derivative_Coef_B;
+extern long AX0_s32_Motor_Params_Est_Avg_Steady_State_Curernt_Acc;
+
+extern unsigned int u16_Analogue_Lo_Sample_Rate;
+extern int AX0_s16_MTS_Task_Ptr;
+extern int MTS_1_TASKS;
+extern int AX0_u16_Gantry_Init_Ptr;
+extern int GANTRY_INIT_SECTION_END;
+
+extern int AX0_s16_Dual_Loop_LinearVel_Scale_Residue_Mask_Lo;
+extern int AX0_s16_Dual_Loop_LinearVel_Scale_Residue_Mask_Hi;
+
+extern unsigned int u16_Analogue_Debug;
+
+
+extern unsigned long    AX0_u32_Error_Correction_Minimum_Active_Position_Lo;
+extern long             AX0_s32_Error_Correction_Minimum_Active_Position_Hi;
+extern unsigned long    AX0_u32_Error_Correction_Maximum_Active_Position_Lo;
+extern long             AX0_s32_Error_Correction_Maximum_Active_Position_Hi;
+extern int              AX0_s16_Error_Correction_Current_Index;
+extern int              AX0_s16_Error_Correction_Minimum_Active_Index;
+extern long             AX0_s32_Error_Correction_Interval_Hi;
+extern unsigned long    AX0_u32_Error_Correction_Interval_Lo;
+
+extern long             AX0_s32_Error_Correction_Start_Pos_Hi;
+extern unsigned long    AX0_u32_Error_Correction_Start_Pos_Lo;
+
+extern unsigned int AX0_u16_Current_MTS;
+extern unsigned int AX0_u16_Skip_Phase_Disconnect_Detect;
+
+
+extern unsigned int AX0_u16_ARM_INDEX_CAPTURE_flag;
+
+extern int AX0_s16_Move_Sine_Exec_Delay_Mask; // MOVESINE BZ #8299
+extern unsigned int AX0_u16_Shift_Counter_PCM;
+
+extern int              AX0_s16_ATV_Output_Cntr;
+extern long             AX0_s32_ATV_Output;
+extern long             AX0_s32_Delta_Delta_Pos_Cmnd_Tsp;
+extern int              AX0_s16_Nct_Icmd_125uS;
+extern long             AX0_s32_ATV_Histogram_Buffer_0[];
+extern int              AX0_s16_ATV_Histogram_Buffer_Head;
+extern int              AX0_s16_ATV_Histogram_Buffer_Tail;
+extern int              AX0_s16_ATV_Icmd_Max;
+extern int              AX0_s16_ATV_Timer;
+
+extern long long        AX0_u32_LAT_Cost_Lo;
+extern int              AX0_s16_AT_Settle_Time_Cost_Timer;
+extern long long        AX0_u32_LAT_Cost_StandStill_Lo;
+
+extern int           AX0_s16_ATV_Hist_Flag;
+extern int           AX0_s16_ATV_Histogram_Buffer_0[];
+extern int           AX0_s16_ATV_Histogram_Buffer_Head;
+extern int           AX0_s16_ATV_Histogram_Buffer_Tail;
+extern int           AX0_s16_AT_Hist_Timer;
+extern int           AX0_s16_ATV_Hist_Dlt_Vel_Thrshld;
+extern long          AX0_s32_AT_Pertubation_Current;
+
+extern int           AX0_s16_ATV_Shr;
+extern int           AX0_s16_AT_InposTime;
+
+extern int           AX0_s16_AT_MoveSine_Mode;
+
+extern int           AX0_s16_FricKppOnCounter;
+extern int           AX0_s16_FricKppOnCounter_Limit;
+extern long          AX0_s32_FricKppVcmd_Limit_Design;
+extern long long AX0_u32_FricKpp_Breakaway_Lo;
+extern int           AX0_s16_KppHighGain_Fix_Design;
+extern int           AX0_s16_KppHighGain_Shr_Design;
+extern int           AX0_s16_FricKpp_HoldoffCounter_Limit;
+
+extern int           AX0_s16_Kpjfr_Fix_Design;
+extern int           AX0_u16_Kpjfr_Shr_Design;
+extern int           AX0_s16_Jff_Limit;
+extern long          AX0_s32_AT_Pf_Counter_Limit;
+
+
+extern unsigned int           AX0_u16_Parsing_Regs_Ptr;
+extern unsigned long          AX0_u32_FPGA_Base_Regs_Ptr;
+extern unsigned long          AX0_u32_FPGA_Tx_Rx_Regs_Ptr;
+
+

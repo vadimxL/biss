@@ -1,0 +1,660 @@
+
+#include "MultiAxis.def"
+
+#ifdef GLOBAL
+   #define EXTERNAL
+   #define I(x) x
+#else
+   #define EXTERNAL extern
+   #define I(x)
+#endif
+
+#include "ModCntrl.def"
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Is_BDHD) I(=INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Current_Stop_Trigger_Current) I(=INIT_0L);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Current_Stop_Trigger_Time) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Current_Stop_Trigger_Mode) I(=INIT_0);
+EXTERNAL  long         BGVAR_DEFINE(s32_Current_Stop_Trigger_Qualifier) I(=INIT_0L);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Current_Stop_Trigger_Fault_Flag) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_BDHD_TYPE) I(=0);
+EXTERNAL  long         BGVAR_DEFINE(s32_Drive_I_Peak);
+EXTERNAL  long         BGVAR_DEFINE(s32_Drive_I_Cont);
+EXTERNAL  long         BGVAR_DEFINE(s32_Drive_I_Cont_Internal);
+EXTERNAL  int          BGVAR_DEFINE(s16_Drive_I_Peak_Arms);
+EXTERNAL  int          BGVAR_DEFINE(s16_Drive_I_Cont_Arms);
+EXTERNAL  int          BGVAR_DEFINE(s16_Vbus);
+EXTERNAL  int          BGVAR_DEFINE(s16_Adaptive_Vbus);
+EXTERNAL  int          BGVAR_DEFINE(s16_Vbus_Design);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mpeak_T_Adv);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mcont_T_Adv);
+EXTERNAL  int          BGVAR_DEFINE(s16_Half_Mspeed_Speed_Advance);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mspeed_Speed_Advance);
+EXTERNAL  long         BGVAR_DEFINE(s32_V_Lim_Design);
+EXTERNAL  long         BGVAR_DEFINE(s32_V_Lim2_Design);
+EXTERNAL  long         BGVAR_DEFINE(s32_Sfb_V_Lim);
+EXTERNAL  long         BGVAR_DEFINE(s32_Out_V_Level_1);
+EXTERNAL  long         BGVAR_DEFINE(s32_Out_V_Level_2);
+EXTERNAL  long long    BGVAR_DEFINE(s64_Out_P_Level_1);
+EXTERNAL  long long    BGVAR_DEFINE(s64_Out_P_Level_2);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mcont_Current_Gain);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mpeak_Current_Gain);
+EXTERNAL  long         BGVAR_DEFINE(s32_Imax);
+EXTERNAL  long         BGVAR_DEFINE(s32_Ilim_Actual) I(=INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Ilim_Actual_Prev) I(=INIT_MINUS_1);
+EXTERNAL  long         BGVAR_DEFINE(s32_Ilim_Analog) I(=INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Ilim_User);
+EXTERNAL  long         BGVAR_DEFINE(s32_P1_70_IMAXHALT) I(=INIT_0L);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_P3_30_Intern_Lim_Source) I(=INIT_0);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Prev_1Ms_Cpu_Timer) I(= INIT_0L);
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Pcom1_Time_Based_TR_dec_counter) I( = INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Pcom2_Time_Based_TR_dec_counter) I( = INIT_0);
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Ilim_Changed) I( = INIT_0);
+
+
+EXTERNAL  long         BGVAR_DEFINE(s32_Out_I_Level_1);
+EXTERNAL  long         BGVAR_DEFINE(s32_Out_I_Level_2);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Home_I_HardStop);
+EXTERNAL  long         BGVAR_DEFINE(s32_Serial_Torque_Cmd) I(=INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Forced_Torque_Cmd) I(=INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Icont);
+EXTERNAL  long         BGVAR_DEFINE(s32_Vmax);
+EXTERNAL  int          BGVAR_DEFINE(s16_Crrnt_Rh_Shr_Design);
+EXTERNAL  char         BGVAR_DEFINE(s8_BurninParam);
+EXTERNAL  char         BGVAR_DEFINE(s8_EE_Stamp);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_MotorType);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Mpitch);
+EXTERNAL  int          BGVAR_DEFINE(u16_ResBw);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Out_of_Range_Percent);
+EXTERNAL  int          BGVAR_DEFINE(s16_Limdis);
+EXTERNAL  int          BGVAR_DEFINE(s16_Units);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_FdbkType) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_FdbkType_User);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_SFBType) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_SFBType_User);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Prev_Sfb_home_Ind) I(=INIT_0);
+EXTERNAL  long long    BGVAR_DEFINE(s64_Prev_Sfb_Home_Offset) I(= INIT_0LL);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Prev_Mfb_home_Ind) I(=INIT_0);
+EXTERNAL  long long    BGVAR_DEFINE(s64_Prev_Mfb_Home_Offset) I(= INIT_0LL);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Fdbk_Source) I(=INIT_0);
+EXTERNAL  int          BGVAR_DEFINE(s16_Auto_FdbkType_Cntr) I(=INIT_0);
+EXTERNAL  int          BGVAR_DEFINE(s16_ControllerType);
+EXTERNAL  int          BGVAR_DEFINE(s16_Mres);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Fdbk_Brate_Khz) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Fdbk_Clk_Interval) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Xmt_Length) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Rcv_Length) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Wait_Time_Clks) I(=INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Field_Length) I(=INIT_0);
+EXTERNAL  int          s16_User_Defined_Drive;
+EXTERNAL  int          s16_InputsTimer;
+EXTERNAL  int          s16_InputsReadNeeded;
+EXTERNAL  int          s16_InputsReading;
+EXTERNAL  int          BGVAR_DEFINE(s16_Iac_Lpf_Hz1);
+EXTERNAL  int          BGVAR_DEFINE(s16_Ib_Lpf_Hz1);
+EXTERNAL  long         BGVAR_DEFINE(s32_Jog) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Jog1) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Jog2) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Time1) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Time2) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque1) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque2) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque_Time1) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque_Time2) I( = INIT_0L);
+EXTERNAL  int          BGVAR_DEFINE(StepHandlerState) I( = INIT_0);
+EXTERNAL  long         BGVAR_DEFINE(StepHandlerTimer) I( = INIT_0L);
+EXTERNAL  int          BGVAR_DEFINE(s16_Torque_Number_Of_Params) I( = INIT_1L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque_Params[4]) I( = {0L});
+EXTERNAL  int          BGVAR_DEFINE(s16_Torque_Step_State) I( = INIT_0);
+EXTERNAL  long         BGVAR_DEFINE(s32_Torque_Step_Timer) I( = INIT_0L);
+
+EXTERNAL  long         BGVAR_DEFINE(s32_Current_Derating_Timer) I( = INIT_0L);
+EXTERNAL  long         BGVAR_DEFINE(s32_Derated_Drive_I_Peak) I( = INIT_7FFFFFFF);
+EXTERNAL  long         BGVAR_DEFINE(s32_Derated_Drive_I_Cont);
+
+EXTERNAL  long         BGVAR_DEFINE(s32_Enc_Sim_Res);
+EXTERNAL  unsigned int BGVAR_DEFINE(u8_EncoutMode) I( = INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Index_Duration) I( = INIT_0);
+EXTERNAL  unsigned int u16_Vbus_Counts  I(= 0);
+EXTERNAL  unsigned int u16_Vbus_Counts_Prev  I(= 0); 
+EXTERNAL  unsigned int u16_Vbus_Running I(= 0);
+EXTERNAL  unsigned int u16_Vbus_RunningPrev I(= 0);
+EXTERNAL  unsigned int u16_Vbus_HW_Measure_Flt I(= 0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Vbus_Volts);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Relay_Mode) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_DisTime) I(= INIT_0);
+//EXTERNAL  unsigned int BGVAR_DEFINE(u16_DisTime_Backup) I(= INIT_0);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_DisSpeed) I(= INIT_0L);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Message) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Echo) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Disable_Mode) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Dis_Brake_Mode_Fdbk_Comm_Err) I(= INIT_1);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Disable_Mode_User) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Fieldbus_Changed_Dismode) I(= INIT_0);
+
+// SFBPE error flags
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Sfb_Pos_Err_Flags) I(= INIT_1);
+
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Display_Mode) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Abs_Feedback_Single_Turn);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Abs_Feedback_Max_Num_Of_Turns)  I(= INIT_0L);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Ignore_Abs_Fdbk_Batt_Faults)  I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Ignore_Abs_Fdbk_Batt_Faults_Error)  I(= INIT_0);
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Hw_Features_Private_Label) I(= INIT_0);
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Post_Factory_Restore_Actions) I(= INIT_0);
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Is_Factory_Restore_Running) I(= INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Factory_Restore_Skip_Flash_Erase) I(= INIT_1); // This variable is set to 0 in case that the user enters "FACTORYRESTORE H1234", since in this case
+                                                                                       // the function "SalRestoreFactorySettingsCommand()" should delete the SINPARAMS and the fault log
+                                                                                       // memory in the flash.
+
+
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Kp_User);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Ki_User);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Bemf_Gain);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Kiv_User);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_DQ_Axis_Comp_Gain);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Kff_User);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Current_Loop_Scale_Factor);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_Kvg_User);
+EXTERNAL  long         BGVAR_DEFINE(s32_CL_User_Gain);
+
+EXTERNAL  unsigned int u16_Control_Board_Rev;
+EXTERNAL  unsigned int u16_Control_Board_EE_Version;
+EXTERNAL  unsigned int u16_Num_Of_Axes;
+EXTERNAL  unsigned int u16_Board_Type;
+EXTERNAL  unsigned int u16_Fpga_Size;
+EXTERNAL  unsigned long u32_Hw_Features;
+EXTERNAL  unsigned int u16_Adc_Resolution;
+EXTERNAL  unsigned int u16_Serial_Flash;
+EXTERNAL  unsigned int u16_Product;
+EXTERNAL           int s16_Num_Of_Inputs;
+EXTERNAL           int s16_Num_Of_Outputs;
+EXTERNAL  unsigned int u16_Fw_Features I( = 0xffff);
+EXTERNAL  unsigned int u16_More_Hw_Features I( = 0xffff);
+EXTERNAL  unsigned int u16_Dynamic_Pass I( = 0xffff);
+EXTERNAL  unsigned int u16_Halls_Comm_Switch_Thresh;
+EXTERNAL  unsigned int u16_Res_Code_Type I( = 0xffff);
+EXTERNAL  unsigned int u16_Drive_Code_Type I( = 0xffff);
+EXTERNAL  unsigned int u16_Fpga_Image_Type I( = 0xffff);
+
+
+EXTERNAL  unsigned long u32_Dig_Out_60FE I(= INIT_0L);
+
+EXTERNAL  char s8_Product_Serial_Number[13] I( = "");
+EXTERNAL  char s8_Control_Board_Part_Number[16] I( = "");
+EXTERNAL  char s8_Power_Board_Part_Number[16] I( = "");
+EXTERNAL  char s8_Control_Board_Serial_Number[13] I( = "");
+EXTERNAL  char s8_Power_Board_Serial_Number[13] I( = "");
+EXTERNAL  char s8_Control_Drive_Model_Number_1[6] I( = "");
+EXTERNAL  char s8_Power_Drive_Model_Number_2[7] I( = "");
+EXTERNAL  char s8_Control_Drive_Model_Number_3[7] I( = "");
+EXTERNAL  char s8_Control_Drive_Model_Number_3_Extend[5] I( = "");
+EXTERNAL  char s8_FieldBus_Version[] I( = "Unknown                        ");
+EXTERNAL  char s8_DDHD__Drive_Model_6th_Char[1] I( = "");
+EXTERNAL  char s16_Power_Control_Board[3] I( = ""); //build new string for the power data in info command the firest index is s8_Power_Drive_Model_Number_2[5] and the second is from s8_Control_Drive_Model_Number_3[0]
+
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Power_Board_Rev);
+EXTERNAL  unsigned int  u16_Power_Board_EE_Version;
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Vbus_Scale);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Dead_Time);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Pwm_Freq);
+EXTERNAL  unsigned int  u16_Inrush_On_Value;
+EXTERNAL  unsigned int  u16_Inrush_Off_Value;
+EXTERNAL  unsigned int  u16_Regen_On_Value;
+EXTERNAL  unsigned int  u16_Regen_Actual_On_Value;
+EXTERNAL  unsigned int  u16_Regen_Timer;                     // Timer used for bus-sharing
+EXTERNAL  unsigned int  u16_Regen_Timer_Threshold I(=1000);  // Threshold tim for bus-sharing
+EXTERNAL  unsigned int  u16_Regen_Off_Value;
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Regen_Flt_Mode);
+EXTERNAL  unsigned int  u16_Regen_Overload_Condition I(=0);
+
+// Variables used for regeneration resistor overload protection
+EXTERNAL  int BGVAR_DEFINE(s16_Regen_Resistor_Resistance) I(=INIT_40);  // Resistance of the regeneration resistor in [Ohm] (default 40[Ohm])
+EXTERNAL  int BGVAR_DEFINE(s16_Regen_Resistor_Power) I(=INIT_60);       // Power of the regeneration resistor in [W] (default 60[W])
+EXTERNAL  unsigned int  u16_Regen_Overload_Protection_Active I(=0); // 0 = run regen algorithm, 1 = do not run regen algorithm
+EXTERNAL  unsigned int  u16_Regen_On_Time_Last_500ms I(=0);     // Time in ms how long the regen was on during the current 500[ms] cycle
+EXTERNAL  unsigned int  u16_Regen_On_Time_Last_5s I(=0);        // Time in ms how long the regen was on during the last 5000[ms]
+EXTERNAL  unsigned int  u16_Regen_On_Time_Array[REGEN_ON_TIME_ARR_SIZE] I( = INIT_0_10); // 10 entries for each 500[ms] cycle = 5[s]
+EXTERNAL  unsigned int  u16_Regen_Array_Index I(=0);            // Index for the regen on-time array
+EXTERNAL  unsigned int  u16_Regen_Cycle_Counter I(=0);          // Counter for determine one 500[ms] cycle
+EXTERNAL  unsigned int  u16_Max_Regen_On_Time I(=500);          // 500[ms] is the absolute absolute maximum, will be changed depending on regen resistor properties
+EXTERNAL           int  s16_Max_Regen_Power I(=0);
+// End of variables used for regeneration resistor overload protection
+
+// Variables used for regeneration ON time monitoring
+EXTERNAL  unsigned int  u16_Regen_On_Time_Monitor I(=0);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Regen_Max_On_Time_ms);
+EXTERNAL  unsigned int  u16_Regen_Max_On_Time_Protection_Active I(=0);
+// End of variables used for regeneration ON time monitoring
+
+//CUSTOMERID depanded variables  . S.C.
+EXTERNAL  unsigned int  u16_Customer_Id;
+EXTERNAL  unsigned int  u16_OV_Threshold;
+//End of CUSTOMERID depanded variables  . S.C.
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_UV_Threshold);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_UV_Threshold_Default);
+EXTERNAL  unsigned int  u16_OT_Flt_Threshold;
+EXTERNAL  unsigned int  u16_OT_Wrn_Threshold;
+EXTERNAL  int           s16_Fan_Hi_Spd_Threshold;
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Power_Hw_Features);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Power_Fw_Features);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Half_Pwm_Freq_Eeprom) I( = INIT_0);
+EXTERNAL  unsigned char u8_is_dump_command_active I(= 0);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Prev_Counts_Per_Rev);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Prev_Sec_Counts_Per_Rev);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_LV_Drive_And_More) I(= INIT_FFFF);
+EXTERNAL  unsigned int  u16_Fan_High_Speed I(= 0);
+
+EXTERNAL  long          BGVAR_DEFINE(u32_Stop_Current);
+EXTERNAL  int           u16_background_ran I(= 0);
+EXTERNAL  int           u16_fault_control_delay I(= 0);
+EXTERNAL unsigned long  BGVAR_DEFINE(u32_Motor_Res);
+
+EXTERNAL  long          BGVAR_DEFINE(s32_Icmd_Harmonic_Amp_1);
+EXTERNAL  long          BGVAR_DEFINE(s32_Icmd_Harmonic_Amp_2);
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Force_Regular_Pwm_Freq) I( = INIT_0);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Force_Half_Pwm_Freq) I( = INIT_0);
+EXTERNAL  long          BGVAR_DEFINE(s32_Prev_Elect_Pos_With_Phase_Adv) I( = INIT_0L);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Pwm_Freq_State);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Pwm_Freq_Prev_State) I( = INIT_1);  /* REGULAR_PWM_FREQ */
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Pwm_Freq_State_Cntr) I( = INIT_0);
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Pfb_Backup_Mode) I( = INIT_0);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Pfb_Backup_Flash_Ptr) I( = INIT_0);
+
+EXTERNAL long           BGVAR_DEFINE(u32_Kcd_Gain);
+
+
+EXTERNAL  unsigned int  u16_Pll_State I( = 0);
+EXTERNAL  unsigned int  u16_Pll_Locked_Counter I( = 0);
+
+EXTERNAL  int           BGVAR_DEFINE(s16_Anin1_Msq_Filt_User_Aff);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Anin1_Msq_Filt_User_T1);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Anin1_Msq_Filt_User_T2);
+EXTERNAL  long          BGVAR_DEFINE(s32_Anin1_Msq_Filt_User_Vff);
+
+EXTERNAL  int           BGVAR_DEFINE(s16_Gear_Filt_User_Aff);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Gear_Filt_User_Shl) I( = INIT_6);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Gear_Filt_User_T1);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Gear_Filt_User_Depth);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Gear_Filt_User_T2);
+EXTERNAL  long          BGVAR_DEFINE(s32_Gear_Filt_User_Vff);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Gear_In_Mode);
+EXTERNAL  unsigned long long     BGVAR_DEFINE(u64_Gear_Acc_Tresh);
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P8_31_Lex_Gearmode) I( = INIT_1);
+
+EXTERNAL  int           BGVAR_DEFINE(s16_Halls_Msq_Filt_User_Aff);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Halls_Msq_Filt_User_T1);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Halls_Msq_Filt_User_T2);
+EXTERNAL  long          BGVAR_DEFINE(s32_Halls_Msq_Filt_User_Vff);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Halls_Only_Comm_Source);
+
+EXTERNAL  long          s32_Can_Abr_Timer I( = 0);
+extern    unsigned char p301_manu_software_version[20];
+extern    unsigned char p301_manu_hardware_version[20];
+//extern    long          p301_identity[5];
+extern    unsigned char p301_manu_device_name[];
+extern    unsigned char p301_error_register;
+extern    unsigned char p301_error_behaviour[2];
+
+EXTERNAL  long          BGVAR_DEFINE(s32_PWM_Sat_Factor);
+
+EXTERNAL long           s32_Bg_Counter I(= 0);
+
+EXTERNAL  unsigned int  u16_Sudden_Stop_Base_Threshold;
+
+EXTERNAL unsigned int   BGVAR_DEFINE(u16_DelayTime) I(=INIT_0);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Special_Factory_Settings) I( = INIT_0); // PCTL (P2-08)
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Force_Output_Enable) I( = INIT_0);
+
+EXTERNAL unsigned long  BGVAR_DEFINE(u32_P0_35_To_42)[8] I(=INIT_0L_ARRAY8);
+EXTERNAL unsigned long  BGVAR_DEFINE(u32_User_App_Name)[4] I(=INIT_0L_ARRAY4);
+
+
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P0_46_SVSTS) I(=INIT_0); // Lexium status variable
+
+EXTERNAL long long     BGVAR_DEFINE(s64_PFB_In_Pulse_Unit) I(= INIT_0LL); // Lexium Fb.PLS
+EXTERNAL long long     BGVAR_DEFINE(s64_Position_Command_In_Pulse_Unit) I(= INIT_0LL); // Lexium C.PLS
+EXTERNAL long long     BGVAR_DEFINE(s64_Position_Error_In_Pulse_Unit) I(= INIT_0LL); // Lexium Er.PLS
+
+EXTERNAL long long     BGVAR_DEFINE(s64_PFB_In_PUU_Unit) I(= INIT_0LL); // Lexium Fb.PUU
+EXTERNAL long long     BGVAR_DEFINE(s64_Position_Command_In_PUU_Unit) I(= INIT_0LL); // Lexium C.PUU
+EXTERNAL long long     BGVAR_DEFINE(s64_Position_Error_In_PUU_Unit) I(= INIT_0LL); // Lexium Er.PUU
+
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P1_01_CTL) I(=INIT_0); // Lexium CTL P1-01 new value before restart
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P1_01_CTL_Current) I(=INIT_0); // Lexium CTL P1-01 the updated value after restart
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_P1_01_CTL_At_SPI_Flash) I( = INIT_0);
+
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P1_03_AOUT) I(=INIT_0); // AOUT (Lexium parameter P1-03)
+EXTERNAL int           BGVAR_DEFINE(s16_AOUT1_Polarity) I(=INIT_1); // Lexium analog out 1 polarity parameter P1-03)
+EXTERNAL int           BGVAR_DEFINE(s16_AOUT2_Polarity) I(=INIT_1); // Lexium analog out 2 polarity parameter P1-03)
+EXTERNAL int           BGVAR_DEFINE(s16_P2_30_INH) I(=INIT_0); // Lexium Auxiliary Functions INH (P2-30)
+
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P5_39_CACT) I(=INIT_0); // Lexium capture 1 enable control command
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P5_59_CACT2) I(=INIT_0); // Lexium capture 2 enable control command
+EXTERNAL unsigned char BGVAR_DEFINE(u8_P5_35_Probes_Polarity)  I(=INIT_0);
+
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P2_65_GBIT) I(=INIT_0); // GBIT1 (Lexium parameter P2-65)
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_P2_66_GBIT2) I(=INIT_0); // GBIT2 (Lexium parameter P2-66)
+
+EXTERNAL unsigned int  BGVAR_DEFINE(s16_P1_57_CRSHA) I(=INIT_0); // CRSHA (% form MICONT) "Motor Overshoot" (Lexium parameter P1-57)
+EXTERNAL long          BGVAR_DEFINE(s32_P1_57_CRSHA_Internal) I(=INIT_0L); // CRSHA (% form MICONT in internal value) "Motor Overshoot internal value"
+EXTERNAL unsigned int  BGVAR_DEFINE(s16_P1_58_CRSHT) I(=INIT_0); // CRSHT "Motor Overshoot" (Lexium parameter P1-58)
+EXTERNAL long          BGVAR_DEFINE(s32_P1_58_TIMER) I(=INIT_MINUS_1); // "Motor Overshoot" timer capture
+EXTERNAL unsigned int  BGVAR_DEFINE(s16_MOTOR_OVRSHOOT_STATE) I(=INIT_0); // "Motor Overshoot" state machine state (Lexium parameter P1-57)
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_Drive_Power_Watt) I(=INIT_0);
+EXTERNAL int           BGVAR_DEFINE(s16_Internal_Regen_Res_Ohm) I(=INIT_MINUS_1);
+EXTERNAL int           BGVAR_DEFINE(s16_Internal_Regen_Power_Watt) I(=INIT_MINUS_1);
+EXTERNAL  unsigned int u16_raw_data_tprobe_ctrl I(=0xFFFF);
+
+/*** Variables used for runaway-detection faults ***/
+EXTERNAL unsigned long BGVAR_DEFINE(u32_Runaway_Check_Vel_Thresh) I(=INIT_300);    // Velocity threshold at which actual velocity the runaway-supervision starts (unit: vel. unit out of the loop [Counts32/125us])
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_Runaway_Check_Curr_Thresh)I(=INIT_0);    // Current threshold at which actual current the runaway-supervision starts (unit: internal current means 26214 = drive peak current)
+EXTERNAL long          BGVAR_DEFINE(s32_Previous_Actual_Velocity) I(=INIT_0L);    // Used for calculating the acceleration for the runaway fault detection (unit: vel. unit out of the loop [Counts32/125us])
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_Runaway_Error_Detected) I(=INIT_0);      // 0 = OK, 1 = Runaway error has been detected
+EXTERNAL long long     BGVAR_DEFINE(s64_Runaway_First_Pos_PFB_Sample) I(=INIT_0);            // Sample PFB when first indicatation of RUNAWAY detects
+EXTERNAL long long     BGVAR_DEFINE(s64_Runaway_Motor_Pos_Thresh) I(=INIT_0);  // user set number of motor spins, 0 is disable mode
+//EXTERNAL unsigned int  BGVAR_DEFINE(u16_Runaway_Error_Counter) I(=INIT_0);       // Counts consecutive pending faults
+//EXTERNAL unsigned int  BGVAR_DEFINE(u16_Runaway_Error_Counter_Thresh)I(=INIT_0); // Threshold when the error is supposed to be generated (unit [ms] due to sample rate).
+//EXTERNAL unsigned int  BGVAR_DEFINE(u16_Max_Runaway_Error_Counter) I(=INIT_0);   // Used for debug purposes to parametrize the feature; check how much the error-counter increments in normal operation.
+
+/*** Variables used for STOPPED detection in gear mode ***/
+EXTERNAL unsigned long BGVAR_DEFINE(u32_Pcmd_Prev) I(=INIT_0L);
+EXTERNAL unsigned long BGVAR_DEFINE(u32_Pcmd_Delta_Zero_Time)  I(=INIT_0L);
+EXTERNAL unsigned long BGVAR_DEFINE(u32_Pcmd_Delta) I(=INIT_0L);
+
+
+
+
+EXTERNAL long               s32_Torque_To_User_Fix I( = 1L);
+EXTERNAL long               s32_Torque_To_Internal_Fix I( = 1L);
+EXTERNAL unsigned long      u16_Torque_To_User_Shr I( = 0L);
+EXTERNAL unsigned long      u16_Torque_To_Internal_Shr I( = 0L);
+EXTERNAL unsigned long long u64_Torque_To_User_Half_For_Round I( = 0LL);
+EXTERNAL unsigned long long u64_Torque_To_Internal_Half_For_Round I( = 0LL);
+
+
+/*** Variables used for CANOpen/ModBus communication for Schneider mode drive ***/
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_00_ADR) I( = INIT_1); // Schneider Modbus address 1 - 240 (new ADR value to be loaded on after the next power cycle)
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_00_ADR_Current) I( = INIT_1); // Schneider Modbus address 1 - 240 current in use (loaded on startup)
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_01_BRT) I(=INIT_0); // Schneider's CANOpen(kBits/Sec) / Modbus(Baud Rate) 
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_02_PTL) I( = INIT_0); // Schneider Modbus protocol 0 - 8
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_03_FLT) I( = INIT_0); // Schneider Modbus error handling
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_04_CWD) I( = INIT_0); // Schneider Modbus Timeout detection
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_05_CMM) I(=INIT_0); // Schneider's CANOpen Commuincation Address Setting
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_07_CDT) I( = INIT_0); // Schneider Modbus Response Delay Time
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_P3_09_SYC) I(=INIT_0); // Schneider's CANOpen Slave and Master Synchronization signal setting
+
+EXTERNAL  unsigned char BGVAR_DEFINE(u8_CDHD_Normal_Operation) I(=INIT_1); // Indicates if the Drive is an any special process that is not supposed to be disturbed.
+
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_LXM28_Opmode)              I(=INIT_0); // Schneider's current opmode
+
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_P1_54_PER_User_Value)  I(=INIT_0L);
+
+EXTERNAL  unsigned int  u16_Internal_OverFlow I(=0);
+
+EXTERNAL  int  s16_Touch_Probe_Source_1 I(=1);
+EXTERNAL  int  s16_Touch_Probe_Source_2 I(=1);
+
+
+EXTERNAL  unsigned int  u16_Crc_Table[2][256];
+EXTERNAL long           s32_Serial_Flash_Erase_Sector_Timer I(=0);
+EXTERNAL unsigned int   u16_Serial_Flash_Erase_Sector_State I(=0);
+EXTERNAL long           s32_Serial_Flash_Write_Byte_Timer I(=0);
+EXTERNAL unsigned int   u16_Serial_Flash_Write_Byte_State I(=0);
+EXTERNAL unsigned int   u16_ADC_Stby_Counter I(=0);
+EXTERNAL long s32_Servo_Sense_Read_Value I(=0);
+
+EXTERNAL char           u8_Separator[4] I( = "\r\n");
+
+
+EXTERNAL  long long  s64_Pcom_Table1_Arr[];
+EXTERNAL  long long  s64_Pcom_Table2_Arr[];
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Script_Time_Delay);
+
+#define ERROR_CORRECTION_TABLE_LENGTH     1002
+
+#define ERR_COR_ACT_TBL_IDLE 0
+#define ERR_COR_ACT_TBL_ZERO_FIRST_UNUSED_TBL_ENTRIES 1
+#define ERR_COR_ACT_TBL_ASSIGN_TBL_ENTRIES 2
+#define ERR_COR_ACT_TBL_ZERO_LAST_UNUSED_TBL_ENTRIES 3
+
+#define ERR_COR_LIN_COEF_TBL_IDLE 0 
+#define ERR_COR_LIN_COEF_TBL_ZERO_ADJ_TBL_ENTRIES 1 
+#define ERR_COR_LIN_COEF_TBL_ZERO_FIRST_UNUSED_TBL_ENTRIES 2 
+#define ERR_COR_LIN_COEF_TBL_ASSIGN_TBL_ENTRIES 3 
+#define ERR_COR_LIN_COEF_TBL_ZERO_LAST_UNUSED_TBL_ENTRIES 4  
+
+#define ERR_COR_INT_ERR_TBL_IDLE 0
+#define ERR_COR_INT_ERR_TBL_ZERO_FIRST_UNUSED_TBL_ENTRIES 1
+#define ERR_COR_INT_ERR_TBL_ASSIGN_TBL_ENTRIES 2
+#define ERR_COR_INT_ERR_TBL_ZERO_LAST_UNUSED_TBL_ENTRIES 3
+
+
+EXTERNAL  long s32_Error_Correction_User_Error[ERROR_CORRECTION_TABLE_LENGTH-2];
+EXTERNAL  long s32_Error_Correction_Linear_Slope_Coefficient[ERROR_CORRECTION_TABLE_LENGTH];
+EXTERNAL  long long s64_Error_Correction_Actual_Position[ERROR_CORRECTION_TABLE_LENGTH];
+EXTERNAL  long long s64_Error_Correction_Internal_Error[ERROR_CORRECTION_TABLE_LENGTH];
+EXTERNAL  long s32_Error_Correction_Interpolation_Error_Table_Entry_Arr[ERROR_CORRECTION_TABLE_LENGTH];
+EXTERNAL  long long s64_Error_Correction_Interval_Usr I(=0LL);
+EXTERNAL  long long s64_Error_Correction_Start_Pos_Usr I(=0LL);
+EXTERNAL  unsigned int u16_Error_Correction_Start_Offset I(=0);
+EXTERNAL  unsigned int u16_ErrCor_Assign_Act_Pos_Tbl_State I(=0);
+EXTERNAL  unsigned int u16_ErrCor_Assign_Lin_Sl_Coef_Tbl_State I(=0);
+EXTERNAL  unsigned int u16_ErrCor_Assign_Interpolation_Err_Tbl_State I(=0);
+EXTERNAL  int s16_Error_Correction_Active_Number I(=0);
+EXTERNAL  int s16_Error_Correction_Index_Failed I(=0);
+EXTERNAL  unsigned int u16_Err_Cor_Enable I(=0); 
+EXTERNAL  unsigned int u16_Err_Cor_Enable_State I(=0); 
+EXTERNAL  unsigned int u16_Err_Cor_Is_Reset I(=0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Error_Correction_Flag) I(=0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Error_Correction_Enable_Internal_Handler_State) I(=0);
+EXTERNAL  unsigned int BGVAR_DEFINE(s16_Error_Correction_Current_Index_User) I(=0);
+EXTERNAL  int BGVAR_DEFINE(s16_Error_Correction_Modulu_Mode) I(=0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Output_freq_limit) I(=INIT_599);
+
+
+
+
+#define ERROR_CORRECTION_STARTOFFSET_CHANGE_MASK   0x0001
+#define ERROR_CORRECTION_ACTIVE_NUM_CHANGE_MASK    0x0002
+#define ERROR_CORRECTION_START_POS_CHANGE_MASK     0x0004
+#define ERROR_CORRECTION_INTERVAL_CHANGE_MASK      0x0008
+#define ERROR_CORRECTION_ACTIVE_INDEX_CHANGE_MASK  0x0010
+#define ERROR_CORRECTION_SET_INDEX_MASK            0x0020
+#define ERROR_CORRECTION_RESET_CHANGE_MASK         0x0040
+#define ERROR_CORRECTION_UNITS_CHANGE_MASK         0x0080
+#define ERROR_CORRECTION_CALCULATIONS_IN_PROCESS   0x0100
+#define ERROR_CORRECTION_RECALC_REQUIRED (ERROR_CORRECTION_STARTOFFSET_CHANGE_MASK | ERROR_CORRECTION_ACTIVE_NUM_CHANGE_MASK | ERROR_CORRECTION_START_POS_CHANGE_MASK | ERROR_CORRECTION_INTERVAL_CHANGE_MASK | ERROR_CORRECTION_ACTIVE_INDEX_CHANGE_MASK | ERROR_CORRECTION_UNITS_CHANGE_MASK | ERROR_CORRECTION_SET_INDEX_MASK)
+
+#define ERROR_CORRECTION_IDLE                         0
+#define ERROR_CORRECTION_VALIDITY_TEST                1
+#define ERROR_CORRECTION_CALCULATE_INTERVAL           2
+#define ERROR_CORRECTION_RECALC_INTERNAL_ERROR        3
+#define ERROR_CORRECTION_RECALC_ACTUAL_POSITION       4
+#define ERROR_CORRECTION_RECALC_LIN_SLOPE_COEFF       5
+#define ERROR_CORRECTION_RECALC_INTERPOLATION_ERROR   6
+#define ERROR_CORRECTION_LOWER_FLAGS                  7
+#define ERROR_CORRECTION_CHECK_HOMING                 8
+#define ERROR_CORRECTION_ENABLE_FAILED                9
+#define ERROR_CORRECTION_ENABLE_PREPARATION_SUCCESS   10
+#define ERROR_CORRECTION_READY_INTERNAL               11
+
+
+
+#define ERROR_CORRECTION_STATE_DISABLED                              0
+#define ERROR_CORRECTION_STATE_READY                                 1
+#define ERROR_CORRECTION_STATE_ENABLED                               2
+#define ERROR_CORRECTION_STATE_WAITING_HOMING                        3
+#define ERROR_CORRECTION_STATE_WAITING_TABLE_CONVERSION              4
+#define ERROR_CORRECTION_STATE_MAX_POSITION_ERROR_EXCEEDS_LIMITS     -1
+#define ERROR_CORRECTION_STATE_START_OFFSET_FAIL                     -2
+#define ERORR_CORRECTION_UNITS_LINEAR_FAILED                         -3
+
+#define PFB_MODULO_ENABLED_MASK		       0x0001
+#define ERR_COR_MODULO_ENABLED_MASK	       0x0002
+#define PERFORM_ERR_COR_MODULO_MASK	  	   0x0004
+#define ERR_COR_MODULO_NEG_ROLL_FLAG_MASK  0x0008
+#define ERR_COR_MODULO_POS_ROLL_FLAG_MASK  0x0010	
+
+
+/**************************************************************************************************/
+/*** Here declare variables and enums, which are subject of the Lexium access-rights management ***/
+/**************************************************************************************************/
+
+// This global variable indicates which access-channel (see enum "LexiumAccessChannel") called the
+// function "ExecutePParam" since the P-parameter Sal function for P9-05 (Get exclusive access-rights)
+// needs to know who specifically asks for the exclusive acccess rights.
+EXTERNAL int  BGVAR_DEFINE(s16_Lexium_ExecPParam_Acces_Channel)I(=INIT_0);
+
+// Information about the current access-right state according to the "_AccessInfo" specification from Schneider:
+// Low-byte:  0 = used by channel in high-byte; 1 = exclusively used by channel in high-byte
+// High-byte: See numbering of enum "LexiumAccessChannel"
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_Lexium_Acces_Rights_State)I(=INIT_0);
+EXTERNAL unsigned int  BGVAR_DEFINE(u16_Lexium_Acces_Rights_Released)I(=INIT_0);
+// Lexium access-channel enum. Every channel gets an own number
+enum LexiumAccessChannel
+{
+   // This enum holds the value of the Lexium access-channels according to the Lexium specification.
+   LEX_CH_RESERVED = 0,    // = 0: Reserved
+   LEX_CH_IO_CONTROL,      // = 1: Digital IO control
+   LEX_CH_LOCAL_HMI,       // = 2: Push-buttons and 7-segments
+   LEX_CH_MODBUS_RS485,    // = 3: Commissioning tool (CT, PC-tool via Modbus RS485)
+   LEX_CH_FIELDBUS         // = 4: Fieldbus
+};
+
+// Lexium Drive type according to the enum "LexiumDriveType". The Drive type
+// depends also in the Lexium mode of operation P1-01.
+EXTERNAL unsigned char  BGVAR_DEFINE(u8_Lexium_Drive_Type)I(=INIT_0);
+// Lexium drive type enum.
+enum LexiumDriveType
+{
+   // This enum holds the values of the different Lexium Lexium Drive types.
+   LEX_TYPE_RESERVED = 0,  // = 0: Reserved
+   LEX_TYPE_IO_DRIVE,      // = 1: IO-Drive
+   LEX_TYPE_FIELDBUS_DRIVE // = 2: Fieldbus-Drive
+};
+
+// Lexium access-right function enum. This enum lists functions, which are subject of the
+// access-rights management. The functions are listed in tables within the document
+// "Bai_Yang_DES04_Access_Channels.doc"
+enum LexiumAccessRightsFunctions
+{
+   LEX_AR_FCT_RESERVED = 0,            // Reserved, a do-nothing for functions which are NOT subject of the access-rights management.
+   LEX_AR_FCT_ACTIVATE_PT,             // Activate Lexium OPMODE Pt
+   LEX_AR_FCT_ACTIVATE_PS,             // Activate Lexium OPMODE PS
+   LEX_AR_FCT_ACTIVATE_S,              // Activate Lexium OPMODE S
+   LEX_AR_FCT_ACTIVATE_T,              // Activate Lexium OPMODE T
+   LEX_AR_FCT_ACTIVATE_SZ,             // Activate Lexium OPMODE Sz
+   LEX_AR_FCT_ACTIVATE_TZ,             // Activate Lexium OPMODE Tz
+   LEX_AR_FCT_ACTIVATE_JOG_MODE,       // Activate a JOG move
+   LEX_AR_FCT_ACTIVATE_GEARING_MANU,   // Activate manufacturer specific gearing (gearing over CAN)
+   LEX_AR_FCT_ACTIVATE_DS402_PROF_POS, // Activate profile position
+   LEX_AR_FCT_ACTIVATE_DS402_PROF_VEL, // Activate profile velocity
+   LEX_AR_FCT_ACTIVATE_DS402_PROF_TRQ, // Activate profile torque
+   LEX_AR_FCT_ACTIVATE_DS402_HOMING,   // Activate homing via DS402
+   LEX_AR_FCT_ACTIVATE_DS402_IP_MODE,  // Activate interpolated position
+   LEX_AR_FCT_ACTIVATE_DS402_CSP_MODE, // Activate cyclic synchronous position
+   LEX_AR_FCT_ACTIVATE_AUTO_TUNING,    // Start the auto-tuningt
+   LEX_AR_FCT_READ_STAT_INFO,          // Read status information
+   LEX_AR_FCT_SET_MOTION_PARAM,
+   LEX_AR_FCT_ENABLE,                  // Enable the axis
+   LEX_AR_FCT_DISABLE,                 // Disable the axis
+   LEX_AR_FCT_FLT_RESET,               // Trigger a fault reset
+   LEX_AR_FCT_HALT,
+   LEX_AR_FCT_CONTINUE,                // Trigger a continue (continue a motion)
+   LEX_AR_FCT_QUICK_STOP
+};
+
+struct comm_parameters
+{
+   unsigned int  fdbk_type;
+   unsigned int  dflt_baud_rate_khz;
+   unsigned int  dflt_xmt_length;
+   unsigned int  dflt_rcv_length;
+   unsigned int  dflt_wait_time_clks;
+   unsigned int  dflt_field_length;
+   unsigned int  deflt_sync_symbol_bits;
+};
+
+
+EXTERNAL  unsigned char BGVAR_DEFINE(u8_Enc_Sim_Test_Request) I( = INIT_0);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_Enc_Sim_Test_Frequency) I(=INIT_1L);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Enc_Sim_Test_Counts) I( = INIT_0);
+EXTERNAL  unsigned int  BGVAR_DEFINE(u16_Enc_Sim_Test_Number_Of_Cycles) I( = INIT_0);
+EXTERNAL  unsigned long BGVAR_DEFINE(u32_enc_sim_test_timer);
+
+#define VBUS_READ_ARR_SIZE  		4
+#define VBUS_READ_ARR_SHR_AVG_VAL   2
+
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Vbus_Volts_Read_Arr)[VBUS_READ_ARR_SIZE] I( = INIT_0_4);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Vbus_Read_Arr_Index) I( = INIT_0);
+EXTERNAL  unsigned int BGVAR_DEFINE(u16_Is_Vbus_Read_Buffer_Full) I( = INIT_0);
+
+
+enum enc_sim_test_state{
+      ENC_SIM_TEST_IDLE  = 0,
+      ENC_SIM_TEST_DISABLE,
+      ENC_SIM_TEST_ENABLE,
+      ENC_SIM_TEST_BUSY,
+      ENC_SIM_TEST_WAIT_BETWEEN_CYCLES
+};
+
+// This variable determines the access-level. 0 = User, 1 = Expert
+// aph77: The purpose of this variable needs to be clarified
+EXTERNAL unsigned long  BGVAR_DEFINE(u32_Lexium_Access_Level) I(=INIT_1L);
+
+// Variable which can be set by the fielbus. This variable can be used to lock the
+// access-rights management so exclusive access will not be assigned to someone else.
+EXTERNAL unsigned char  BGVAR_DEFINE(u8_Lexium_Access_Rights_Locked)I(=INIT_0);
+/**************************************************************************************/
+/*** End of variables and enums, which are subject of the access-rights management. ***/
+/**************************************************************************************/
+
+EXTERNAL  const struct  comm_parameters Comm_Parameters[] I(= COMM_PARAMS_TABLE);
+EXTERNAL unsigned int          BGVAR_DEFINE(u16_Ec_Nmt_State) I(=0xFFFF);
+#undef EXTERNAL
+#undef I
+
+#define TWO_POWER_32 4294967296
+#define MINUS_TWO_POWER_32 -4294967296
+#define RESIDENT_VERSION_LENGTH 20
+#define RESIDENT_VERSION_ADDR   0x100002
+#define FAULT_CONTROL_DELAY   800
+#define SET_FPGA_NORMAL_MODE *(int*)FPGA_CAN_OPEN_MODE_ADD = 0
+#define SET_FPGA_ABR_MODE    *(int*)FPGA_CAN_OPEN_MODE_ADD = 1
+#define SET_FPGA_DISABLE_CAN_MODE    (*(int*)FPGA_CAN_OPEN_MODE_ADD = 2)   // currently supported by fpga of schnider drive only
+
+#define CAN_BIT_RATE_125  125
+#define CAN_BIT_RATE_250  250
+#define CAN_BIT_RATE_500  500
+#define CAN_BIT_RATE_1000 1000
+
+#define NUM_OF_CAN_BIT_RATE 4
+
+#define FILEDBUS_MODE (IS_CAN_DRIVE_AND_COMMODE_1 || IS_PN_DRIVE_AND_COMMODE_1 || IS_EC_DRIVE_AND_COMMODE_1)
+#define EXIT_IF_NOT_FIELDBUS if (!FILEDBUS_MODE) return;
+#define EXIT_IF_NOT_FIELDBUS1 if (!FILEDBUS_MODE) return(0);
+
+#define LXM28_PUU_MAX  2147483647
+#define LXM28_PUU_MIN (-2147483647)
+
+#define RT_OVERLOAD_FAULT       0x0001
+#define RT_OVERLOAD_WARNING     0x0002
+
+#define CURRENT_LIMIT_TRIGGER_MODE_STOP  0
+#define CURRENT_LIMIT_TRIGGER_MODE_FAULT 1
+
+
+#define CURRENT_LIMIT_TRIGGER_MODE_STOP_FLAG  2
+#define CURRENT_LIMIT_TRIGGER_MODE_FAULT_FLAG 1

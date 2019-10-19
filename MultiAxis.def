@@ -1,0 +1,133 @@
+
+// multi axis RT variables
+// -----------------------
+//#define AXIS_OFF int axis_offset = drive<<6
+//#define VAR(var) *(&var+axis_offset)
+//#define LVAR(var) *(&var+(axis_offset>>1))
+//#define LLVAR(var) *(long long *)(&var+(axis_offset>>1))
+
+// Single axis RT variables
+// -----------------------
+#define AXIS_OFF
+#define VAR(var) var
+#define LVAR(var) *(&var)
+#define LLVAR(var) *(long long *)(&var)
+ 
+// Dual Feedback RT variables
+// --------------------------
+#define FDBK_OFF int fdbk_offset = fdbk_dest << 6
+#define FDBKVAR(var) *(&var + fdbk_offset)
+#define FDBKLVAR(var) *(&var + (fdbk_offset >> 1))
+#define FDBKLLVAR(var) *(long long *)(&var + (fdbk_offset >> 1))
+ 
+/* single axis RT variables */
+/* ------------------------ */
+/*
+* #define AXIS_OFF 
+* #define VAR(var) var
+* #define LVAR(var) var
+* #define LLVAR(var) var
+*/
+
+
+/* multi axis BG variables */
+/* ----------------------- */
+/* 
+* #define BGVAR(var) var[drive]
+* #define DRIVE_PARAM drive
+* #define BGVAR_DEFINE(var) var[2]
+* #define REFERENCE_TO_DRIVE
+* #define BGVAR_COMM(var) var[u8_Axis_Id]
+*/
+
+
+/* single axis BG variables */
+/* ------------------------ */
+#define BGVAR(var) var
+#define DRIVE_PARAM drive
+#define BGVAR_DEFINE(var) var
+#define REFERENCE_TO_DRIVE   drive += 0
+#define BGVAR_COMM(var) var
+
+
+/* single/multi axis init defines */
+/* ------------------------------ */
+#define  INIT_0                  0   /* {0, 0}                  */
+#define  INIT_FFFF               0xFFFF /* {0xFFFF, 0xFFFF}     */
+#define  INIT_0L                 0L  /* {0L, 0L}                */
+#define  INIT_0LL                0LL /* {0LL, 0LL}              */
+#define  INIT_1                  1   /* {1, 1}                  */
+#define  INIT_MINUS_1           -1   /* {-1, -1}                */
+#define  INIT_MINUS_3           -3   /* {-3, -3}                */
+#define  INIT_3                  3   /* {3, 3}                  */
+#define  INIT_2                  2   /* {2, 2}                  */
+#define  INIT_4                  4   /* {4, 4}                  */
+#define  INIT_6                  6   /* {6, 6}                  */
+#define  INIT_8                  8   /* {8, 8}                  */
+#define  INIT_0F                 0.0 /* {0.0, 0.0}              */
+#define  INIT_1L                 1L  /* {1L, 1L}                */
+#define  INIT_1F                 1.0 /* {1.0, 1.0}              */
+#define  INIT_10                10   /* {10, 10}                */
+#define  INIT_13                13   /* {13, 13}                */
+#define  INIT_16                16   /* {16, 16}                */
+#define  INIT_20                20   /* {20, 20}                */
+#define  INIT_31                31   /* {31, 31}                */
+#define  INIT_40                40   /* {40, 40}                */
+#define  INIT_50                50   /* {50, 50}                */
+#define  INIT_60                60   /* {60, 60}                */
+#define  INIT_75                75   /* {75, 75}                */
+#define  INIT_100              100   /* {100, 100}              */
+#define  INIT_125              125   /* {125, 125}              */
+#define  INIT_150              150   /* {150, 150}              */
+#define  INIT_200              200   /* {200, 200}              */
+#define  INIT_300              300   /* {300, 300}              */
+#define  INIT_599              599   /* {800, 800}              */
+#define  INIT_800              800   /* {800, 800}              */
+#define  INIT_1000            1000   /* {1000, 1000}            */
+#define  INIT_1280            1280   /* {1280, 1280}            */
+#define  INIT_1428            1428   /* {1428, 1428}            */
+#define  INIT_2048            2048   /* {2048, 2048}            */
+#define  INIT_2621            2621   /* {2621, 2621}            */
+#define  INIT_10000          10000   /* {10000, 10000}          */
+#define  INIT_50000          50000   /* {50000, 50000}          */
+#define  INIT_10RPM          89478L  /* {89478L, 89478L}        */ /* 89478 * 8000 * 60 / 2^32 = 20[rpm] */
+#define  INIT_100000        100000   /* {100000, 100000}        */
+#define  INIT_115200        115200   /* {115200, 115200}        */
+#define  INIT_20RPM        178960L   /* {178960L, 178960L}      */ /* 178960 * 8000 * 60 / 2^32 = 20[rpm] */
+#define  INIT_1000000      1000000   /* {1000000, 1000000}      */
+#define  INIT_1280000L     1280000L  /* {1280000L, 1280000L}    */
+#define  INIT_3000RPM     26843546L  /* {26843546L, 26843546L}  */ /* 26843546 * 8000 * 60 / 2^32 = 3000[rpm] */
+#define  INIT_7FFF          0x7FFF   /* {0x7FFF, 0x7FFF}        */ /* ss */
+#define  INIT_7FFFFFFF  0x7FFFFFFF   /* {0x7FFFFFFF, 0x7FFFFFFF}*/
+#define  INIT_255              255   /* {255, 255}              */
+#define  INIT_60RPM        1073741   /* {1073741, 1073741}      */ /* 60[rpm]  in [Counts32/250us]  */
+#define  INIT_600RPM       5368709   /* {5368709, 5368709}      */ /* 600[rpm] in [Counts32/125us] --> Velocity units out of the loop */
+#define  INIT_FLOAT_0          0.0   /* {0.0, 0.0}              */
+
+#define  INIT_SDO_LAST_OBJECT    SDO_LAST_OBJECT  /*    {SDO_LAST_OBJECT, SDO_LAST_OBJECT} */
+#define  INIT_SERIAL_COMM_TYPE   1                /*    {1 , 1}                            */
+#define  INIT_MAX_ACC_DEC        MAX_ACC_DEC_TSP250      /*    {MAX_ACC_DEC,MAX_ACC_DEC}          */
+
+#define  INIT_0_ARRAY2                       {0,0} /*  {{0,0} , {0,0}}                                         */  
+#define  INIT_0L_ARRAY2                    {0L,0L} /*  {{0L,0L} , {0L,0L}}                                     */  
+#define  INIT_0LL_ARRAY2                 {0LL,0LL} /*  {{0LL,0LL} , {0LL,0LL}}                                 */  
+#define  INIT_15ULL_ARRAY4 {15ULL,15ULL,15ULL,15ULL}/* {{15ULL,15ULL,15ULL,15ULL},{15ULL,15ULL,15ULL,15ULL}}   */  
+#define  INIT_15_ARRAY4  {15,15,15,15}             /*  {{15,15,15,15},{15,15,15,15}}                           */  
+#define  INIT_0_ARRAY5                 {0,0,0,0,0} /*  {{0,0,0,0,0},{0,0,0,0,0}}                               */  
+#define  INIT_0L_ARRAY4              {0L,0L,0L,0L} /*  {{0L,0L,0L,0L},{0L,0L,0L,0L}}                           */
+#define  INIT_128L_ARRAY4    {128L,128L,128L,128L} /*  {{128L,128L,128L,128L},{128L,128L,128L,128L}}           */
+#define  INIT_0L_ARRAY8  {0L,0L,0L,0L,0L,0L,0L,0L} /*  {{0L,0L,0L,0L,0L,0L,0L,0L} , {0L,0L,0L,0L,0L,0L,0L,0L}} */  
+#define  INIT_0_ARRAY10  {0,0,0,0,0,0,0,0,0,0}     /*  {{0,0,0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0,0,0}} */
+#define  INIT_1_ARRAY10  {1,1,1,1,1,1,1,1,1,1}     /*  {{1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1}} */
+#define  INIT_0_ARRAY11  {0,0,0,0,0,0,0,0,0,0,0}   /*  {{0,0,0,0,0,0,0,0,0,0,0} , {0,0,0,0,0,0,0,0,0,0,0}} */
+#define  INIT_1_ARRAY11  {1,1,1,1,1,1,1,1,1,1,1}   /*  {{1,1,1,1,1,1,1,1,1,1,1} , {1,1,1,1,1,1,1,1,1,1,1}} */
+#define  INIT_DEAD_ARRAY5  {0xDEAD,0xDEAD,0xDEAD,0xDEAD,0xDEAD}   /* */
+
+#define  INIT_LEX_SPD_TABLE_USER  {10000L,20000L,30000L}    /*  {{10000L,20000L,30000L},{10000L,20000L,30000L}} */
+#define  INIT_LEX_TRQ_TABLE_USER  {100,100,100}             /*  {{100,100,100},{100,100,100}} */
+
+#define  INIT_LEX_P5_22  {3843071682022820LL}                 /*  {3843071682022820LL, 3843071682022820LL} */
+
+#define COMMS_BUFFER_SIZE 400 // This is defined here as it determines the size of the comms and domain buffers
+
+#define FIRMWARE_VERSION_DIGITS 6

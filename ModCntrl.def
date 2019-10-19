@@ -1,0 +1,258 @@
+#define MAX(a, b) (a > b ? a : b)
+
+/* u8_Sensor_Adjust_State defines */
+#define  ADJ_WAIT     0
+#define  ADJ_START    1
+#define  ADJ_CALC     2
+
+
+#define BACKGROUND_CONTEXT 0
+#define INT_1MSEC_CONTEXT  1
+#define INT_CAN_CONTEXT    2
+
+#define CSP_SCALING_INVALID_SCALING  1
+#define CSP_SCALING_IN_CSP_MODE      2
+#define CSP_SCALING_INCORRECT (CSP_SCALING_INVALID_SCALING | CSP_SCALING_IN_CSP_MODE)
+
+
+/* bit definition of Crrnt_Run_Code */
+#define  MOTOR_SETUP_LOOK_FOR_INDEX_MASK  0x0001
+#define  MOTOR_SETUP_INDEX_CAPTURED_MASK  0x0002
+#define  HOMING_SOFT_INDEX_MASK           0x0004
+#define  RESET_SWR2D_MASK                 0x0008
+#define  ARM_HOMING_CAPTURE_MASK          0x0010
+#define  COPY_POS_CMD_TO_PTP_GEN_MASK     0x0020
+#define  RES_EXC_INITIALIZED              0x0040
+#define  COPY_SHARED_POS_COEF_MASK        0x0080
+#define  HOMING_OFFSET_READY_MASK         0x0100
+#define  COPY_POS_COEF_MASK               0x0200
+#define  COPY_NCT_COEF_MASK               0x0400
+#define  COPY_VEL_COEF_MASK               0x0800
+#define  SOFT_HOMING_CAPTURE_MASK         0x1000
+#define  PHASE_FIND_ORG_MASK              0x2000
+#define  LOOK_FOR_INDEX_MASK              0x4000
+#define  INDEX_CAPTURE_DONE_MASK          0x8000
+
+/* bit definition of AX0_s16_Home_Skip_Flags */
+#define  SKIP_PFB_COPY_TO_PCMD_MASK    0x0001
+
+#define  PLL_RECEIVED_MASK        0x0010
+
+/* Touch probe defines  */
+#define  TRIGGER_POLARITY          0x0004
+
+
+/*  Time measurement, based on counter of 31.25 uS
+ *  Cntr_3125 */
+#define         _125_USEC_ON_3125         4
+#define         _250_USEC_ON_3125         8
+#define         _500_USEC_ON_3125         16
+#define         ONE_MSEC_ON_3125          32
+#define         TWO_MSEC_ON_3125          64
+#define         FOUR_MSEC_ON_3125         128
+#define         SIX_MSEC_ON_3125          192
+#define         TEN_MSEC_ON_3125          320
+#define         TWENTY_MSEC_ON_3125       640
+#define         FIFTY_MSEC_ON_3125        1600
+#define         HUNDRED_MSEC_ON_3125      3200
+#define         QUARTER_SECOND_ON_3125    8000
+#define         _350_MSEC_ON_3125         11200
+#define         FOUR_HUNDRED_MSEC_ON_3125 12800
+#define         HALF_SECOND_ON_3125       16000
+#define         ONE_SECOND_ON_3125        32000
+
+/* out of range defines */
+#define OUT_OF_RANGE_SINE_ENC       0
+#define OUT_OF_RANGE_SWR2D          1
+
+#define  MAX_EXC_DELAY 17800 /* less than 1/2 of EPWM6 Period */
+
+#define  SIN_COS_AVG_INIT 0
+#define  SIN_COS_AVG_COLLECT_SAMPLES 1
+#define  SIN_COS_AVG_DONE 2
+
+/* s16_Adjust_Reference_State defines */
+#define  ADJ_REF_INIT               0
+#define  ADJ_REF_WAIT_SAMPLES       1
+#define  ADJ_REF_POSITIVE_CORR      2
+#define  ADJ_REF_NEGATIVE_CORR      3
+#define  ADJ_REF_THRESH_ADJUST      4
+#define  ADJ_REF_DIS_EXC            5
+#define  ADJ_REF_RE_EN_EXC          6
+#define  ADJ_REF_EN_PFB             7
+#define  ADJ_REF_DONE               8
+#define  ADJ_REF_FAILED             9
+/* Debugging States, use as necessary     */
+// #define  ADJ_REF_SCAN_INIT          10
+// #define  ADJ_REF_SCAN               11
+
+#define  ADC_SAMPLE_POS_CORRECTION  1000
+#define  ADC_SAMPLE_NEG_CORRECTION  -200
+
+#define  VBUS_BUFFER_SIZE 16
+
+#define INRUSH_RELAY_ON  ((*((int*)FPGA_POWER_CONTROL_REG_ADD)) |= 0x0001)
+#define INRUSH_RELAY_OFF ((*((int*)FPGA_POWER_CONTROL_REG_ADD)) &= ~0x0001)
+#define IS_INRUSH_RELAY_ON  ((*((int*)FPGA_POWER_CONTROL_REG_ADD)) & 0x0001)
+
+#define REGEN_RELAY_ON  ((*((int*)FPGA_PWR_RGN_CONTROL_REG_ADD)) |= 0x0001)
+#define REGEN_RELAY_OFF ((*((int*)FPGA_PWR_RGN_CONTROL_REG_ADD)) &= ~0x0001)
+#define IS_REGEN_RELAY_ON  ((*((int*)FPGA_PWR_RGN_CONTROL_REG_ADD)) & 0x0001)
+
+#define FAN_HALF_SPEED  ((*((int*)FPGA_POWER_CONTROL_REG_ADD)) |= 0x0002)
+#define FAN_FULL_SPEED ((*((int*)FPGA_POWER_CONTROL_REG_ADD)) &= ~0x0002)
+
+#define LPF_10_HZ_ALPHA_FIX  30772  //alpha factor fix for a 10 Hz low pass filter that runs in 1 kHz task
+#define LPF_10_HZ_BETA_FIX   1996   //beta  factor fix for a 10 Hz low pass filter that runs in 1 kHz task
+#define LPF_10_HZ_SHR        15     //shift right for a 10 Hz low pass filter that runs in 1 kHz task
+#define LPF_10_HZ_ROUNDING   16384  //rounding for a 10 Hz low pass filter that runs in 1 kHz task
+
+#define LPF_5_HZ_10mS_ALPHA_FIX  23934  //alpha factor fix for a 5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_5_HZ_10mS_BETA_FIX    8834  //beta  factor fix for a 5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_5_HZ_10mS_SHR        15     //shift right for a 5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_5_HZ_10mS_ROUNDING   16384  //rounding for a 5 Hz low pass filter that runs in 0.1 kHz task
+
+#define LPF_05_HZ_10mS_ALPHA_FIX  31754  //alpha factor fix for a 0.5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_05_HZ_10mS_BETA_FIX    1014  //beta  factor fix for a 0.5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_05_HZ_10mS_SHR        15     //shift right for a 0.5 Hz low pass filter that runs in 0.1 kHz task
+#define LPF_05_HZ_10mS_ROUNDING   16384  //rounding for a 0.5 Hz low pass filter that runs in 0.1 kHz task
+
+// Active Disable States
+#define AD_IDLE                           0
+#define AD_START_RAMP_DOWN                1
+#define AD_WAIT_FOR_FIRST_DISSPEED        2
+#define AD_WAIT_FOR_DISSPEED_QUAL         3
+#define AD_START_DISTIME_COUNTER          4
+#define AD_WAIT_DISTIME_EXPIRE            5
+#define AD_DISABLE_DRIVE                  6
+#define AD_START_DISTIME_COUNTER_REGULAR  104
+#define AD_WAIT_DISTIME_EXPIRE_REGULAR    105
+#define AD_DISABLE_DRIVE_REGULAR          106
+
+/* skip flags defines */
+#define  SKIP_ENC_STATE_2_MASK          0x0001
+#define  HALLS_ONLY_MASK                0x0002
+#define  ENC_CONFIG_NEEDED_MASK         0x0004
+#define  SKIP_COMM_ADJ_MASK             0x0008
+#define  SPD_ADV_INV_DIRECTION_MASK     0x0010
+#define  ZERO_PHASE_ADV_MASK            0x0020
+#define  MOTOR_SETUP_MASK               0x0040
+#define  SWAP_UV_COMM_MASK              0x0080
+#define  INV_DIRECTION_MASK             0x0100
+#define  WNS_ON_MASK                    0x0200
+#define  SKIP_MENCZPOS_USE_MASK         0x0400
+#define  INIT_RESOLVER_PFB_MASK         0x0800
+#define  UPDATE_RESOLVER_PFB_MASK       0x1000
+#define  SW_SINE_UPDATING_PFB_MASK      0x2000
+#define  SL_COMMUTATION_MASK            0x4000
+#define  SEC_ENC_CONFIG_NEEDED_MASK     0x8000
+
+/* Gear skip flags defines */
+#define  ZERO_HWPEXT_MASK               0x0001
+#define  COPY_GEAR_FILT_MASK            0x0010  // Copy Gear MSQ-filter settings in real-time
+#define  COPY_HALLS_FILT_MASK           0x0020  // Copy Halls MSQ-filter settings in real-time
+#define  COPY_ANIN1_FILT_MASK           0x0040  // Copy ANIN1 MSQ-filter settings in real-time
+
+/* Procedure exclusion */
+#define PROC_NONE               0
+#define PROC_MOTOR_SETUP        1
+#define PROC_BURNIN             2
+#define PROC_CC_AUTOTUNE        3
+#define PROC_ML_EST_AUTOTUNE    4
+/*#define PROC_HOMING           4*/
+#define PROC_POSTUNE            5
+#define PROC_ONLINE_LMJR        7 
+#define PROC_VOLT_CALIBRATION   8
+#define PROC_EST_MOTOR_PARAMS   9
+/*PLL handler definitions, set by BG */
+#define PLL_ENABLED_MASK          0x0001
+
+/*PLL handler definitions, set by RT */
+#define PLL_SYNC_OCCURRED_MASK    0x0001
+#define PLL_LOCKED_MASK           0x0002
+
+// PLL handler  States
+#define PLL_IDLE              0
+#define PLL_INIT              1
+#define PLL_WAIT_SYNC_SIGNAL  2
+#define PLL_CONFIG            3
+#define PLL_WAIT_FOR_LOCK     4
+#define PLL_LOCKED            5
+#define PLL_UNLOCKED          6
+
+#define LOCK_POSITION_MASK    1
+
+// s16_PfbBackupWR defines
+#define PFB_BACKUP_WR_CALC_ADDR           10
+#define PFB_BACKUP_WR_ERASE_FLASH         20
+#define PFB_BACKUP_WR_WRITE_FLASH         30
+#define PFB_BACKUP_WAIT_FOR_ESTOP_CLR     35
+#define PFB_BACKUP_WR_DONE                40
+
+// Opmode change on the fly - control bits
+#define OPMODE_CHANGE_ISSUED_MASK                                    0x0001 // This flag indicates the RT task to perform an OPMODE switch upon the next MTS0
+#define OPMODE_CHANGE_ON_THE_FLY_MASK                                0x0002 // This flag indicates that we want to perfrom an OPMODE change on the fly (smooth transition)
+#define OPMODE_CHANGE_OVERWRITE_PTPVCMD_DURING_MOVESMOOTH_INIT_MASK  0x0004 // This flag is used in order to overwrite the variable PTPVCMD while the moving average filter
+                                                                            // in the position path is busy with initialization (used for OPMODE change on the fly)
+#define OPMODE_CHAGE_POS_DESIGN_COPY_MASK                            0x0008
+#define OPMODE_CHANGE_VIA_FB_PENDING_MASK                            0x0010 // This flag indicates that a mode of operation change via fieldbus is pending. Bit is used to
+                                                                            // avoid a race-condition e.g. during an OPMODE change so that no fieldbus interpolation variables
+                                                                            // are overwritten during the OPMODE change.
+
+#define OPMODE_CHANGE_OVERWRITE_PTPVCMD_AFTER_MOVESMOOTH_INIT_MASK   0x0040 // This flag ensures that PTPVCMD is overwritten after the initialization time of the moving
+                                                                            // average filter in the position path while performing a switch on the fly. Here we ramp up/down
+                                                                            // to from the captured velocity to the real output of the moving average (or LPF).
+#define OPMODE_CHANGE_OVERWRITE_PTPVCMD_DURING_FILTER_INIT_MASK      0x0080 // This flag is used in order to overwrite PTPVCMD in speed-gear mode (simulated velocity mode) in
+                                                                            // case that the moving-average or the LPF are active. Overwriting PTPVCMD intorduces a deviation
+                                                                            // between PCMD_loop and PCMD_gearing = PCMD_ptphunter, because this is a mode in which we do not
+                                                                            // follow a position but we rather SIMULATE a velocity mode.
+#define OPMODE_CHANGE_INIT_FILTER_POSITION_OFFSET_VAL_MASK           0x0100 // This flag tells upon an OPMODE change on the fly to calculate a position offset value,
+                                                                            // which will be added to the filter output to avoid any jump at which will be gradually decreased
+                                                                            // after the filter initialization is done.
+
+// Defines for regen-resistor overload protection
+#define REGEN_ON_TIME_ARR_SIZE 10
+#define REGEN_CYCLE_IN_MS 500
+#define INIT_0_10 {0,0,0,0,0,0,0,0,0,0}
+
+// Defines for encoder simulation handling
+#define ENCSIM_INDEX_JUST_ALIGNED_MASK              0x01
+#define ENCSIM_INDEX_ALIGNED_MASK                   0x02
+#define ENCSIM_INDEX_BY_REAL_INDEX_MASK             0x04
+#define ENCSIM_INDEX_BY_ELECTANGLE_ROLLOVER_MASK    0x08
+
+//Defines for OUTPUTST
+#define OUTPUTST_REGEN     0
+#define OUTPUTST_INRUSH    1
+
+// AX0_s16_Transition_To_Enable defines
+#define ASK_HW_ENABLE_MASK       0x0001
+#define CORR_CAL_REQUIRED_MASK   0x0002
+#define EN_REQUEST_BIT           0x0004
+#define CURRLOOP_RDY_BIT         0x0008
+
+// Defines for the OPMODE change state machine handler
+#define OPMODE_CHANGE_IDLE                         0x0000
+#define OPMODE_CHANGE_START_STANDSTILL_PROCESS     0x0001
+#define OPMODE_CHANGE_WAIT_FOR_VEL_0               0x0002
+#define OPMODE_CHANGE_SWITCH_OPMODE_AFTER_VEL0     0x0003
+#define OPMODE_CHANGE_FINISH_STANDSTILL_PROCESS    0x0004
+#define OPMODE_CHANGE_CALC_DEC_TIME                0x0005
+
+// Defines for the source who triggered the OPMODE change.
+// Here only the upper byte is allowed to be set, the lower byte must remain 0.
+#define OPMODE_CHANGE_SOURCE_SAL_FCT            0x0000
+#define OPMODE_CHANGE_SOURCE_DUAL_MODE_IO       0x0100
+#define OPMODE_CHANGE_SOURCE_CAN_ECAT           0x0200
+#define OPMODE_CHANGE_SOURCE_OPMODE_SWITCH_INP  0x0300
+
+// Defines for blocking the OPMODE change via PDO
+#define  BLOCK_OPMODE_CHANGE_BY_HOLD      0x0001 // Function hold scan blocks the OPMODE change via PDO due to the feature "velocity controlled ramp-down in OPMODE torque"
+
+
+// AX0_s16_DF_Run_Code
+#define DUAL_LOOP_HOMING_INITIATE_SOFT_INDEX_MASK 0x0001
+#define DUAL_LOOP_CHANGE_PFB_RES_MASK             0x0002
+#define DUAL_LOOP_ENTER_ENCODER_SIMULATION_MASK   0x0004
+
+

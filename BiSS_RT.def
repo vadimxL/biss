@@ -1,0 +1,132 @@
+/*
+ * defs.h
+ *
+ *  Created on: Oct 4, 2019
+ *      Author: vadim.malinovsky
+ */
+
+#ifndef DEFS_H_
+#define DEFS_H_
+
+#include "Design.def"
+
+extern unsigned int           AX0_u16_Parsing_Regs_Ptr;
+extern unsigned long          AX0_u32_FPGA_Base_Regs_Ptr;
+extern unsigned long          AX0_u32_FPGA_Tx_Rx_Regs_Ptr;
+
+typedef int                int16;
+typedef long               int32;
+typedef long long          int64;
+typedef unsigned int       Uint16;
+typedef unsigned long      Uint32;
+typedef unsigned long long Uint64;
+typedef float              float32;
+typedef long double        float64;
+
+
+extern void CALCULATE_POSITION_FDBK(int16);
+
+#define START_ACK_CDS_BITS_WIDTH 3
+#define STATUS_BITS_WIDTH 2
+#define CRC_WIDTH 6
+#define ALLOWED_CONSEC_CRC_ERRORS 10
+#define ALLOWED_CONSEC_TIME_OUT_ERRORS 10
+#define CRC_POLY 0x43
+#define CRC_WIDTH_MASK 0x3f
+#define CRC_MSB_MASK 0x20
+#define STATUS_WIDTH_MASK 0x3
+
+
+typedef struct ParsingRegs
+{
+    Uint32 Pos_Fdbk_Lo;
+    int32 Pos_Fdbk_Hi;
+    Uint32 Fdbk_Accu;
+    Uint32 Comm_Abs_Pos_Lo;
+    int32 Comm_Abs_Pos_Hi;
+    int32 Comm_Abs_Pos_Half_Delta;
+    Uint32 Abs_Enc_Altern_1Data;
+    Uint32 Abs_Enc_Altern_2Data;
+    Uint32 Abs_Enc_Altern_3Data;
+    Uint32 Counts_Per_Rev;
+    Uint32 Counts_Per_Rev_Half;
+    Uint32 Pfb_Scale_Fix;
+    Uint32 Tm_Comm_Accu;
+    Uint16 Abs_Enc_Command_1Frame;
+    Uint16 Abs_Enc_Command_2Frame;
+    Uint16 Abs_Enc_Command_3Frame;
+    Uint16 Abs_Enc_Command_4Frame;
+    Uint16 Comm_Fdbk_Flags_A_1;
+    Uint16 Comm_Fdbk_Flags_B_1;
+    Uint16 Abs_Enc_Info_Frame;
+    Uint16 Abs_Enc_Data_Frame[4];
+    Uint16 Tm_Enc_Crc_Frame;
+    Uint16 Abs_Crc_Shl;
+    Uint16 Abs_Crc;
+    // Anonymous union
+    union
+    {
+       int16 Zero_Position;
+       int16 PS_Prev_Pos;
+    } u_Pos;
+    Uint16 Crc_Consec_Err_Cntr;
+    Uint16 Time_Out_Consec_Err_Cntr;
+
+} ParsingRegs;
+
+
+typedef struct BissRegs1
+{
+    Uint32 Response_Cmd_Frame;
+    Uint32 Abs_Pos_Raw;
+    Uint32 Reg_Cmd_Frame;
+    Uint32 MT_ST_Len;
+    Uint32 MT_ST_Len_Res;
+} BissRegs1;
+
+typedef struct BissRegs2
+{
+    Uint16 RTMBX_Control;
+    Uint16 App_Data;
+    Uint16 CDM_Cntr;
+} BissRegs2;
+
+
+typedef struct BissRegs
+{
+    BissRegs1 *regs1;
+    BissRegs2 *regs2;
+} BissRegs;
+
+
+// Function defines
+void BissAbsPosParse(Uint64 data, ParsingRegs* regs, Uint16 cds);
+void BissCommunicationFeedback(void);
+Uint16 crcBiSS(Uint64 inputData);
+
+// -------------------------------------------
+// BiSS-C RT mailbox bits
+// -------------------------------------------
+#define BISSC_RTMBX_CNTRL_CH_TX_STATE_MASK 0x0004
+#define BISSC_RTMBX_CNTRL_CH_RX_STATE_MASK 0x0008
+#define BISSC_RTMBX_CNTRL_CH_START_BIT_EVAL_MASK 0x0010
+
+
+//; -------------------------------------------
+//; BiSS-C Control Channel Management Constants
+//; -------------------------------------------
+#define BISSC_CNTRL_CH_REQUEST_BITS_TO_FETCH 47 // [CDMs]
+#define BISSC_CNTRL_CH_REQUEST_BITS_TO_SKIP 14 // [CDMs]
+#define BISSC_CNTRL_CH_REQUEST_BITS_TO_EVAL_START 34 // [CDMs]
+
+
+// Mask for communication feedbacks
+#define COMM_FDBK_ALL_ERROR_MASK ( COMM_FDBK_CRC_ERROR_1_MASK | \
+                                  COMM_FDBK_TIME_OUT_ERROR_1_MASK | \
+                                  COMM_FDBK_POS_INTERPOLATED_MASK | \
+                                  COMM_FDBK_ALTERN_CMD_SEND_MASK | \
+                                  COMM_FDBK_ALTERN_RESP_RCV_MASK  )
+
+
+
+#endif /* DEFS_H_ */

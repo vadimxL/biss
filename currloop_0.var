@@ -1,0 +1,536 @@
+
+   .def  AX0_CRRNT_5_VAR_PAGE
+   .def  _AX0_s32_Feedback_Ptr
+   .def  _AX0_s32_Feedback_Ptr_2
+   .def  _AX0_u32_FPGA_Tx_Rx_Regs_Ptr
+   .def  _AX0_u32_FPGA_Base_Regs_Ptr
+   .def  _AX0_s32_Extrema_Timer
+   .def  _AX0_s32_ATV_Output
+   .def  _AX0_s16_ATV_Icmd_Lpf
+   .def  _AX0_s16_ATV_Icmd_Filt
+   .def  _AX0_s16_AT_InposTime
+   .def  _AX0_s16_ATV_Shr
+   .def  _AX0_s16_ATV_Icmd_Hpf_Prev
+   .def  _AX0_s16_ATV_Last_Extrema
+   .def  _AX0_s16_ATV_Extrema_Dir
+   .def  _AX0_s16_ATV_First_Extrema
+   .def  _AX0_s16_ATV_Icmd_Max
+   .def  _AX0_s16_ATV_Timer
+
+   .def  _AX0_u16_Parsing_Regs_Ptr
+   .def  _AX0_s16_Burnin_Command
+
+   .def  _AX0_Pwm_Change_On_The_Fly
+   .def  _AX0_u16_Pwm_Change_Indication
+   .def  _AX0_Cntr_3125_Pwm_Mask
+   .def  _AX0_s16_Active_Indication
+   .def  AX0_s16_Active_Indication_Prev
+   .def  AX0_s16_Active_Indication_Prev_Prev
+   .def  _AX0_u16_Abs_Enc_Info_Frame
+   .def  _AX0_u16_Abs_Enc_Data_0Frame
+   .def  _AX0_u16_Abs_Enc_Data_1Frame
+   .def  _AX0_u16_Abs_Enc_Data_2Frame
+   .def  _AX0_u16_Abs_Enc_Data_3Frame
+   .def  AX0_u16_Tm_Enc_Crc_Frame
+   .def  _AX0_u16_Motor_Comm_Type
+   .def  AX0_s16_PS_Prev_Pos
+   .def  _AX0_u16_Crc_Consec_Err_Cntr
+   .def  _AX0_u16_Time_Out_Consec_Err_Cntr
+   .def  _AX0_u16_ED_Alarm_Bits
+   .def  _AX0_u16_CommEnc_InTurn_Less16_Bits
+   .def  _AX0_u16_ED_In_Turn_Bits
+   .def  _AX0_u16_ED_Turns_Bits
+   .def  AX0_u16_Phase_Dscnt_Cntr
+   .def  AX0_s16_ICMD_Readout_Filtered
+   .def  AX0_u16_ICMD_Peak_Cntr
+   .def  _AX0_u16_Crc_Table_Select
+   .def  _AX0_u16_FPGA_TxRx_Regs_PFB
+   .def  _AX0_u16_FPGA_TxRx_Regs_SFB
+   .def  _AX0_u16_FPGA_Base_Regs_PFB
+   .def  _AX0_u16_FPGA_Base_Regs_SFB
+   .def  _AX0_s16_Icmd_100Hz_Filtered_Max
+   .def  _AX0_u16_ARM_INDEX_CAPTURE_flag
+   .def	 _AX0_s16_Crrnt_Q_Act_0_User
+
+   .def  _AX0_s16_AT_Settle_Time_Cost_Timer
+   .def  _AX0_s16_AT_Settle_Time_Cost_Multiplier
+   .def  _AX0_s16_AT_Settle_Time_ZeroCross_Cntr
+   .def  _AX0_u32_LAT_Cost_Lo
+   .def  _AX0_s32_LAT_Cost_Hi
+   .def  _AX0_s32_ATV_Prev_Scaled_Pe
+   .def  _AX0_s32_AT_Pertubation_Current
+   .def  _AX0_s16_AT_OverShoot_Sign
+   .def  _AX0_s16_AT_MoveSine_Mode
+   .def  _AX0_s32_AT_Pf_Counter_Limit
+
+
+   .def   AX0_CRRNT_6_VAR_PAGE
+   .def  _AX0_u32_Zclamp_PFB_Capture_Lo
+   .def  _AX0_s32_Zclamp_PFB_Capture_Hi
+   .def  _AX0_s16_DB_Overshoot_Limit
+
+   .def  _AX0_u16_Lock_Position_Flag
+   .def  AX0_s16_Icmd_Filtered
+   .def  AX0_s16_Icmd_Residue
+   .def  AX0_s16_Icmd_100Hz_Filtered
+   .def  _AX0_u16_U_Phase_Cntr
+   .def  _AX0_u16_V_Phase_Cntr
+   .def  _AX0_u16_W_Phase_Cntr
+   .def  _AX0_u16_Phase_Cntr
+   .def  _AX0_s16_Zclamp_On
+   .def  _AX0_s16_P1_38_Zero_Speed_Window
+   .def  _AX0_s16_Cmd_Invert_On
+   .def  _AX0_u16_Vel_Dsrgrd
+   .def  _AX0_s16_Phase_Disc_Elect_Capture
+   .def  _AX0_u16_Phase_Disc_Run_Counter
+   .def  _AX0_u16_Phase_Disc_Ufault_Counter
+   .def  _AX0_u16_Phase_Disc_Vfault_Counter
+   .def  _AX0_u16_Phase_Disc_Wfault_Counter
+   .def  AX0_u16_Phase_Disc_Verif_Flt_Counter
+   .def  _AX0_s16_120P_Ilim_User
+   .def  _AX0_s16_High_Iq_Counter
+   .def  _AX0_u16_DB_PWM_FPGA_Mux_Value
+   
+   .def _AX0_u32_BiSSC_MT_ST_Length
+   .def _AX0_u32_BiSSC_MT_ST_Length_Resolution
+
+   .def  _AX0_u32_BiSSC_RegCmdFrame
+   .def  _AX0_u32_BiSSC_ResponseCmdFrame
+   .def  _AX0_u32_BiSSC_Abs_Pos_Raw
+   .def  _AX0_u16_BiSSC_RTMBX_Control
+   .def  _AX0_u16_BiSSC_CDMCntr
+   .def  _AX0_u16_BiSSC_AppData
+
+   .def  _AX0_CRRNT_8_VAR_PAGE
+   .def  _AX0_u32_Comm_Abs_Pos_32_Lo
+   .def  _AX0_s32_Comm_Abs_Pos_32_Hi
+   .def  AX0_s32_Comm_Abs_Pos_Half_Delta
+
+   .def  _AX0_u32_Abs_Enc_Altern_1Data
+   .def  _AX0_u32_Abs_Enc_Altern_2Data
+   .def  _AX0_u32_Abs_Enc_Altern_3Data
+
+   .def  _AX0_u32_Pos_Fdbk_Lo
+   .def  _AX0_s32_Pos_Fdbk_Hi
+   .def  _AX0_u32_Fdbk_Accu
+
+   .def  _AX0_u32_Counts_Per_Rev
+   .def  _AX0_u32_Counts_Per_Rev_Half
+
+   .def  _AX0_u32_Pfb_Scale_Fix
+
+   .def  _AX0_u32_Tm_Comm_Accu
+
+   .def  _AX0_u16_Abs_Enc_Command_1Frame
+   .def  _AX0_u16_Abs_Enc_Command_2Frame
+   .def  _AX0_u16_Abs_Enc_Command_3Frame
+   .def  _AX0_u16_Abs_Enc_Command_4Frame
+   .def  _AX0_u16_Comm_Fdbk_Flags_A_1
+   .def  _AX0_u16_Comm_Fdbk_Flags_B_1
+   .def  _AX0_u16_Abs_Crc_Shl
+   .def  _AX0_u16_Abs_Crc
+   .def   _AX0_u16_Skip_Phase_Disconnect_Detect
+   .def  _AX0_s16_ATV_Output_Cntr
+   .def  _AX0_u16_Abs_Enc_Info_Frame
+   .def  _AX0_u16_Abs_Enc_Data_0Frame
+   .def  _AX0_u16_Abs_Enc_Data_1Frame
+   .def  _AX0_u16_Abs_Enc_Data_2Frame
+   .def  _AX0_u16_Abs_Enc_Data_3Frame
+   .def  AX0_u16_Tm_Enc_Crc_Frame
+
+   .def  _AX0_s16_Zero_Position
+   .def  AX0_s16_PS_Prev_Pos
+   .def  _AX0_u16_Crc_Consec_Err_Cntr
+   .def  _AX0_u16_Time_Out_Consec_Err_Cntr
+   .def  _AX0_u16_ED_Alarm_Bits
+   .def  _AX0_u16_CommEnc_InTurn_Less16_Bits
+   .def  _AX0_u16_ED_In_Turn_Bits
+   .def  _AX0_u16_ED_Turns_Bits
+
+   .def  _AX0_u16_Com_Enc_Altern_1Frame
+   .def  _AX0_u16_Com_Enc_Altern_2Frame
+   .def  _AX0_u16_Com_Enc_Altern_3Frame
+   .def  _AX0_u16_Com_Enc_Altern_4Frame
+   .def  _AX0_u16_Com_EnDat_Tx1_Length
+   .def  _AX0_u16_Com_Enc_Alt_Xmt_Length
+   .def  _AX0_u16_Com_EnDat_Rx1_Length
+   .def  _AX0_u16_Com_Enc_Alt_Xcv_Length
+   .def  _AX0_u16_Com_Enc_Xmt_Length
+   .def  _AX0_u16_Com_EnDat_Tx2_Length
+   .def  _AX0_u16_Com_Enc_Xcv_Length
+   .def  _AX0_u16_Com_EnDat_Rx2_Length
+
+   .def  _AX0_u16_Sine_Match_Div
+   .def  _AX0_u16_Sine_Match_Shift
+
+   .def  _AX0_u16_EnDat_Msg_Size
+   .def  _AX0_u16_EnDat_Type_Ind
+   .def  _AX0_s16_DF_Run_Code
+   .def  _AX0_s16_Qep
+   .def  AX0_s16_Prev_Qep
+   .def  _AX0_u16_Pfb_Scale_Shr
+   .def  AX0_s16_Gen_Delta
+   .def  _AX0_u16_Tm_Pos_Comm
+   .def  _AX0_u16_Tm_Pos_Comm_Prev
+
+   .def  _AX0_CRRNT_9_VAR_PAGE
+   .def  _AX0_u32_Comm_Abs_Pos_32_Lo_2
+   .def  _AX0_s32_Comm_Abs_Pos_32_Hi_2
+   .def  AX0_s32_Comm_Abs_Pos_Half_Delta_2
+
+   .def  _AX0_u32_Abs_Enc_Altern_1Data_2
+   .def  _AX0_u32_Abs_Enc_Altern_2Data_2
+   .def  _AX0_u32_Abs_Enc_Altern_3Data_2
+
+   .def  _AX0_u32_Pos_Fdbk_Lo_2
+   .def  _AX0_s32_Pos_Fdbk_Hi_2
+   .def  _AX0_u32_Fdbk_Accu_2
+
+   .def  _AX0_u32_Counts_Per_Rev_2
+   .def  _AX0_u32_Counts_Per_Rev_Half_2
+
+   .def  _AX0_u32_Pfb_Scale_Fix_2
+
+   .def  _AX0_u32_Tm_Comm_Accu_2
+
+   .def  _AX0_u16_Abs_Enc_Command_1Frame_2
+   .def  _AX0_u16_Abs_Enc_Command_2Frame_2
+   .def  _AX0_u16_Abs_Enc_Command_3Frame_2
+   .def  _AX0_u16_Abs_Enc_Command_4Frame_2
+   .def  _AX0_u16_Comm_Fdbk_Flags_A_2
+   .def  _AX0_u16_Comm_Fdbk_Flags_B_2
+   .def  _AX0_u16_Abs_Crc_Shl_2
+   .def  _AX0_u16_Abs_Crc_2
+
+   .def  _AX0_u16_Abs_Enc_Info_Frame_2
+   .def  _AX0_u16_Abs_Enc_Data_0Frame_2
+   .def  _AX0_u16_Abs_Enc_Data_1Frame_2
+   .def  _AX0_u16_Abs_Enc_Data_2Frame_2
+   .def  _AX0_u16_Abs_Enc_Data_3Frame_2
+   .def  AX0_u16_Tm_Enc_Crc_Frame_2
+
+   .def  _AX0_s16_Zero_Position_2
+   .def  AX0_s16_PS_Prev_Pos_2
+   .def  _AX0_u16_Crc_Consec_Err_Cntr_2
+   .def  _AX0_u16_Time_Out_Consec_Err_Cntr_2
+   .def  _AX0_u16_ED_Alarm_Bits_2
+   .def  _AX0_u16_CommEnc_InTurn_Less16_Bits_2
+   .def  _AX0_u16_ED_In_Turn_Bits_2
+   .def  _AX0_u16_ED_Turns_Bits_2
+
+   .def  _AX0_u16_Com_Enc_Altern_1Frame_2
+   .def  _AX0_u16_Com_Enc_Altern_2Frame_2
+   .def  _AX0_u16_Com_Enc_Altern_3Frame_2
+   .def  _AX0_u16_Com_Enc_Altern_4Frame_2
+   .def  _AX0_u16_Com_EnDat_Tx1_Length_2
+   .def  _AX0_u16_Com_Enc_Alt_Xmt_Length_2
+   .def  _AX0_u16_Com_EnDat_Rx1_Length_2
+   .def  _AX0_u16_Com_Enc_Alt_Xcv_Length_2
+   .def  _AX0_u16_Com_Enc_Xmt_Length_2
+   .def  _AX0_u16_Com_EnDat_Tx2_Length_2
+   .def  _AX0_u16_Com_Enc_Xcv_Length_2
+   .def  _AX0_u16_Com_EnDat_Rx2_Length_2
+
+   .def  _AX0_u16_Sine_Match_Div_2
+   .def  _AX0_u16_Sine_Match_Shift_2
+
+   .def  _AX0_u16_EnDat_Msg_Size_2
+   .def  _AX0_u16_EnDat_Type_Ind_2
+   .def  _AX0_s16_DF_Run_Code_2
+   .def  _AX0_s16_Qep_2
+   .def  AX0_s16_Prev_Qep_2
+   .def  _AX0_u16_Pfb_Scale_Shr_2
+   .def  AX0_s16_Gen_Delta_2
+   .def  _AX0_u16_Tm_Pos_Comm_2
+   .def  _AX0_u16_Tm_Pos_Comm_Prev_2
+   
+   .global _AX0_u32_Biss_Single_Turn_Eff_Mask
+   .global _AX0_u32_Biss_Multi_Turn_Eff_Mask
+
+;start page AX0_CRRNT_5_VAR_PAGE
+AX0_CRRNT_5_VAR_PAGE                    .usect    "AX0_PM_I_DP5", 0
+_AX0_s32_Feedback_Ptr                   .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s32_Feedback_Ptr_2                 .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_u32_FPGA_Tx_Rx_Regs_Ptr            .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_u32_FPGA_Base_Regs_Ptr             .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s32_Extrema_Timer                  .usect    "AX0_PM_I_DP5", 2,,1   ;10
+_AX0_s32_ATV_Output                     .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_u32_LAT_Cost_Lo                    .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s32_LAT_Cost_Hi                    .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s32_ATV_Prev_Scaled_Pe             .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s32_AT_Pertubation_Current         .usect    "AX0_PM_I_DP5", 2,,1   ;20
+_AX0_s32_AT_Pf_Counter_Limit            .usect    "AX0_PM_I_DP5", 2,,1
+_AX0_s16_AT_Settle_Time_Cost_Timer      .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_AT_OverShoot_Sign              .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_AT_InposTime                   .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Shr                        .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Icmd_Filt                  .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Icmd_Lpf                   .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Icmd_Hpf_Prev              .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Last_Extrema               .usect    "AX0_PM_I_DP5", 1		;30
+_AX0_s16_ATV_Extrema_Dir                .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_First_Extrema              .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Icmd_Max                   .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_ATV_Timer                      .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_Parsing_Regs_Ptr               .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_Burnin_Command                 .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_Stop_Crrnt_Cmnd                .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_Dynamic_Brake_Gain             .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_Dynamic_Brake_Shr              .usect    "AX0_PM_I_DP5", 1
+AX0_u16_Max_Current                     .usect    "AX0_PM_I_DP5", 1		;40
+_AX0_u16_Dynamic_Brake_Integrator       .usect    "AX0_PM_I_DP5", 1
+_AX0_Pwm_Change_On_The_Fly              .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_Pwm_Change_Indication          .usect    "AX0_PM_I_DP5", 1
+_AX0_Cntr_3125_Pwm_Mask                 .usect    "AX0_PM_I_DP5", 1
+; Do not change the order of the next 3 vars
+_AX0_s16_Active_Indication              .usect    "AX0_PM_I_DP5", 1
+AX0_s16_Active_Indication_Prev          .usect    "AX0_PM_I_DP5", 1
+AX0_s16_Active_Indication_Prev_Prev     .usect    "AX0_PM_I_DP5", 1
+
+_AX0_u16_Motor_Comm_Type                .usect    "AX0_PM_I_DP5", 1
+AX0_u16_Phase_Dscnt_Cntr                .usect    "AX0_PM_I_DP5", 1
+AX0_s16_ICMD_Readout_Filtered           .usect    "AX0_PM_I_DP5", 1		;50
+AX0_u16_ICMD_Peak_Cntr                  .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_Crc_Table_Select               .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_FPGA_TxRx_Regs_PFB             .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_FPGA_TxRx_Regs_SFB             .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_FPGA_Base_Regs_PFB             .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_FPGA_Base_Regs_SFB             .usect    "AX0_PM_I_DP5", 1 
+_AX0_u8_HW_follow_Flag                  .usect    "AX0_PM_I_DP5", 1
+_AX0_u16_ARM_INDEX_CAPTURE_flag         .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_Icmd_100Hz_Filtered_Max        .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_Crrnt_Q_Act_0_User		        .usect    "AX0_PM_I_DP5", 1		;60
+_AX0_s16_Crrnt_Q_Act_1_User		        .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_AT_Settle_Time_Cost_Multiplier .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_AT_Settle_Time_ZeroCross_Cntr  .usect    "AX0_PM_I_DP5", 1
+_AX0_s16_AT_MoveSine_Mode               .usect    "AX0_PM_I_DP5", 1
+;====================================================
+
+
+;====================================================
+;start page AX0_CRRNT_6_VAR_PAGE
+AX0_CRRNT_6_VAR_PAGE                    .usect    "AX0_PM_I_DP6", 0
+;***** do not change the order of the next 2 variables
+_AX0_u32_Wns_Pfb_Lim_0_Lo               .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_s32_Wns_Pfb_Lim_0_Hi               .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_s32_Icmd_Slp                       .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_u32_Zclamp_PFB_Capture_Lo          .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_s32_Zclamp_PFB_Capture_Hi          .usect    "AX0_PM_I_DP6", 2,,1     ;10
+
+_AX0_u32_BiSSC_ResponseCmdFrame         .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_u32_BiSSC_Abs_Pos_Raw              .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_u32_BiSSC_RegCmdFrame              .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_u32_BiSSC_MT_ST_Length             .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_u32_BiSSC_MT_ST_Length_Resolution  .usect    "AX0_PM_I_DP6", 2,,1	   ;20
+
+_AX0_u32_LAT_Cost_StandStill_Lo         .usect    "AX0_PM_I_DP6", 2,,1
+_AX0_s32_LAT_Cost_StandStill_Hi         .usect    "AX0_PM_I_DP6", 2,,1
+
+_AX0_s16_DB_Overshoot_Limit             .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Lock_Position_Flag             .usect    "AX0_PM_I_DP6", 1
+AX0_s16_Icmd_Filtered                   .usect    "AX0_PM_I_DP6", 1
+AX0_s16_Icmd_Residue                    .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_U_Phase_Cntr                   .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_V_Phase_Cntr                   .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_W_Phase_Cntr                   .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Cntr                     .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Vel_Dsrgrd                     .usect    "AX0_PM_I_DP6", 1
+
+_AX0_s16_Zclamp_On                      .usect    "AX0_PM_I_DP6", 1			;30
+_AX0_s16_P1_38_Zero_Speed_Window        .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_Cmd_Invert_On                  .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_Tamagawa_Halls                 .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Icmd_Slope_Use                 .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_Crrnt_Lp_Prev                  .usect    "AX0_PM_I_DP6", 1
+AX0_u16_Crrnt_Delta_Prev                .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_Slope_Acc_Dec                  .usect    "AX0_PM_I_DP6", 1
+;_AX0_u16_Phase_Disconnect_Time_Thresh   .usect    "AX0_PM_I_DP6", 1
+;_AX0_u16_Phase_Disconnect_Dscnt_Cntr_Thresh .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Discon_Err_Sigma         .usect    "AX0_PM_I_DP6", 1			;40
+AX0_u16_Corr_Cal_Cntr                   .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Corr_Cal_U_Acc                 .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Corr_Cal_V_Acc                 .usect    "AX0_PM_I_DP6", 1
+AX0_s16_Corr_Cal_U_Act                  .usect    "AX0_PM_I_DP6", 1
+AX0_s16_Corr_Cal_V_Act                  .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_Phase_Disc_Elect_Capture       .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Disc_Run_Counter         .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Disc_Ufault_Counter      .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Disc_Vfault_Counter      .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Phase_Disc_Wfault_Counter      .usect    "AX0_PM_I_DP6", 1			;50
+AX0_u16_Phase_Disc_Verif_Flt_Counter    .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_120P_Ilim_User                 .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_High_Iq_Counter                .usect    "AX0_PM_I_DP6", 1
+AX0_s16_Icmd_100Hz_Filtered             .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_Skip_Phase_Disconnect_Detect   .usect    "AX0_PM_I_DP6", 1
+_AX0_s16_ATV_Output_Cntr                .usect    "AX0_PM_I_DP6", 1
+
+
+_AX0_u16_BiSSC_RTMBX_Control            .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_BiSSC_AppData                  .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_BiSSC_CDMCntr                  .usect    "AX0_PM_I_DP6", 1
+_AX0_u16_DB_PWM_FPGA_Mux_Value          .usect    "AX0_PM_I_DP6", 1
+
+;====================================================
+
+;====================================================
+; 1st Comm.-Feedback Register Set, maintain similarity to Page 9
+;====================================================
+;start page AX0_CRRNT_8_VAR_PAGE
+_AX0_CRRNT_8_VAR_PAGE                   .usect    "AX0_PM_I_DP8", 0
+_AX0_u32_Pos_Fdbk_Lo                    .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_s32_Pos_Fdbk_Hi                    .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_u32_Fdbk_Accu                      .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u32_Comm_Abs_Pos_32_Lo             .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_s32_Comm_Abs_Pos_32_Hi             .usect    "AX0_PM_I_DP8", 2,,1
+AX0_s32_Comm_Abs_Pos_Half_Delta         .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u32_Biss_Single_Turn_Eff_Mask      .usect    "AX0_PM_I_DP8", 0,,1
+_AX0_u32_Abs_Enc_Altern_1Data           .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_u32_Biss_Multi_Turn_Eff_Mask       .usect    "AX0_PM_I_DP8", 0,,1
+_AX0_u32_Abs_Enc_Altern_2Data           .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_u32_Abs_Enc_Altern_3Data           .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u32_Counts_Per_Rev                 .usect    "AX0_PM_I_DP8", 2,,1
+_AX0_u32_Counts_Per_Rev_Half            .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u32_Pfb_Scale_Fix                  .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u32_Tm_Comm_Accu                   .usect    "AX0_PM_I_DP8", 2,,1
+
+_AX0_u16_Abs_Enc_Command_1Frame         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Command_2Frame         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Command_3Frame         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Command_4Frame         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Comm_Fdbk_Flags_A_1            .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Comm_Fdbk_Flags_B_1            .usect    "AX0_PM_I_DP8", 1
+
+_AX0_u16_Abs_Enc_Info_Frame             .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Data_0Frame            .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Data_1Frame            .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Data_2Frame            .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Enc_Data_3Frame            .usect    "AX0_PM_I_DP8", 1
+AX0_u16_Tm_Enc_Crc_Frame                .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Crc_Shl                    .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Abs_Crc                        .usect    "AX0_PM_I_DP8", 1
+
+_AX0_s16_Zero_Position                  .usect    "AX0_PM_I_DP8", 0
+AX0_s16_PS_Prev_Pos                     .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Crc_Consec_Err_Cntr            .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Time_Out_Consec_Err_Cntr       .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_ED_Alarm_Bits                  .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_CommEnc_InTurn_Less16_Bits     .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_ED_In_Turn_Bits                .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_ED_Turns_Bits                  .usect    "AX0_PM_I_DP8", 1
+
+_AX0_u16_Com_Enc_Altern_1Frame          .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_Enc_Altern_2Frame          .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_Enc_Altern_3Frame          .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_Enc_Altern_4Frame          .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_EnDat_Tx1_Length           .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_Com_Enc_Alt_Xmt_Length         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_EnDat_Rx1_Length           .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_Com_Enc_Alt_Xcv_Length         .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_Enc_Xmt_Length             .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_Com_EnDat_Tx2_Length           .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Com_Enc_Xcv_Length             .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_Com_EnDat_Rx2_Length           .usect    "AX0_PM_I_DP8", 1
+
+_AX0_u16_Sine_Match_Div                 .usect    "AX0_PM_I_DP8", 0
+_AX0_u16_Sine_Match_Shift               .usect    "AX0_PM_I_DP8", 1
+
+_AX0_u16_EnDat_Msg_Size                 .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_EnDat_Type_Ind                 .usect    "AX0_PM_I_DP8", 1
+_AX0_s16_DF_Run_Code                    .usect    "AX0_PM_I_DP8", 1
+
+;* don't change the order of next 2 variables
+_AX0_s16_Qep                            .usect    "AX0_PM_I_DP8", 1
+AX0_s16_Prev_Qep                        .usect    "AX0_PM_I_DP8", 1
+
+_AX0_u16_Pfb_Scale_Shr                  .usect    "AX0_PM_I_DP8", 1
+
+AX0_s16_Gen_Delta                       .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Tm_Pos_Comm                    .usect    "AX0_PM_I_DP8", 1
+_AX0_u16_Tm_Pos_Comm_Prev               .usect    "AX0_PM_I_DP8", 1
+
+;====================================================
+; 2nd Comm.-Feedback Register Set, maintain similarity to Page 8
+;====================================================
+;start page AX0_CRRNT_9_VAR_PAGE
+_AX0_CRRNT_9_VAR_PAGE                   .usect    "AX0_PM_I_DP9", 0
+_AX0_u32_Pos_Fdbk_Lo_2                  .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_s32_Pos_Fdbk_Hi_2                  .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_u32_Fdbk_Accu_2                    .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u32_Comm_Abs_Pos_32_Lo_2           .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_s32_Comm_Abs_Pos_32_Hi_2           .usect    "AX0_PM_I_DP9", 2,,1
+AX0_s32_Comm_Abs_Pos_Half_Delta_2       .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u32_Biss_Single_Turn_Eff_Mask_2    .usect    "AX0_PM_I_DP9", 0,,1
+_AX0_u32_Abs_Enc_Altern_1Data_2         .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_u32_Biss_Multi_Turn_Eff_Mask_2     .usect    "AX0_PM_I_DP9", 0,,1
+_AX0_u32_Abs_Enc_Altern_2Data_2         .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_u32_Abs_Enc_Altern_3Data_2         .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u32_Counts_Per_Rev_2               .usect    "AX0_PM_I_DP9", 2,,1
+_AX0_u32_Counts_Per_Rev_Half_2          .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u32_Pfb_Scale_Fix_2                .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u32_Tm_Comm_Accu_2                 .usect    "AX0_PM_I_DP9", 2,,1
+
+_AX0_u16_Abs_Enc_Command_1Frame_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Command_2Frame_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Command_3Frame_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Command_4Frame_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Comm_Fdbk_Flags_A_2            .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Comm_Fdbk_Flags_B_2            .usect    "AX0_PM_I_DP9", 1
+
+_AX0_u16_Abs_Enc_Info_Frame_2           .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Data_0Frame_2          .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Data_1Frame_2          .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Data_2Frame_2          .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Enc_Data_3Frame_2          .usect    "AX0_PM_I_DP9", 1
+AX0_u16_Tm_Enc_Crc_Frame_2              .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Crc_Shl_2                  .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Abs_Crc_2                      .usect    "AX0_PM_I_DP9", 1
+
+_AX0_s16_Zero_Position_2                .usect    "AX0_PM_I_DP9", 0
+AX0_s16_PS_Prev_Pos_2                   .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Crc_Consec_Err_Cntr_2          .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Time_Out_Consec_Err_Cntr_2     .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_ED_Alarm_Bits_2                .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_CommEnc_InTurn_Less16_Bits_2   .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_ED_In_Turn_Bits_2              .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_ED_Turns_Bits_2                .usect    "AX0_PM_I_DP9", 1
+
+_AX0_u16_Com_Enc_Altern_1Frame_2        .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_Enc_Altern_2Frame_2        .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_Enc_Altern_3Frame_2        .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_Enc_Altern_4Frame_2        .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_EnDat_Tx1_Length_2         .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_Com_Enc_Alt_Xmt_Length_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_EnDat_Rx1_Length_2         .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_Com_Enc_Alt_Xcv_Length_2       .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_Enc_Xmt_Length_2           .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_Com_EnDat_Tx2_Length_2         .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Com_Enc_Xcv_Length_2           .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_Com_EnDat_Rx2_Length_2         .usect    "AX0_PM_I_DP9", 1
+
+
+_AX0_u16_Sine_Match_Div_2               .usect    "AX0_PM_I_DP9", 0
+_AX0_u16_Sine_Match_Shift_2             .usect    "AX0_PM_I_DP9", 1
+
+_AX0_u16_EnDat_Msg_Size_2               .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_EnDat_Type_Ind_2               .usect    "AX0_PM_I_DP9", 1
+_AX0_s16_DF_Run_Code_2                  .usect    "AX0_PM_I_DP9", 1
+
+;* don't change the order of next 2 variables
+_AX0_s16_Qep_2                          .usect    "AX0_PM_I_DP9", 1
+AX0_s16_Prev_Qep_2                      .usect    "AX0_PM_I_DP9", 1
+
+_AX0_u16_Pfb_Scale_Shr_2                .usect    "AX0_PM_I_DP9", 1
+
+AX0_s16_Gen_Delta_2                     .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Tm_Pos_Comm_2                  .usect    "AX0_PM_I_DP9", 1
+_AX0_u16_Tm_Pos_Comm_Prev_2             .usect    "AX0_PM_I_DP9", 1
